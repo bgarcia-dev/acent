@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider nodemon -r dotenv/config index.js",
+    "db:create": "npx sequelize-cli db:create --config config/config.js",
+    "db:drop": "npx sequelize-cli db:drop --config config/config.js",
+    "migrate": "npx sequelize-cli db:migrate --config config/config.js --migrations-path migrations"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.1.2",
+    "sequelize": "^6.29.0",
+    "sequelize-cli": "^6.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
