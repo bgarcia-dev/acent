@@ -3,22 +3,23 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('TheoreticalMaterial', {
+    await queryInterface.createTable('Syllable', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.TEXT,
+      syllable: {
+        type: Sequelize.STRING(5),
         allowNull: false,
       },
-      source: {
-        type: Sequelize.TEXT,
-        allowNull: true,
+      accentuation: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
       },
-      theme_id: {
+      word_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
@@ -37,18 +38,19 @@ module.exports = {
         type: Sequelize.DATE,
       },
     })
+
     // Llaves foráneas
-    await queryInterface.addConstraint('TheoreticalMaterial', {
+    await queryInterface.addConstraint('Syllable', {
       type: 'FOREIGN KEY',
-      fields: ['theme_id'],
+      fields: ['word_id'],
       references: {
-        table: 'Theme',
+        table: 'Word',
         field: 'id',
       },
     })
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('TheoreticalMaterial')
+    await queryInterface.dropTable('Syllable')
   },
 }

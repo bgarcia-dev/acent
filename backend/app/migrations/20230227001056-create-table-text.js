@@ -10,44 +10,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      description: {
+      content: {
         type: Sequelize.TEXT,
         allowNull: false,
-      },
-      type: {
-        type: Sequelize.STRING(30),
-        allowNull: false,
-      },
-      name: {
-        type: Sequelize.STRING(50),
-        allowNull: false,
-      },
-      difficulty_level: {
-        type: Sequelize.STRING(10),
-        allowNull: false,
-      },
-      image: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-      },
-      multimedia: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-      },
-      answer: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-      },
-      totalWords: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-      },
-      pair: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
       },
       strategy_id: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+      },
+      total_words: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
       },
       // timeStamps
       created_at: {

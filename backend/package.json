@@ -7,7 +7,7 @@
     "dev": "NODE_OPTIONS=--openssl-legacy-provider nodemon -r dotenv/config app/index.js",
     "db:create": "npx sequelize-cli db:create --config app/config/config.js",
     "db:drop": "npx sequelize-cli db:drop --config app/config/config.js",
-    "migrate": "npx sequelize-cli db:migrate --config app/config/config.js --migrations-path migrations",
+    "migrate": "npx sequelize-cli db:migrate --config app/config/config.js --migrations-path app/migrations",
     "format": "prettier --config ./.prettierrc app/**/*.{js,test.js,controller.js,route.js} --write",
     "test": "NODE_OPTIONS=--openssl-legacy-provider jest app/feature/ --verbose --detectOpenHandles --silent --forceExit"
   },

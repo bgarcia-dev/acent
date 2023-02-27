@@ -3,26 +3,18 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Strategy', {
+    await queryInterface.createTable('Word', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      description: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
       type: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(10),
         allowNull: false,
       },
-      name: {
-        type: Sequelize.STRING(50),
-        allowNull: false,
-      },
-      difficulty_level: {
+      pair: {
         type: Sequelize.STRING(10),
         allowNull: false,
       },
@@ -30,23 +22,11 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true,
       },
-      multimedia: {
+      meaning: {
         type: Sequelize.TEXT,
-        allowNull: true,
+        allowNull: false,
       },
-      answer: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-      },
-      totalWords: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-      },
-      pair: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-      },
-      theme_id: {
+      strategy_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
@@ -67,17 +47,17 @@ module.exports = {
     })
 
     // Llaves foráneas
-    await queryInterface.addConstraint('Strategy', {
+    await queryInterface.addConstraint('Word', {
       type: 'FOREIGN KEY',
-      fields: ['theme_id'],
+      fields: ['strategy_id'],
       references: {
-        table: 'Theme',
+        table: 'Strategy',
         field: 'id',
       },
     })
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Strategy')
+    await queryInterface.dropTable('Word')
   },
 }
