@@ -9,7 +9,8 @@
     "db:drop": "npx sequelize-cli db:drop --config app/config/config.js",
     "migrate": "npx sequelize-cli db:migrate --config app/config/config.js --migrations-path app/migrations",
     "format": "prettier --config ./.prettierrc app/**/*.{js,test.js,controller.js,route.js} --write",
-    "test": "NODE_OPTIONS=--openssl-legacy-provider jest app/feature/ --verbose --detectOpenHandles --silent --forceExit"
+    "test": "NODE_OPTIONS=--openssl-legacy-provider jest app/feature/ --verbose --detectOpenHandles --silent --forceExit",
+    "db:seed": "npx sequelize-cli db:seed:all --config app/config/config.js --seeders-path app/seeders"
   },
   "keywords": [],
   "author": "",
