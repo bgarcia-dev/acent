@@ -1,3 +1,4 @@
+/* eslint-disable space-before-function-paren */
 /* eslint-env node */
 
 /*
@@ -23,15 +24,10 @@ module.exports = configure(function (ctx) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-webpack/boot-files
-    boot: [
-
-      'axios'
-    ],
+    boot: ['axios'],
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-css
-    css: [
-      'app.scss'
-    ],
+    css: ['app.scss'],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
@@ -71,11 +67,11 @@ module.exports = configure(function (ctx) {
       // https://v2.quasar.dev/quasar-cli-webpack/handling-webpack
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
 
-      chainWebpack (chain) {
-        chain.plugin('eslint-webpack-plugin')
+      chainWebpack(chain) {
+        chain
+          .plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }])
       }
-
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
@@ -84,7 +80,7 @@ module.exports = configure(function (ctx) {
         type: 'http'
       },
       port: 8080,
-      open: true // opens browser window automatically
+      open: false // opens browser window automatically
     },
 
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
@@ -92,7 +88,7 @@ module.exports = configure(function (ctx) {
       config: {},
 
       // iconSet: 'material-icons', // Quasar icon set
-      // lang: 'en-US', // Quasar language pack
+      lang: 'es', // Quasar language pack
 
       // For special cases outside of where the auto-import strategy can have an impact
       // (like functional components as one of the examples),
@@ -102,7 +98,7 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: []
+      plugins: ['Dark']
     },
 
     // animations: 'all', // --- includes all animations
@@ -122,8 +118,9 @@ module.exports = configure(function (ctx) {
       maxAge: 1000 * 60 * 60 * 24 * 30,
       // Tell browser when a file from the server should expire from cache (in ms)
 
-      chainWebpackWebserver (chain) {
-        chain.plugin('eslint-webpack-plugin')
+      chainWebpackWebserver(chain) {
+        chain
+          .plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js'] }])
       },
 
@@ -141,15 +138,17 @@ module.exports = configure(function (ctx) {
       // for the custom service worker ONLY (/src-pwa/custom-service-worker.[js|ts])
       // if using workbox in InjectManifest mode
 
-      chainWebpackCustomSW (chain) {
-        chain.plugin('eslint-webpack-plugin')
+      chainWebpackCustomSW(chain) {
+        chain
+          .plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js'] }])
       },
 
       manifest: {
         name: 'Acentuación en el idioma español',
         short_name: 'Acentuación en el idioma español',
-        description: 'Ayuda con el aprendizaje de la acentuación del idioma español',
+        description:
+          'Ayuda con el aprendizaje de la acentuación del idioma español',
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
@@ -200,13 +199,11 @@ module.exports = configure(function (ctx) {
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
-
         // OS X / Mac App Store
         // appBundleId: '',
         // appCategoryType: '',
         // osxSign: '',
         // protocol: 'myapp://path',
-
         // Windows only
         // win32metadata: { ... }
       },
@@ -219,16 +216,17 @@ module.exports = configure(function (ctx) {
 
       // "chain" is a webpack-chain object https://github.com/neutrinojs/webpack-chain
 
-      chainWebpackMain (chain) {
-        chain.plugin('eslint-webpack-plugin')
+      chainWebpackMain(chain) {
+        chain
+          .plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js'] }])
       },
 
-      chainWebpackPreload (chain) {
-        chain.plugin('eslint-webpack-plugin')
+      chainWebpackPreload(chain) {
+        chain
+          .plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js'] }])
       }
-
     }
   }
 })

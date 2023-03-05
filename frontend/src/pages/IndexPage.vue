@@ -1,17 +1,44 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+  <q-layout>
+
+    <q-header elevated>
+      <q-toolbar>
+        <q-space />
+        <q-toolbar-title>
+          Bienvenido
+        </q-toolbar-title>
+        <q-space />
+        <q-btn flat round dense icon="settings_brightness" @click="changeTheme" />
+      </q-toolbar>
+    </q-header>
+
+    <q-page-container>
+      <q-page>
+
+        <app-button-option class="q-ma-lg" />
+      </q-page>
+    </q-page-container>
+  </q-layout>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
+import { Dark } from 'quasar'
+
+import ButtonOption from '../components/buttons/buttonOption'
 
 export default defineComponent({
-  name: 'IndexPage'
+  name: 'IndexPage',
+  components: {
+    appButtonOption: ButtonOption
+  },
+  setup () {
+    const changeTheme = () => {
+      Dark.toggle()
+    }
+    return {
+      changeTheme
+    }
+  }
 })
 </script>

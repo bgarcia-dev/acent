@@ -1,0 +1,28 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "arrowParens": "always",
+  "printWidth": 120,
+  "tabWidth": 2,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "overrides": [
+    {
+      "files": ".eslintrc",
+      "options": {
+        "parser": "json"
+      }
+    },
+    {
+      "files": "*.+(js|jsx|ts|tsx|vue)",
+      "options": {
+        "parser": "babel"
+      }
+    }
+  ],
+  "rules": {
+    "space-before-function-paren": ["error", "always"]
+  }
+}
