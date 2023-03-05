@@ -1,13 +1,26 @@
 <template>
-  <q-btn class="button-option q-py-sm q-pr-lg" :class="$q.dark.isActive ? 'button-option--dark' : 'button-option--light'" push>
+  <q-btn
+    class="button-option q-py-sm q-pr-lg"
+    :class="$q.dark.isActive ? 'button-option--dark' : 'button-option--light'"
+    push
+  >
     <div class="row items-center no-wrap">
 
-      <q-icon class="q-mr-sm" :color="$q.dark.isActive ? '#6A6D80':'#5b5c64'" size="lg" name="search" />
+      <q-icon
+        class="q-mr-sm" :color="$q.dark.isActive ? '#6A6D80':'#5b5c64'"
+        size="lg"
+        name="search"
+      />
 
       <div>
-        <p class="inline text-left text-weight-bold text-body1 top paragraph">Realizar consulta</p>
-        <p class="inline text-left text-weight-medium text-body2 bottom paragraph">Tiene una palabra a buscar</p>
+        <p class="inline text-left text-weight-bold text-body1 top paragraph">
+          Realizar consulta
+        </p>
+        <p class="inline text-left text-weight-medium text-body2 bottom paragraph">
+          Tiene una palabra a buscar
+        </p>
       </div>
+
     </div>
   </q-btn>
 </template>
@@ -38,7 +51,10 @@ export default defineComponent({
   .bottom{
     color: #cfcece;
   }
+}
 
+.button-option--dark:hover{
+  border: 2px solid white;
 }
 
 .button-option--light {
@@ -50,4 +66,9 @@ export default defineComponent({
     color: #5b5c64;
   }
 }
+
+.button-option--light:hover {
+  border: 2px solid #bebebe;
+}
+
 </style>

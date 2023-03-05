@@ -3,12 +3,21 @@
   "singleQuote": true,
   "trailingComma": "none",
   "arrowParens": "always",
-  "printWidth": 120,
+  "printWidth": 80,
   "tabWidth": 2,
   "useTabs": false,
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
+  "vueIndentScriptAndStyle": true,
   "overrides": [
+    {
+      "files": "*.vue",
+      "options": {
+        "parser": "vue",
+        "printWidth": 80,
+        "htmlWhitespaceSensitivity": "strict"
+      }
+    },
     {
       "files": ".eslintrc",
       "options": {
