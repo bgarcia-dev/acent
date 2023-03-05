@@ -1,7 +1,7 @@
 <template>
   <q-layout>
 
-    <q-header elevated>
+    <q-header >
       <q-toolbar>
         <q-space />
         <q-toolbar-title>
@@ -15,6 +15,8 @@
     <q-page-container>
       <q-page>
 
+        <app-button-option class="q-ma-lg" />
+        <app-button-option class="q-ma-lg" />
         <app-button-option class="q-ma-lg" />
       </q-page>
     </q-page-container>
