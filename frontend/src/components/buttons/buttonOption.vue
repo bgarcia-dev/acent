@@ -7,17 +7,18 @@
     <div class="row items-center no-wrap">
 
       <q-icon
-        class="q-mr-sm" :color="$q.dark.isActive ? '#6A6D80':'#5b5c64'"
+        class="q-mr-sm"
+        :color="$q.dark.isActive ? '#6A6D80':'#5b5c64'"
         size="lg"
-        name="search"
+        :name="icon"
       />
 
       <div>
         <p class="inline text-left text-weight-bold text-body1 top paragraph">
-          Realizar consulta
+          {{ textTop }}
         </p>
         <p class="inline text-left text-weight-medium text-body2 bottom paragraph">
-          Tiene una palabra a buscar
+          {{  textBottom }}
         </p>
       </div>
 
@@ -29,7 +30,9 @@
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'ButtonOption'
+  name: 'ButtonOption',
+  props: ['icon', 'textTop', 'textBottom'],
+  setup (props) {}
 })
 </script>
 
@@ -53,10 +56,6 @@ export default defineComponent({
   }
 }
 
-.button-option--dark:hover{
-  border: 2px solid white;
-}
-
 .button-option--light {
   background-color: #f7f7f7 !important;
   .top{
@@ -65,10 +64,6 @@ export default defineComponent({
   .bottom{
     color: #5b5c64;
   }
-}
-
-.button-option--light:hover {
-  border: 2px solid #bebebe;
 }
 
 </style>

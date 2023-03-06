@@ -1,22 +1,18 @@
 <template>
-  <!-- <q-page class="bg-blue">
-    <div class="row justify-center">
-      <app-button-option class="col-12" />
-      <app-button-option class="col-12" />
-      <app-button-option class="col-12" />
+  <div class="row justify-center">
+    <div class="col-xs-12 col-sm-12 col-md-10">
+      <div class="row justify-center q-pa-md">
+        <app-button-option
+          class="col-10 q-my-lg"
+          v-for="(option,index) in listOptions"
+          :key="index"
+          :icon="option.icon"
+          :textTop="option.textTop"
+          :textBottom="option.textBottom"
+        />
+      </div>
     </div>
-  </q-page> -->
-
-<div class="row justify-center bg-dark">
-  <div class="col-xs-12 col-sm-12 col-md-10 bg-blue">
-    <div class="row justify-center q-pa-md">
-      <app-button-option  class="col-10 q-my-md" />
-      <app-button-option  class="col-10 q-my-md" />
-      <app-button-option  class="col-10 q-my-md" />
-    </div>
-
   </div>
-</div>
 </template>
 
 <script>
@@ -30,7 +26,29 @@ export default defineComponent({
     appButtonOption: ButtonOption
   },
   setup () {
-    return {}
+    const listOptions = [
+      {
+        icon: 'search',
+        textTop: 'Realizar consulta',
+        textBottom: '¿Tiene una palabra a buscar?'
+      },
+      {
+        icon: 'list',
+        textTop: 'Temas',
+        textBottom: 'Practica tu acentuación'
+      },
+      {
+        icon: 'search',
+        textTop: 'Modo reto',
+        textBottom: 'Pon aprueba lo que sabes...'
+      }
+    ]
+    return { listOptions }
   }
 })
 </script>
+<style lang="scss" scoped>
+.my-icon-class {
+  color: red;
+}
+</style>
