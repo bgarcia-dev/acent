@@ -9,6 +9,7 @@
           :icon="option.icon"
           :textTop="option.textTop"
           :textBottom="option.textBottom"
+          :to="option.toPage"
         />
       </div>
     </div>
@@ -30,17 +31,20 @@ export default defineComponent({
       {
         icon: 'teenyicons:search-circle-outline',
         textTop: 'Realizar consulta',
-        textBottom: '¿Tiene una palabra a buscar?'
+        textBottom: '¿Tiene una palabra a buscar?',
+        toPage: '/makeQueryPage'
       },
       {
         icon: 'material-symbols:format-list-bulleted-rounded',
         textTop: 'Temas',
-        textBottom: 'Practica tu acentuación'
+        textBottom: 'Practica tu acentuación',
+        toPage: '/themePage'
       },
       {
         icon: 'emojione-monotone:thinking-face',
         textTop: 'Modo reto',
-        textBottom: 'Pon aprueba lo que sabes...'
+        textBottom: 'Pon aprueba lo que sabes...',
+        toPage: '/challengeModePage'
       }
     ]
     return { listOptions }
