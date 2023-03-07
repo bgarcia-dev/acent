@@ -28,17 +28,17 @@ export default defineComponent({
   setup () {
     const listOptions = [
       {
-        icon: 'search',
+        icon: 'teenyicons:search-circle-outline',
         textTop: 'Realizar consulta',
         textBottom: '¿Tiene una palabra a buscar?'
       },
       {
-        icon: 'list',
+        icon: 'material-symbols:format-list-bulleted-rounded',
         textTop: 'Temas',
         textBottom: 'Practica tu acentuación'
       },
       {
-        icon: 'search',
+        icon: 'emojione-monotone:thinking-face',
         textTop: 'Modo reto',
         textBottom: 'Pon aprueba lo que sabes...'
       }

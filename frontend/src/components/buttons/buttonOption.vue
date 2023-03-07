@@ -6,11 +6,12 @@
   >
     <div class="row items-center no-wrap">
 
-      <q-icon
+      <Icon
         class="q-mr-sm"
-        :color="$q.dark.isActive ? '#6A6D80':'#5b5c64'"
-        size="lg"
-        :name="icon"
+        :icon="icon"
+        :color="$q.dark.isActive ? '#f7f7f7':'#151635'"
+        width="64"
+        height="64"
       />
 
       <div>
@@ -28,10 +29,14 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { Icon } from '@iconify/vue'
 
 export default defineComponent({
   name: 'ButtonOption',
   props: ['icon', 'textTop', 'textBottom'],
+  components: {
+    Icon
+  },
   setup (props) {}
 })
 </script>
