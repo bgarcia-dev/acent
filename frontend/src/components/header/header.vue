@@ -7,7 +7,7 @@
         flat
         round
         dense
-        icon="menu" v-if="isRootPath"
+        icon="arrow_back" v-if="isRootPath"
         :to="redirectPath"
       />
       <q-toolbar-title
@@ -56,8 +56,9 @@ export default defineComponent({
 
     onMounted(() => {
       // Lógica de path
-      console.log('path', router.path)
-      if (!['/', undefined, null].includes(router.path)) { isRootPath.value = true }
+      const currentPath = router.currentRoute.value.fullPath
+      if (!['/', undefined, null].includes(currentPath)) { isRootPath.value = true }
+      title.value = routesTitle[currentPath]
       router.beforeEach(handleRouteChange)
     })
 
