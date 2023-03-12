@@ -51,8 +51,3 @@ export default defineComponent({
   }
 })
 </script>
-<style lang="scss" scoped>
-.my-icon-class {
-  color: red;
-}
-</style>
