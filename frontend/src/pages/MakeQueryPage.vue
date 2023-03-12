@@ -47,7 +47,9 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { Icon } from '@iconify/vue'
-import { api } from 'boot/axios'
+// import { api } from 'boot/axios'
+// import { wordClassify, dividirEnSilabas, dameSilabas } from '../utils/wordClassify'
+import silabas from '../utils/silabas.js'
 
 export default defineComponent({
   name: 'MakeQueryPage',
@@ -65,13 +67,22 @@ export default defineComponent({
         loading.value = false
       }, 1000 * number)
 
-      api.get('https://jsonplaceholder.typicode.com/todos/1')
+      /*   api.get('https://jsonplaceholder.typicode.com/todos/1')
         .then((response) => {
           console.log(response.data)
         })
         .catch((error) => {
           console.log(error)
-        })
+        }) */
+
+      // console.log(
+      //   text.value,
+      //   wordClassify(text.value),
+      //   dividirEnSilabas(text.value)
+
+      // )
+      // dameSilabas(text.value)
+      silabas.acentuacion(text.value)
     }
 
     return {
