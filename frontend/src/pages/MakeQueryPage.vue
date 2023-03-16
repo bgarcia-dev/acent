@@ -46,6 +46,7 @@ import { defineComponent, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { silabaJS } from '../utils/silabas.js'
 import { api } from 'boot/axios'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'MakeQueryPage',
@@ -57,15 +58,21 @@ export default defineComponent({
     const loading = ref(false)
     const progress = ref(false)
 
+    // Change to page
+    const router = useRouter()
+    const responseData = ref(null)
     // Se agrega ejemplo Axios
     // ToDo: Cambiar Axios que apunte al backend
     function simulateProgress () {
       if (text.value === '') return false
       loading.value = true
-      api.get('https://jsonplaceholder.typicode.com/todos/1')
+      // api.get('https://jsonplaceholder.typicode.com/todos/1')
+      api.get('http://localhost:3001/v1/theoretical-material/1')
         .then((response) => {
           console.log(response.data)
           console.log(silabaJS.getSilabas(text.value))
+          responseData.value = response
+          router.push('/response', { data: responseData.value })
         })
         .catch((error) => {
           console.log(error)
