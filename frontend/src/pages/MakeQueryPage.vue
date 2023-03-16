@@ -8,6 +8,8 @@
           v-model="text"
           label="Ingresa palabra a consultar"
           class="col-10 q-my-lg"
+          :rules="[validateWord]"
+          @keydown.enter.prevent="simulateProgress"
         >
           <template v-slot:prepend>
             <Icon
@@ -24,7 +26,7 @@
         <q-btn
           :loading="loading"
           :color="$q.dark.isActive ? '#f7f7f7':'primary'"
-          @click="simulateProgress(3)"
+          @click="simulateProgress"
           class="col-8 q-pa-sm"
           >
           <span class="text-weight-bold">Buscar</span>
@@ -35,11 +37,6 @@
         </q-btn>
       </div>
 
-      <div class="row justify-center q-pa-md">
-        <pre>
-          {{  text  }}
-        </pre>
-      </div>
     </div>
   </div>
 </template>
@@ -47,9 +44,8 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import { Icon } from '@iconify/vue'
-// import { api } from 'boot/axios'
-// import { wordClassify, dividirEnSilabas, dameSilabas } from '../utils/wordClassify'
-import silabas from '../utils/silabas.js'
+import { silabaJS } from '../utils/silabas.js'
+import { api } from 'boot/axios'
 
 export default defineComponent({
   name: 'MakeQueryPage',
@@ -60,37 +56,42 @@ export default defineComponent({
     const text = ref('')
     const loading = ref(false)
     const progress = ref(false)
-    // Se agrega ejemplo Axios
-    function simulateProgress (number) {
-      loading.value = true
-      setTimeout(() => {
-        loading.value = false
-      }, 1000 * number)
 
-      /*   api.get('https://jsonplaceholder.typicode.com/todos/1')
+    // Se agrega ejemplo Axios
+    // ToDo: Cambiar Axios que apunte al backend
+    function simulateProgress () {
+      if (text.value === '') return false
+      loading.value = true
+      api.get('https://jsonplaceholder.typicode.com/todos/1')
         .then((response) => {
           console.log(response.data)
+          console.log(silabaJS.getSilabas(text.value))
         })
         .catch((error) => {
           console.log(error)
-        }) */
+        }).finally(() => {
+          loading.value = false
+        })
+    }
 
-      // console.log(
-      //   text.value,
-      //   wordClassify(text.value),
-      //   dividirEnSilabas(text.value)
-
-      // )
-      // dameSilabas(text.value)
-      silabas.acentuacion(text.value)
+    function validateWord (value) {
+      const regex = /^[a-zA-ZñÑáéíóúÁÉÍÓÚüÜ]+$/
+      if (value === '') return true
+      return regex.test(value) || 'Solo se permiten letras'
     }
 
     return {
       text,
       loading,
       progress,
-      simulateProgress
+      simulateProgress,
+      validateWord
     }
   }
+  /**
+   * ToDo:
+   * Consultar al api la información del tema
+   * Mostrar una pagina con la información a consultar
+   */
 })
 </script>
