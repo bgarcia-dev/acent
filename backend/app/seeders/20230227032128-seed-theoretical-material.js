@@ -8,31 +8,11 @@ module.exports = {
       [
         {
           name: 'Palabras agudas',
-          source: `
-          {
-            title: '¿Como reconocer palabras agudas?'
-            paragraph: [
-              'En español, una palabra es aguda si su sílaba tónica es la última sílaba. La sílaba tónica es la sílaba que se pronuncia con mayor fuerza en una palabra.',
-              'Para reconocer si una palabra es aguda, es necesario identificar cuál es su última sílaba y determinar si esa sílaba es la sílaba tónica. Para ello, es necesario conocer las reglas de acentuación del idioma español.',
-              'Las palabras agudas en español llevan acento ortográfico (tilde) en la última sílaba cuando terminan en una vocal, en "n" o en "s". Por ejemplo:',
-              '*Canción *Sofá *Perú',
-            ]
-          }
-          `,
+          source:
+            '<p class="text-justify">También llamadas oxítonas. Su sílaba tónica es la última y se <b>escriben con tilde cuando terminan en vocal</b> (mamá), <b>-n</b> (canción) o <b>-s</b> (jamás).</p>' +
+            '<p class="text-justify">No se escribe sin tilde en en el resto de las terminaciones (<i>animal, señor, pared, cantar...</i>). Tampoco lleva tilde Si la <b>-s</b> va detrás de otra consonante (<i>debuts, robots</i>).</p>',
           theme_id: 1,
         },
-        {
-          title: 'Palabras agudas',
-          source: '<p>También llamadas oxítonas. Su sílaba tónica es la última y se <b>escriben con tilde cuando terminan en vocal</b> (mamá), <b>-n</b> (canción) o <b>-s</b> (jamás).</p>'
-          + 'No se escribe sin tilde en en el resto de las terminaciones (<i>animal, señor, pared, cantar...</i>). Tampoco lleva tilde Si la <b>-s</b> va detrás de otra consonante (<i>debuts, robots</i>).'
-          
-          ,
-          resources: [
-            'https://www.diccionariodedudas.com/palabras-agudas-graves-esdrujulas-y-sobreesdrujulas/',
-            'https://www.diccionariodedudas.com/palabras-agudas/',
-          ],
-          date_access:'03/15/2023'
-        }
       ],
       {},
     )
