@@ -47,6 +47,7 @@ import { Icon } from '@iconify/vue'
 import { silabaJS } from '../utils/silabas.js'
 import { api } from 'boot/axios'
 import { useRouter } from 'vue-router'
+const { useMyStore } = require('../stores/responseQuery')
 
 export default defineComponent({
   name: 'MakeQueryPage',
@@ -60,19 +61,22 @@ export default defineComponent({
 
     // Change to page
     const router = useRouter()
-    const responseData = ref(null)
-    // Se agrega ejemplo Axios
-    // ToDo: Cambiar Axios que apunte al backend
+    // TODO:
+    // - Cambiar Axios que apunte al EP real del backend
+    // - El tipo de acentuación debe definir el filter del endpoint la consulta no se debe de hacer dentro de la petición
     function simulateProgress () {
       if (text.value === '') return false
       loading.value = true
       // api.get('https://jsonplaceholder.typicode.com/todos/1')
       api.get('http://localhost:3001/v1/theoretical-material/1')
-        .then((response) => {
-          console.log(response.data)
+        .then(({ data }) => {
+          console.log('response', data.data)
           console.log(silabaJS.getSilabas(text.value))
-          responseData.value = response
-          router.push('/response', { data: responseData.value })
+          // Almacena respuesta del endpoint
+          const myStore = useMyStore()
+          myStore.setMyData(data.data)
+          // Direccionamiento
+          router.push({ path: '/response' })
         })
         .catch((error) => {
           console.log(error)
@@ -95,10 +99,5 @@ export default defineComponent({
       validateWord
     }
   }
-  /**
-   * ToDo:
-   * Consultar al api la información del tema
-   * Mostrar una pagina con la información a consultar
-   */
 })
 </script>
