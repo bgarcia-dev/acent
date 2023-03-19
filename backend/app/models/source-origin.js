@@ -1,24 +1,28 @@
+/** README
+ * Guarda la fuente de origen del material teórico
+ */
 'use strict'
 const { Model } = require('sequelize')
 module.exports = (sequelize, DataTypes) => {
-  class TheoreticalMaterial extends Model {
+  class SourceOrigin extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      TheoreticalMaterial.hasMany(models.SourceOrigin, {
+      SourceOrigin.belongsTo(models.TheoreticalMaterial, {
         foreignKey: 'theoretical_material_id',
-        as: 'SourceOrigin',
+        as: 'TheoreticalMaterial',
+        targetKey: 'id',
+        useJunctionTable: false,
       })
     }
   }
-  TheoreticalMaterial.init(
+  SourceOrigin.init(
     {
-      name: DataTypes.STRING,
-      resource: DataTypes.STRING,
-      theme_id: DataTypes.INTEGER,
+      theoretical_material_id: DataTypes.INTEGER,
+      source_origin: DataTypes.STRING,
       created_at: DataTypes.DATE,
       updated_at: DataTypes.DATE,
       deleted_at: DataTypes.DATE,
@@ -26,8 +30,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       freezeTableName: true,
-      tableName: 'TheoreticalMaterial',
-      modelName: 'TheoreticalMaterial',
+      tableName: 'SourceOrigin',
+      modelName: 'SourceOrigin',
       underscored: true,
       paranoid: true,
       updatedAt: 'updated_at',
@@ -35,5 +39,5 @@ module.exports = (sequelize, DataTypes) => {
       createdAt: 'created_at',
     },
   )
-  return TheoreticalMaterial
+  return SourceOrigin
 }

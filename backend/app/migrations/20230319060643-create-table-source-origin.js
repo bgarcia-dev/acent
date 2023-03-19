@@ -1,25 +1,17 @@
 'use strict'
-
+/** README
+ * Guarda la fuente de origen del material teórico
+ */
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('TheoreticalMaterial', {
-      id: {
+    await queryInterface.createTable('SourceOrigin', {
+      theoretical_material_id: {
         allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.TEXT,
-        allowNull: false,
-      },
-      resource: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-      },
-      theme_id: {
-        type: Sequelize.INTEGER,
+      source_origin: {
+        type: Sequelize.STRING,
         allowNull: false,
       },
       // timeStamps
@@ -31,6 +23,8 @@ module.exports = {
       updated_at: {
         allowNull: true,
         type: Sequelize.DATE,
+        defaultValue: Sequelize.fn('NOW'),
+        comment: 'Fecha de ultima actualización del material teórico',
       },
       deleted_at: {
         allowNull: true,
@@ -38,17 +32,17 @@ module.exports = {
       },
     })
     // Llaves foráneas
-    await queryInterface.addConstraint('TheoreticalMaterial', {
+    await queryInterface.addConstraint('SourceOrigin', {
       type: 'FOREIGN KEY',
-      fields: ['theme_id'],
+      fields: ['theoretical_material_id'],
       references: {
-        table: 'Theme',
+        table: 'TheoreticalMaterial',
         field: 'id',
       },
     })
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('TheoreticalMaterial')
+    await queryInterface.dropTable('SourceOrigin')
   },
 }

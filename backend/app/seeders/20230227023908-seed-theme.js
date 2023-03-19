@@ -7,16 +7,37 @@ module.exports = {
       'Theme',
       [
         {
-          name: 'Agudas, graves, esdrújulas y sobresdrújulas',
-          description: 'Los cuatro tipos de palabras que determinan la acentuación',
+          name: 'Agudas',
+          description:
+            'Son palabras cuya sílaba tónica es la última. Llevan tilde si terminan en vocal, -n o -s.',
         },
         {
-          name: 'Palabras tónicas y átonas',
-          description: 'Cómo se pronuncian y escriben las palabras que tienen acento',
+          name: 'Graves',
+          description:
+            'Son palabras cuya sílaba tónica es la penúltima. Llevan tilde si no terminan en vocal, -n o -s.',
         },
         {
-          name: 'Palabras tritónicas',
-          description: 'La situación de su sílaba tónica varía y cambia el significado',
+          name: 'Esdrújulas',
+          description: 'Son palabras cuya sílaba tónica es la antepenúltima. Todas llevan tilde.',
+        },
+        {
+          name: 'Sobresdrújulas',
+          description:
+            'Son palabras cuya sílaba tónica es anterior a la antepenúltima. Todas llevan tilde.',
+        },
+        {
+          name: 'Tónicas',
+          description:
+            'Son aquellas sílabas que se pronuncian con MAYOR fuerza y énfasis en una palabra.',
+        },
+        {
+          name: 'Átonas',
+          description:
+            'Son aquellas sílabas que se pronuncian con MENOR fuerza y énfasis en una palabra.',
+        },
+        {
+          name: 'Tritónicas',
+          description: 'Son palabras de más de dos sílabas que tienen tres sílabas tónicas.',
         },
       ],
       {},
