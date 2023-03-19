@@ -73,20 +73,21 @@ export default defineComponent({
           console.log('response', data.data)
           console.log(silabaJS.getSilabas(text.value))
 
-          console.log(silabaJS.getSilabas('Árbol'))
-          console.log(silabaJS.getSilabas('Mármol'))
-          console.log(silabaJS.getSilabas('Cuándo'))
-          console.log(silabaJS.getSilabas('Cuánto'))
+          console.log(silabaJS.getSilabas('Ábaco'))
+          console.log(silabaJS.getSilabas('Ímpetu'))
+          console.log(silabaJS.getSilabas('Prójimo'))
 
-          console.log(silabaJS.getSilabas('Cómo'))
-          console.log(silabaJS.getSilabas('Dónde'))
-          console.log(silabaJS.getSilabas('Útil'))
-          console.log(silabaJS.getSilabas('Jiménez'))
+          console.log(silabaJS.getSilabas('Ámbito'))
+          console.log(silabaJS.getSilabas('Órbita'))
+          console.log(silabaJS.getSilabas('Fábula'))
 
-          console.log(silabaJS.getSilabas('Césped'))
-          console.log(silabaJS.getSilabas('Ámbar'))
-          console.log(silabaJS.getSilabas('Ángel'))
-          console.log(silabaJS.getSilabas('Cristóbal'))
+          console.log(silabaJS.getSilabas('Lógica'))
+          console.log(silabaJS.getSilabas('Crédito'))
+          console.log(silabaJS.getSilabas('Sábado'))
+
+          console.log(silabaJS.getSilabas('Prólogo'))
+          console.log(silabaJS.getSilabas('Píldora'))
+          console.log(silabaJS.getSilabas('Máximo'))
 
           // Almacena respuesta del endpoint
           const myStore = useMyStore()

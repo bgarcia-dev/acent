@@ -36,71 +36,58 @@ export default defineComponent({
     //  https://unibetas.com/palabras-graves
     const title = ref('')
     const parrafo1 = ref(
-      '<p class="text-center text-h3 col-12 q-py-lg"> Palabras graves </p>' +
-      '<p class="text-justify q-px-md">Las palabras graves son las que tienen la mayor fuerza de voz en su penúltima sílaba. </p>' +
-      '<p class="text-justify q-px-md">Como podemos intuir, <b>eso significa que para que una palabra pueda ser grave necesitará tener al menos dos sílabas. </b> Por ejemplo, “cable” (“ca – ble”) o “cosmos” (“cos – mos”).</p>' +
-      '<p class="text-justify q-px-md"> <b>A las palabras graves se conoce también como “llanas”.</b> Sin que quepa duda, estas palabras son las más usadas en el español. Y podemos encontrarlas cortas, como “canto” (bisílaba), o largas, como “cauteloso” (tetrasílaba).</p>' +
+      '<p class="text-center text-h3 col-12 q-py-lg"> Palabras esdrújulas </p>' +
+      '<p class="text-justify q-px-md">Las palabras esdrújulas son las que tienen la mayor fuerza de voz en la antepenúltima sílaba.</p>' +
+      '<p class="text-justify q-px-md"> <b>Las palabras esdrújulas pueden ser palabras de muchas clases: sustantivos, verbos, adjetivos e incluso adverbios.</b> Por ende, son quizá las más variadas en ese sentido dentro de nuestro idioma.</p>' +
 
-      '<p class="text-center col-12 q-py-lg"> Ejemplos de palabras graves </p>' +
+      '<p class="text-center text-h5 col-12 q-py-lg"> ¿Cuándo llevan tilde las palabras esdrújulas? </p>' +
+      '<p class="text-center" col-12 q-px-md"> <b><u>Las palabras esdrújulas siempre llevan tilde, sin excepciones.</u></b></p>' +
+      '<p class="text-justify q-px-md"><b>Esa regla es válida sin importar ni la cantidad de sílabas presentes</b> en la palabra ni tampoco su terminación. La única <b>condición</b> indispensable es que el acento de tipo prosódico se halle en la antepenúltima sílaba.</p>' +
+      '<p class="text-justify q-px-md">De esa manera, una palabra esdrújula como “pájaro” (trisílaba) va siempre con su acento ortográfico, al igual que “espectáculo” (pentasílaba). Lo mismo con “súbita” (que termina en vocal) y con “déficit” (que acaba en “t”).</p>' +
+
+      '<p class="text-center col-12 q-py-lg"> Ejemplos de palabras esdrújulas </p>' +
       '<table style="border-collapse: collapse; width: 100%;">' +
         '<tbody>' +
           '<tr>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Árbol</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Mármol</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Cuándo</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Cuánto</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ábaco</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ímpetu</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Prójimo</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ámbito</td>' +
         '</tr>' +
         '<tr>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Cómo</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Dónde</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Útil</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Jiménez</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Órbita</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Fábula</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Lógica</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Crédito</td>' +
           '</tr>' +
           '<tr>' +
-            '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Césped</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ámbar</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ángel</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Cristóbal</td>' +
+            '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Sábado</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Prólogo</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Píldora</td>' +
+          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Máximo</td>' +
         '</tr>' +
       '</tbody>' +
       '</table>' +
       '<br/>' +
 
-      '<p class="text-center text-h5 col-12 q-py-lg"> ¿Cuándo llevan tilde las palabras graves? </p>' +
-      '<p class="text-justify q-px-md"> Las palabras graves llevan tilde siempre que no terminen en “n”, “s” ni vocal.</p>' +
-      '<p class="text-justify q-px-md"> Si nos fijamos bien, estas normas son exactamente opuestas a las de las agudas. Tengamos presente eso, y nos será muy fácil recordarlas.</p>' +
-      '<p class="text-justify q-px-md"> De ese modo, palabras como “ágil”, “cártel” y “lápiz” <b>llevan tilde</b>, <u>pues su terminación lo justifica</u>. En los primeros dos casos, acaban en “l”; en el tercero, en “z”. Por ende, pueden ir acentuadas.</p>' +
+      '<p class="text-center text-h5 col-12 q-py-lg"> Excepción a la regla <br/> (Palabras esdrújulas sin tilde) </p>' +
 
-      '<p class="text-center text-h5 col-12 q-py-lg">Palabras graves sin tilde</p>' +
-      '<p class="text-justify q-px-md">Naturalmente, existen en nuestro vocabulario muchas palabras graves sin tilde. <b>De hecho, la mayoría de ellas no la lleva.</b></p>' +
-      '<p class="text-justify q-px-md">En este grupo podemos incluir términos como “saludo” y “cambien”. El primero acaba en vocal, mientras que el segundo termina en “n”. Por consiguiente,<b> no deben ir acentuados.</b></p>' +
-      '<p class="text-justify q-px-md">Sea como sea, la mayor parte del tiempo nos toparemos con palabras graves que no tendremos que acentuar. Eso nos facilitará mucho la escritura.</p>' +
+      '<p class="text-justify" col-12 q-px-md">Si ya dijimos que toda palabra esdrújula va acentuada, no puede ser posible que haya una que no lleve tilde. Sin embargo, hay un grupo de palabras que hacen dudar a muchos sobre esto.</p>' +
 
-      '<p class="text-center col-12 q-py-lg"> Ejemplos de palabras graves sin tilde </p>' +
-      '<table style="border-collapse: collapse; width: 100%;">' +
-        '<tbody>' +
-          '<tr>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Caramelo</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Casa</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Silla</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Chocolate</td>' +
-        '</tr>' +
-        '<tr>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Amapola</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Carambola</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Amarillo</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Calambre</td>' +
-          '</tr>' +
-          '<tr>' +
-            '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Cangrejo</td>' +
-            '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Cambio</td>' +
-            '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Canto</td>' +
-            '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Calle</td>' +
-          '</tr>' +
-        '</tbody>' +
-      '</table>' +
-      '<br/>'
+      '<p class="text-justify" col-12 q-px-md"><b>Todas comparten una misma terminación:</b> “audazmente”, “locuazmente”, etc. Asimismo todas pertenecen a una misma categoría gramatical: el adverbio. Pues bien, sucede lo siguiente:</p>' +
 
+      '<p class="text-center col-12 q-px-md"><u><b>Todos los adverbios terminados en “mente” tienen una acentuación especial.</b></u></p>' +
+
+      '<p class="text-justify" col-12 q-px-md">Por consiguiente, para poder tildarlos <b>no basta</b> con que identifiquemos dónde está <b>el acento prosódico</b>, sino que hay que fijarse en <b>otro detalle</b>.</p>' +
+
+      '<p class="text-center text-h6" col-12 q-px-md">¿Cómo tildar los adverbios terminados en “mente”?<p>' +
+
+      '<p class="text-justify" col-12 q-px-md">Estos adverbios son en realidad la unión de dos palabras. En primer lugar, un adjetivo; en segundo, la palabra “mente”.<br/>' +
+      'Esa fórmula nunca cambia. <b>Lo que sí puede variar es la acentuación.</b> Esta última dependerá del adjetivo pues si llevaba tilde, se conserva, y si no, se deja tal cual.</p>' +
+
+      '<p class="text-justify" col-12 q-px-md">Tomemos de vuelta el <b>ejemplo</b> de <i>“audazmente”</i>. Si pronunciamos esta palabra, nuestro oído pareciera indicarnos que el acento prosódico está en <i>“daz”</i>, tal como en el adjetivo original, por lo que la catalogaríamos como palabra esdrújula.</p>' +
+      '<p class="text-justify" col-12 q-px-md"><b>No obstante, en esta situación el criterio que debemos seguir no es sonoro, sino gráfico</b>. Y si nos fijamos, el adjetivo <i>“audaz”</i> no lleva tilde, así que no podemos agregársela en el adverbio.</p>' +
+      '<p class="text-justify" col-12 q-px-md">Por lo tanto, a pesar de que “audazmente” nos suene como una esdrújula no debemos acentuarla basándonos en eso. Tan solo apliquemos la norma anterior, y no cometeremos ningún error.</p>'
     )
     onMounted(() => {
       // console.log(myStore.myData)
