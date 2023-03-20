@@ -36,58 +36,45 @@ export default defineComponent({
     //  https://unibetas.com/palabras-graves
     const title = ref('')
     const parrafo1 = ref(
-      '<p class="text-center text-h3 col-12 q-py-lg"> Palabras esdrújulas </p>' +
-      '<p class="text-justify q-px-md">Las palabras esdrújulas son las que tienen la mayor fuerza de voz en la antepenúltima sílaba.</p>' +
-      '<p class="text-justify q-px-md"> <b>Las palabras esdrújulas pueden ser palabras de muchas clases: sustantivos, verbos, adjetivos e incluso adverbios.</b> Por ende, son quizá las más variadas en ese sentido dentro de nuestro idioma.</p>' +
+      '<p class="text-center text-h4 col-12 q-py-lg"> Palabras sobreesdrújulas </p>' +
+      '<p class="text-justify q-px-md">Las palabras sobreesdrújulas son aquellas <b>cuya sílaba tónica (la más intensa) es la anterior a la antepenúltima.</b> Según las reglas de acentuación del español, siempre llevan tilde (´):</p>' +
+      '<ul class="self-center">' +
+        '<li>Júramelo</li>' +
+        '<li>Mostrándoselas</li>' +
+        '<li>Recordándotelo</li>' +
+        '<li>Encontrándomelo</li>' +
+        '<li>Tráetelo</li>' +
+      '</ul>' +
+      '<p class="text-justify q-px-md"> Para referirnos a este tipo de palabras, cabe destacar que los términos <i>sobreesdrújula</i> (con dos letras e) y <i>sobresdrújula</i> (con una letra e) son igualmente válidos.</p>' +
 
-      '<p class="text-center text-h5 col-12 q-py-lg"> ¿Cuándo llevan tilde las palabras esdrújulas? </p>' +
-      '<p class="text-center" col-12 q-px-md"> <b><u>Las palabras esdrújulas siempre llevan tilde, sin excepciones.</u></b></p>' +
-      '<p class="text-justify q-px-md"><b>Esa regla es válida sin importar ni la cantidad de sílabas presentes</b> en la palabra ni tampoco su terminación. La única <b>condición</b> indispensable es que el acento de tipo prosódico se halle en la antepenúltima sílaba.</p>' +
-      '<p class="text-justify q-px-md">De esa manera, una palabra esdrújula como “pájaro” (trisílaba) va siempre con su acento ortográfico, al igual que “espectáculo” (pentasílaba). Lo mismo con “súbita” (que termina en vocal) y con “déficit” (que acaba en “t”).</p>' +
+      '<p class="text-center text-h5 col-12 q-py-lg"> ¿ Cómo se forman las palabras sobresdrújulas ? </p>' +
+      '<p class="text-justify q-px-md"> Las sobresdrújulas son palabras excepcionales en el español y de muy poco uso en la escritura. Esto se debe a que <b>son verbos a los que se le añaden pronombres al final de la palabra</b>.</p>' +
+      '<p class="text-justify q-px-md">Estos pronombres son los llamados enclíticos y son <i>me, te, se, nos, os, lo, la, los, las</i>). Los pronombres <i>le y les</i> no pueden aparecer junto a <i>lo, la, los y las</i>.</p>' +
+      '<p class="text-justify q-px-md">Los verbos, a los que se les añaden dichos pronombres, pueden estar en gerundio o en imperativo.</p>' +
 
-      '<p class="text-center col-12 q-py-lg"> Ejemplos de palabras esdrújulas </p>' +
-      '<table style="border-collapse: collapse; width: 100%;">' +
-        '<tbody>' +
-          '<tr>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ábaco</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ímpetu</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Prójimo</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Ámbito</td>' +
-        '</tr>' +
-        '<tr>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Órbita</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Fábula</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Lógica</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Crédito</td>' +
-          '</tr>' +
-          '<tr>' +
-            '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Sábado</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Prólogo</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Píldora</td>' +
-          '<td style="border: 1px solid #dddddd; text-align: left; padding: 8px;">Máximo</td>' +
-        '</tr>' +
-      '</tbody>' +
-      '</table>' +
-      '<br/>' +
+      '<p class="text-center text-h5 col-12 q-py-lg"> Sobresdrújulas formadas por gerundios y pronombres </p>' +
+      '<p class="text-justify q-px-md">A un verbo en gerundio <i>(cantando, comiendo, viviendo)</i> se le añaden dos pronombres al final de la palabra:</p>' +
+'<ul>' +
+  '<li>Está todo el tiempo recordándomelo.</li>' +
+  '<li>El dependiente estaba vendiéndotelo y no quise interrumpir.</li>' +
+  '<li>Sobre el regalo, vi que estabas comprándoselo.</li>' +
+  '<li>¡Se pasó el día repitiéndoselo todo el rato!</li>' +
+  '<li>Acerca de la canciones, ayer estuvimos cantándoselas por la tarde.</li>' +
+'</ul>' +
 
-      '<p class="text-center text-h5 col-12 q-py-lg"> Excepción a la regla <br/> (Palabras esdrújulas sin tilde) </p>' +
+  '<p class="text-center text-h5 col-12 q-py-lg"> Sobresdrújulas formadas con imperativos y pronombres </p>' +
+  '<p class="text-justify q-px-md">A un verbo en imperativo (<i>cante, come, vivan</i>) se le añaden dos pronombres al final de la palabra:</p>' +
+  '<p class="text-justify q-px-md"><b>Por ejemplo:</b></p>' +
+  '<ul>' +
+    '<li>Permítaseme hablar un momento acerca de la naturaleza.</li>' +
+    '<li>¡Júramelo o niégamelo!</li>' +
+    '<li>Véndeselo de una vez, que está deseando comprar.</li>' +
+    '<li>Recuérdamelo más tarde, que ahora estoy ocupado.</li>' +
+    '<li>Esas cajas del suelo, quítenmelas de ahí, por favor.</li>' +
+    '</ul>' +
+    '<p class="text-center text-h5 col-12 q-py-lg"> ¿Son sobresdrújulas las palabras terminadas en <i>"mente"</i>? </p>' +
+    '<p class="text-justify q-px-md">Los adverbios que terminan en -mente no son sobresdrújulas. Esto se debe a que este tipo de palabras posee dos sílabas tónicas: la propia del adjetivo y la del sufijo. Aunque posean dos sílabas tónicas, solo llevan una tilde.</p>'
 
-      '<p class="text-justify" col-12 q-px-md">Si ya dijimos que toda palabra esdrújula va acentuada, no puede ser posible que haya una que no lleve tilde. Sin embargo, hay un grupo de palabras que hacen dudar a muchos sobre esto.</p>' +
-
-      '<p class="text-justify" col-12 q-px-md"><b>Todas comparten una misma terminación:</b> “audazmente”, “locuazmente”, etc. Asimismo todas pertenecen a una misma categoría gramatical: el adverbio. Pues bien, sucede lo siguiente:</p>' +
-
-      '<p class="text-center col-12 q-px-md"><u><b>Todos los adverbios terminados en “mente” tienen una acentuación especial.</b></u></p>' +
-
-      '<p class="text-justify" col-12 q-px-md">Por consiguiente, para poder tildarlos <b>no basta</b> con que identifiquemos dónde está <b>el acento prosódico</b>, sino que hay que fijarse en <b>otro detalle</b>.</p>' +
-
-      '<p class="text-center text-h6" col-12 q-px-md">¿Cómo tildar los adverbios terminados en “mente”?<p>' +
-
-      '<p class="text-justify" col-12 q-px-md">Estos adverbios son en realidad la unión de dos palabras. En primer lugar, un adjetivo; en segundo, la palabra “mente”.<br/>' +
-      'Esa fórmula nunca cambia. <b>Lo que sí puede variar es la acentuación.</b> Esta última dependerá del adjetivo pues si llevaba tilde, se conserva, y si no, se deja tal cual.</p>' +
-
-      '<p class="text-justify" col-12 q-px-md">Tomemos de vuelta el <b>ejemplo</b> de <i>“audazmente”</i>. Si pronunciamos esta palabra, nuestro oído pareciera indicarnos que el acento prosódico está en <i>“daz”</i>, tal como en el adjetivo original, por lo que la catalogaríamos como palabra esdrújula.</p>' +
-      '<p class="text-justify" col-12 q-px-md"><b>No obstante, en esta situación el criterio que debemos seguir no es sonoro, sino gráfico</b>. Y si nos fijamos, el adjetivo <i>“audaz”</i> no lleva tilde, así que no podemos agregársela en el adverbio.</p>' +
-      '<p class="text-justify" col-12 q-px-md">Por lo tanto, a pesar de que “audazmente” nos suene como una esdrújula no debemos acentuarla basándonos en eso. Tan solo apliquemos la norma anterior, y no cometeremos ningún error.</p>'
     )
     onMounted(() => {
       // console.log(myStore.myData)
