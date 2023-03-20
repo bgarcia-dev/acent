@@ -20,7 +20,7 @@ let silaba = {
   silabas: undefined, // (Array)  Array de objeto que contiene la sílaba (caracter) y la posicion en la palabra
   tonica: undefined, // (int)    Posición de la sílaba tónica (empieza en 1)
   letraTildada: undefined, // (int)    Posición de la letra tildada (si la hay)
-  acentuacion: undefined, // (int)    Tipo acentuación de la palabra (Aguda, Grave, Esdrújula y Sobresdrújula)
+  accentuation: undefined, // (int)    Tipo acentuación de la palabra (Aguda, Grave, Esdrújula y Sobresdrújula)
   hiato: undefined, // (Array)  Array de objeto que contiene hiato (si la hay)
   diptongo: undefined, // (Array)  Array de objeto que contiene diptongo (si la hay)
   triptongo: undefined // (Array)  Array de objeto que contiene triptongo (si la hay)
@@ -36,7 +36,7 @@ let encontroTonica // (bool)   Indica si se ha encontrado la sílaba tónica
 */
 function getSilabas(palabra) {
   posicionSilabas(palabra)
-  acentuacion()
+  accentuation()
   hiato()
   diptongoTriptongo()
   return Object.assign({}, silaba)
@@ -573,23 +573,23 @@ function diptongoTriptongo() {
 }
 
 /**
- * Determina el tipo de acentuacion de la palabra
+ * Determina el tipo de accentuation de la palabra
  *
  * @returns {undefined}
  */
-function acentuacion() {
+function accentuation() {
   switch (silaba.numeroSilaba - silaba.tonica) {
     case 0:
-      silaba.acentuacion = 'Aguda'
+      silaba.accentuation = 'Aguda'
       break
     case 1:
-      silaba.acentuacion = 'Grave (Llana)'
+      silaba.accentuation = 'Grave (Llana)'
       break
     case 2:
-      silaba.acentuacion = 'Esdrújula'
+      silaba.accentuation = 'Esdrújula'
       break
     default:
-      silaba.acentuacion = 'Sobresdrújula'
+      silaba.accentuation = 'Sobresdrújula'
       break
   }
 }

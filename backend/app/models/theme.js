@@ -8,7 +8,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // Code
+      Theme.hasOne(models.TheoreticalMaterial, {
+        foreignKey: 'theme_id',
+      })
     }
   }
   Theme.init(

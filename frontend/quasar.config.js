@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 /* eslint-disable space-before-function-paren */
 /* eslint-env node */
 
@@ -71,7 +72,14 @@ module.exports = configure(function (ctx) {
         chain
           .plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }])
-      }
+      },
+      env: ctx.dev
+        ? {
+          API_URL: 'http://localhost:3002/'
+        }
+        : {
+          API_URL: process.env.API_URL
+        }
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-devServer
@@ -98,7 +106,10 @@ module.exports = configure(function (ctx) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ['Dark']
+      plugins: [
+        'Dark',
+        'Notify'
+      ]
     },
 
     // animations: 'all', // --- includes all animations

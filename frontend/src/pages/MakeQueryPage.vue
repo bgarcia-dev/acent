@@ -47,6 +47,7 @@ import { Icon } from '@iconify/vue'
 import { silabaJS } from '../utils/silabas.js'
 import { api } from 'boot/axios'
 import { useRouter } from 'vue-router'
+import { Notify } from 'quasar'
 const { useMyStore } = require('../stores/responseQuery')
 
 export default defineComponent({
@@ -61,42 +62,23 @@ export default defineComponent({
 
     // Change to page
     const router = useRouter()
-    // TODO:
-    // - Cambiar Axios que apunte al EP real del backend
-    // - El tipo de acentuación debe definir el filter del endpoint la consulta no se debe de hacer dentro de la petición
     function simulateProgress () {
       if (text.value === '') return false
       loading.value = true
-      // api.get('https://jsonplaceholder.typicode.com/todos/1')
-      api.get('http://localhost:3001/v1/theoretical-material/1')
+      const { accentuation } = silabaJS.getSilabas(text.value)
+      api.get(`theoretical-material/get-theme-by-accentuation/${accentuation}`)
         .then(({ data }) => {
-          console.log('response', data.data)
-          console.log(silabaJS.getSilabas(text.value))
-
-          console.log(silabaJS.getSilabas('Ábaco'))
-          console.log(silabaJS.getSilabas('Ímpetu'))
-          console.log(silabaJS.getSilabas('Prójimo'))
-
-          console.log(silabaJS.getSilabas('Ámbito'))
-          console.log(silabaJS.getSilabas('Órbita'))
-          console.log(silabaJS.getSilabas('Fábula'))
-
-          console.log(silabaJS.getSilabas('Lógica'))
-          console.log(silabaJS.getSilabas('Crédito'))
-          console.log(silabaJS.getSilabas('Sábado'))
-
-          console.log(silabaJS.getSilabas('Prólogo'))
-          console.log(silabaJS.getSilabas('Píldora'))
-          console.log(silabaJS.getSilabas('Máximo'))
-
           // Almacena respuesta del endpoint
           const myStore = useMyStore()
           myStore.setMyData(data.data)
+          myStore.setAccentuation(accentuation)
+          myStore.setWord(text.value)
           // Direccionamiento
           router.push({ path: '/response' })
         })
         .catch((error) => {
           console.log(error)
+          Notify.create({ message: '<b>ERROR: No se puede procesar la información intente más tarde</b>', color: 'red', icon: 'dangerous', html: true })
         }).finally(() => {
           loading.value = false
         })

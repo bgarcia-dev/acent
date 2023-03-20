@@ -43,7 +43,8 @@ export default defineComponent({
       '/test': 'Test',
       '/makeQueryPage': 'Realiza consulta',
       '/themePage': 'Temas',
-      '/challengeModePage': 'Modo reto'
+      '/challengeModePage': 'Modo reto',
+      '/response': 'Consulta'
     }
 
     const handleRouteChange = (to, from) => {

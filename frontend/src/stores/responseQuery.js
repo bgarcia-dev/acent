@@ -3,7 +3,9 @@ import { defineStore } from 'pinia'
 
 export const useMyStore = defineStore('myStore', {
   state: () => ({
-    myData: null
+    myData: null,
+    accentuation: null,
+    word: null
   }),
   actions: {
     setMyData(newData) {
@@ -11,6 +13,18 @@ export const useMyStore = defineStore('myStore', {
     },
     removeData() {
       this.myData = null
+    },
+    setAccentuation(newAccentuation) {
+      this.accentuation = newAccentuation
+    },
+    removeAccentuation() {
+      this.accentuation = null
+    },
+    setWord(newWord) {
+      this.word = newWord
+    },
+    removeWord() {
+      this.word = null
     }
   }
 })

@@ -8,7 +8,7 @@ module.exports = {
     await TheoreticalMaterial.create({
       name: 'Palabras agudas',
       theme_id: 1,
-      source:
+      resource:
         '<p class="text-center text-h3 col-12 q-py-lg"> Palabras agudas </p>' +
         '<p class="text-justify q-px-md">También llamadas oxítonas. Su sílaba tónica es la última y se <b>escriben con tilde cuando terminan en vocal</b> (mamá), <b>-n</b> (canción) o <b>-s</b> (jamás).</p>' +
         '<p class="text-justify q-px-md">No se escribe sin tilde en en el resto de las terminaciones (<i>animal, señor, pared, cantar...</i>). Tampoco lleva tilde Si la <b>-s</b> va detrás de otra consonante (<i>debuts, robots</i>).</p>' +
@@ -155,7 +155,7 @@ module.exports = {
     await TheoreticalMaterial.create({
       name: 'Palabras graves (llanas)',
       theme_id: 2,
-      source:
+      resource:
         '<p class="text-center text-h3 col-12 q-py-lg"> Palabras graves </p>' +
         '<p class="text-justify q-px-md">Las palabras graves son las que tienen la mayor fuerza de voz en su penúltima sílaba. </p>' +
         '<p class="text-justify q-px-md">Como podemos intuir, <b>eso significa que para que una palabra pueda ser grave necesitará tener al menos dos sílabas. </b> Por ejemplo, “cable” (“ca – ble”) o “cosmos” (“cos – mos”).</p>' +
@@ -232,7 +232,7 @@ module.exports = {
     await TheoreticalMaterial.create({
       name: 'Palabras esdrújulas',
       theme_id: 3,
-      source:
+      resource:
         '<p class="text-center text-h3 col-12 q-py-lg"> Palabras esdrújulas </p>' +
         '<p class="text-justify q-px-md">Las palabras esdrújulas son las que tienen la mayor fuerza de voz en la antepenúltima sílaba.</p>' +
         '<p class="text-justify q-px-md"> <b>Las palabras esdrújulas pueden ser palabras de muchas clases: sustantivos, verbos, adjetivos e incluso adverbios.</b> Por ende, son quizá las más variadas en ese sentido dentro de nuestro idioma.</p>' +
@@ -291,7 +291,7 @@ module.exports = {
     await TheoreticalMaterial.create({
       name: 'Palabras sobresdrújulas',
       theme_id: 4,
-      source:
+      resource:
         '<p class="text-center text-h4 col-12 q-py-lg"> Palabras sobresdrújulas </p>' +
         '<p class="text-justify q-px-md">Las palabras sobreesdrújulas son aquellas <b>cuya sílaba tónica (la más intensa) es la anterior a la antepenúltima.</b> Según las reglas de acentuación del español, siempre llevan tilde (´):</p>' +
         '<ul class="self-center">' +
@@ -343,7 +343,7 @@ module.exports = {
     await TheoreticalMaterial.create({
       name: 'Palabras tónicas',
       theme_id: 5,
-      source:
+      resource:
         '<p class="text-center text-h3 col-12 q-py-lg"> Palabras tónicas </p>' +
         '<p class="text-justify q-px-md">Las palabras tónicas <b>son todas aquellas palabras que se pronuncian acentuando una de sus sílabas</b>. ' +
         'La sílaba acentuada de la palabra tónica, a su vez, se denominará sílaba tónica. ' +
@@ -388,7 +388,7 @@ module.exports = {
     await TheoreticalMaterial.create({
       name: 'Palabras tónicas',
       theme_id: 6,
-      source:
+      resource:
         '<p class="text-center text-h3 col-12 q-py-lg"> Palabras átonas </p>' +
         '<p class="text-justify q-px-md">' +
         'Son palabras átonas todas <b>aquellas que se pronuncian sin acento en la cadena hablada.</b> La gran mayoría de las palabras monosílabas, y unas cuantas bisílabas y trisílabas son átonas. ' +
@@ -443,7 +443,7 @@ module.exports = {
     await TheoreticalMaterial.create({
       name: 'Palabras tritónicas',
       theme_id: 7,
-      source:
+      resource:
         '<p class="text-center text-h3 col-12 q-py-lg"> Palabras tritónicas </p>' +
         '<p class="text-justify q-px-md">' +
         'Hay palabras que tienen los mismos sonidos y que se escriben con las mismas letras que otras, pero la situación de su sílaba tónica varía y con ella también cambia el significado. ' +
