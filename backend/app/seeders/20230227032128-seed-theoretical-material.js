@@ -339,7 +339,7 @@ module.exports = {
       ],
       {},
     )
-    // Atonas
+    // tónicas
     await TheoreticalMaterial.create({
       name: 'Palabras tónicas',
       theme_id: 5,
