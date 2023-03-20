@@ -40,11 +40,12 @@ export default defineComponent({
     const router = useRouter()
     const routesTitle = {
       '/': 'Bienvenido',
-      '/test': 'Test',
+      '/test': 'Test', // TODO: Eliminar
       '/makeQueryPage': 'Realiza consulta',
       '/themePage': 'Temas',
       '/challengeModePage': 'Modo reto',
-      '/response': 'Consulta'
+      '/response': 'Consulta',
+      '/theoreticalMaterialPage': 'Información teórica'
     }
 
     const handleRouteChange = (to, from) => {
@@ -52,7 +53,10 @@ export default defineComponent({
 
       isRootPath.value = to.path !== '/'
       title.value = routesTitle[to.path]
-      if (['makeQueryPage', 'themePage', 'challengeModePage'].includes(to.path)) { redirectPath.value = '/' }
+      redirectPath.value = '/'
+      if (['/makeQueryPage', '/themePage', '/challengeModePage'].includes(to.path)) { redirectPath.value = '/' }
+      if (['/response'].includes(to.path)) { redirectPath.value = '/makeQueryPage' }
+      if (['/theoreticalMaterialPage'].includes(to.path)) { redirectPath.value = '/themePage' }
     }
 
     onMounted(() => {

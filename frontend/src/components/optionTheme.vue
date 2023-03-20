@@ -55,6 +55,7 @@
 <script lang="js">
 import { defineComponent } from 'vue'
 import { Icon } from '@iconify/vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'optionTheme',
@@ -63,6 +64,7 @@ export default defineComponent({
     Icon
   },
   setup (props) {
+    const router = useRouter()
     const methods = {
       ages: () => {
         console.log('ages')
@@ -77,6 +79,7 @@ export default defineComponent({
 
     function executeCallback () {
       methods[props.callback]()
+      router.push({ path: '/theoreticalMaterialPage' })
     }
 
     return {
