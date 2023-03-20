@@ -42,13 +42,37 @@
 </template>
 
 <script>
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 
 export default defineComponent({
   name: 'TheoreticalMaterialPage',
   setup () {
+    const data = ref({})
+    const tab = ref('')
+
+    function ooo () {
+      // Retornar los temas para los tabs
+      // Retornar INFO temas
+      // const x = {
+      //   tabs: ['Aguda', 'Grave', 'Esdrújula', 'Sobresdrújula'],
+      //   data: {
+      //     Aguda: 'Información 1',
+      //     Grave: '22222222222222',
+      //     Esdrújula: '33333333333333',
+      //     Sobresdrújula: '444444444444444'
+      //   }
+      // }
+      console.log('oooooo')
+    }
+
+    onMounted(() => {
+      ooo()
+      console.log('%c Oh my heavens! ', 'background: #222; color: #bada55')
+    })
+
     return {
-      tab: ref('mails')
+      tab,
+      data
     }
   }
 })

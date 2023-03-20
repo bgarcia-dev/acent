@@ -4,7 +4,7 @@
  * https://express-validator.github.io/docs/
  * https://express-validator.github.io/docs/custom-error-messages.html
  */
-const { check, query } = require('express-validator')
+const { check } = require('express-validator')
 const { validateResult } = require('./validate_helper')
 
 const validateTheme = [
@@ -31,6 +31,25 @@ const validateTheme = [
   },
 ]
 
+/**
+ * Valida agrupaciones de temas definidos para el front
+ */
+const validateGruoup = [
+  check('group_id')
+    .isInt()
+    .withMessage('group_id param must be a integer')
+    .trim()
+    .bail()
+    .isIn([1, 2, 3])
+    .withMessage('Select valid theme [1,2,3]')
+    .toInt(),
+
+  (req, res, next) => {
+    validateResult(req, res, next)
+  },
+]
+
 module.exports = {
   validateTheme,
+  validateGruoup,
 }
