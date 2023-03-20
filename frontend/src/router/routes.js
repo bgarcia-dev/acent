@@ -8,7 +8,8 @@ const routes = [
       { path: 'makeQueryPage', component: () => import('pages/MakeQueryPage.vue') },
       { path: 'themePage', component: () => import('pages/ThemePage.vue') },
       { path: 'challengeModePage', component: () => import('pages/ChallengeModePage.vue') },
-      { path: 'response', component: () => import('pages/ResponsePage.vue') }
+      { path: 'response', component: () => import('pages/ResponsePage.vue') },
+      { path: 'theoreticalMaterialPage', component: () => import('pages/TheoreticalMaterialPage.vue') }
     ]
   },
 

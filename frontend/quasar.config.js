@@ -75,7 +75,7 @@ module.exports = configure(function (ctx) {
       },
       env: ctx.dev
         ? {
-          API_URL: 'http://localhost:3002/'
+          API_URL: 'http://localhost:3001/'
         }
         : {
           API_URL: process.env.API_URL

@@ -22,22 +22,31 @@
     </div>
     <div class="col-2 col-md-1">
       <div class="row justify-center" :class="$q.screen.width < 576? 'q-mb-sm':''">
+        <q-btn
+        flat
+        >
           <Icon
-            class="self-center shadow"
+            class="self-center"
             icon="material-symbols:play-circle-outline-rounded"
             :color="$q.dark.isActive ? '#f7f7f7':'#151635'"
             :width="$q.screen.lt.sm > 576? 32 : 48"
             :height="$q.screen.width > 576? 32 : 48"
           />
+        </q-btn>
       </div>
       <div class="row justify-center">
+        <q-btn
+          flat
+          @click="executeCallback"
+        >
           <Icon
-            class="self-center shadow"
+            class="self-center"
             icon="material-symbols:menu-book-outline-rounded"
             :color="$q.dark.isActive ? '#f7f7f7':'#151635'"
             :width="$q.screen.width > 576? 32 : 48"
             :height="$q.screen.width > 576? 32 : 48"
           />
+        </q-btn>
       </div>
     </div>
   </div>
@@ -49,11 +58,31 @@ import { Icon } from '@iconify/vue'
 
 export default defineComponent({
   name: 'optionTheme',
-  props: ['icon', 'textTop', 'textBottom'],
+  props: ['icon', 'textTop', 'textBottom', 'callback'],
   components: {
     Icon
   },
-  setup (props) {}
+  setup (props) {
+    const methods = {
+      ages: () => {
+        console.log('ages')
+      },
+      tonicaAtona: () => {
+        console.log('tonica')
+      },
+      tritonica: () => {
+        console.log('tritonica')
+      }
+    }
+
+    function executeCallback () {
+      methods[props.callback]()
+    }
+
+    return {
+      executeCallback
+    }
+  }
 })
 </script>
 
@@ -85,10 +114,6 @@ export default defineComponent({
 .paragraph {
   padding: 0;
   margin: 0;
-}
-
-.shadow {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 </style>

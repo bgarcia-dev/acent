@@ -9,7 +9,12 @@
           :icon="option.icon"
           :textTop="option.textTop"
           :textBottom="option.textBottom"
+          :callback="option.callback"
         />
+
+      </div>
+      <div class="row justify-center q-pa-md">
+        <q-btn color="primary" icon="check" label="OK" @click="esto" />
 
       </div>
     </div>
@@ -26,29 +31,48 @@ export default defineComponent({
     OptionTheme
   },
   setup () {
+    const accentuations = [
+      'Aguda',
+      'Grave (Llana)',
+      'Esdrújula',
+      'Sobresdrújula'
+    ]
+
+    function esto () {
+      console.log('works')
+      console.log(accentuations)
+    }
+
     const listOptions = [
       {
         icon: 'fluent-emoji-high-contrast:parrot',
         textTop: 'Agudas, graves, esdrújulas y sobresdrújulas',
         textBottom: 'Los cuatro tipos de palabras que determinan la acentuación',
-        toPage: 'ToDo'
+        callback: 'ages'
       },
       {
         icon: 'arcticons:birday',
         textTop: 'Palabras tónicas y átonas',
         textBottom: 'Cómo se pronuncian y escriben las palabras que tienen acento',
-        toPage: 'ToDo'
+        callback: 'tonicaAtona'
       },
       {
         icon: 'emojione-monotone:bird',
         textTop: 'Palabras tritónicas',
         textBottom: 'La situación de su sílaba tónica varía y cambia el significado',
-        toPage: 'ToDo'
+        callback: 'tritonica'
       }
     ]
     return {
-      listOptions
+      listOptions,
+      esto
     }
   }
 })
+// TODO:
+/**
+ * - Si ya existe el tema en el storage no volver a pedirlo al backend
+ *    - Identificar si existe el tema en el storage
+ *    - No seria demasiado en el storage ? Es una cadena de texto que tanto va a ser
+ */
 </script>
