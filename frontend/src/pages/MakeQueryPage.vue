@@ -76,8 +76,7 @@ export default defineComponent({
           // Direccionamiento
           router.push({ path: '/response' })
         })
-        .catch((error) => {
-          console.log(error)
+        .catch(() => {
           Notify.create({ message: '<b>ERROR: No se puede procesar la información intente más tarde</b>', color: 'red', icon: 'dangerous', html: true })
         }).finally(() => {
           loading.value = false

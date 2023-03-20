@@ -56,6 +56,8 @@
 import { defineComponent } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router'
+import { api } from 'boot/axios'
+import { Notify } from 'quasar'
 
 export default defineComponent({
   name: 'optionTheme',
@@ -65,15 +67,37 @@ export default defineComponent({
   },
   setup (props) {
     const router = useRouter()
+    const errorMsg = {
+      message: '<b>ERROR: No se puede consultar la información intente más tarde</b>',
+      color: 'red',
+      icon: 'dangerous',
+      html: true
+    }
+
+    function makeRequest (url) {
+      api.get(url)
+        .then(({ data }) => {
+          // Almacena respuesta del endpoint
+          console.log(data)
+        })
+        .catch((error) => {
+          console.log(error)
+          Notify.create(errorMsg)
+        })
+    }
+
     const methods = {
       ages: () => {
         console.log('ages')
+        makeRequest(`theoretical-material/get-themes/${1}`)
       },
       tonicaAtona: () => {
         console.log('tonica')
+        makeRequest(`theoretical-material/get-themes/${2}`)
       },
       tritonica: () => {
-        console.log('tritonica')
+        console.log('tritongo')
+        makeRequest(`theoretical-material/get-themes/${3}`)
       }
     }
 
