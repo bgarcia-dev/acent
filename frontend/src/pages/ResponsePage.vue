@@ -33,47 +33,36 @@ export default defineComponent({
      * TODO:
      * Parte de la información va a venir desde el componente y otra desde el endpoint
      */
-    //  https://unibetas.com/palabras-graves
     const title = ref('')
     const parrafo1 = ref(
-      '<p class="text-center text-h4 col-12 q-py-lg"> Palabras sobreesdrújulas </p>' +
-      '<p class="text-justify q-px-md">Las palabras sobreesdrújulas son aquellas <b>cuya sílaba tónica (la más intensa) es la anterior a la antepenúltima.</b> Según las reglas de acentuación del español, siempre llevan tilde (´):</p>' +
-      '<ul class="self-center">' +
-        '<li>Júramelo</li>' +
-        '<li>Mostrándoselas</li>' +
-        '<li>Recordándotelo</li>' +
-        '<li>Encontrándomelo</li>' +
-        '<li>Tráetelo</li>' +
-      '</ul>' +
-      '<p class="text-justify q-px-md"> Para referirnos a este tipo de palabras, cabe destacar que los términos <i>sobreesdrújula</i> (con dos letras e) y <i>sobresdrújula</i> (con una letra e) son igualmente válidos.</p>' +
-
-      '<p class="text-center text-h5 col-12 q-py-lg"> ¿ Cómo se forman las palabras sobresdrújulas ? </p>' +
-      '<p class="text-justify q-px-md"> Las sobresdrújulas son palabras excepcionales en el español y de muy poco uso en la escritura. Esto se debe a que <b>son verbos a los que se le añaden pronombres al final de la palabra</b>.</p>' +
-      '<p class="text-justify q-px-md">Estos pronombres son los llamados enclíticos y son <i>me, te, se, nos, os, lo, la, los, las</i>). Los pronombres <i>le y les</i> no pueden aparecer junto a <i>lo, la, los y las</i>.</p>' +
-      '<p class="text-justify q-px-md">Los verbos, a los que se les añaden dichos pronombres, pueden estar en gerundio o en imperativo.</p>' +
-
-      '<p class="text-center text-h5 col-12 q-py-lg"> Sobresdrújulas formadas por gerundios y pronombres </p>' +
-      '<p class="text-justify q-px-md">A un verbo en gerundio <i>(cantando, comiendo, viviendo)</i> se le añaden dos pronombres al final de la palabra:</p>' +
+      '<p class="text-center text-h3 col-12 q-py-lg"> Palabras tónicas </p>' +
+      '<p class="text-justify q-px-md">Las palabras tónicas <b>son todas aquellas palabras que se pronuncian acentuando una de sus sílabas</b>. ' +
+        'La sílaba acentuada de la palabra tónica, a su vez, se denominará sílaba tónica. ' +
+        'No todas las palabras en español se perciben, en la lengua hablada, con el mismo grado de tonicidad. ' +
+        'Son tónicas las siguientes clases de palabras. </p>' +
 '<ul>' +
-  '<li>Está todo el tiempo recordándomelo.</li>' +
-  '<li>El dependiente estaba vendiéndotelo y no quise interrumpir.</li>' +
-  '<li>Sobre el regalo, vi que estabas comprándoselo.</li>' +
-  '<li>¡Se pasó el día repitiéndoselo todo el rato!</li>' +
-  '<li>Acerca de la canciones, ayer estuvimos cantándoselas por la tarde.</li>' +
+'<li class="q-my-sm"><b>Sustantivos</b> la <i>puerta</i>, la <i>pelota</i>, el <i>amigo</i>, el <i>jardín</i>.</li>' +
+'<li class="q-my-sm"><b>Adjetivos</b> la <i>bonita</i> puerta, el jardín <i>bello</i>.</li>' +
+'<li class="q-my-sm"><b>Verbos y sus formas auxiliares</b> <i>hice</i> la comida, <i>ha</i> llovido, <i>ha</i> entrado.</li>' +
+'<li class="q-my-sm"><b>Adverbios</b> <i>no</i> lloverá, estuvo <i>bien</i>, <i>nunca</i> viene. También los adverbios terminados en <i>-mente</i></b> vienen <i>lentamente</i>, celebran <i>alegremente</i>.</li>' +
+'<li class="q-my-sm"><b>Pronombres personales</b> yo, tú, él, ella, ellos, ellas, nosotros, nosotras, vosotros, vosotras, nos, vos, usted, ustedes, mí, ti, sí, conmigo, contigo, consigo.</li>' +
+'<li class="q-my-sm"><b>Demostrativos</b> <i>esa</i> lámpara, <i>este</i> carro, <i>aquella</i> puerta.</li>' +
+'<li class="q-my-sm"><b>Posesivos</b> mío, tuyo, suyo, nuestro, vuestro, y sus femeninos y plurales.</li>' +
+'<li class="q-my-sm"><b>Indefinidos</b> <i>unos</i> chicos, <i>ninguna</i> canción, <i>algún</i> pariente, <i>varias</i> personas.</li>' +
+'<li class="q-my-sm"><b>Numerales</b> <i>dos</i> sillas, en <i>tercer puesto</i>, <i>quinientas</i> veces.</li>' +
+'<li class="q-my-sm"><b>Interrogativos y exclamativos</b> <i>qué</i> quieres, <i>cuántas</i> personas, <i>quién</i> es, dime <i>cuál</i>.</li>' +
+'<li class="q-my-sm">Algunas <b>conjunciones</b>, sobre todo si son derivadas de adverbios como, por ejemplo, <i>así</i>: “no lo reconoce, <i>así</i> se lo digas mil veces”; o <i>apenas</i>: “apenas me vio, me identificó”. También son tónicos algunos usos de la conjunción y, como, por ejemplo: “¿<i>y</i> viene?”, “¿<i>y</i> el vaso de agua?”</li>' +
+'<li class="q-my-sm"><b>Preposición según.</b> Por ejemplo: “Todo es positivo <i>según</i> se vea”.</li>' +
 '</ul>' +
-
-  '<p class="text-center text-h5 col-12 q-py-lg"> Sobresdrújulas formadas con imperativos y pronombres </p>' +
-  '<p class="text-justify q-px-md">A un verbo en imperativo (<i>cante, come, vivan</i>) se le añaden dos pronombres al final de la palabra:</p>' +
-  '<p class="text-justify q-px-md"><b>Por ejemplo:</b></p>' +
+'<br/>' +
+'<p class="text-center text-h5 col-12 q-py-lg"> Palabras tónicas que se pronuncian como átonas </p>' +
+'<p class="text-justify q-px-md"> Algunas palabras tónicas se pronuncian como átonas en determinados casos, principalmente cuando son el primer elemento en ciertas expresiones ' +
+'que se encuentran formadas por varias palabras escritas separadamente. Así, pues, aunque son tónicas, son pronunciadas como átonas en los siguientes casos: <p>' +
   '<ul>' +
-    '<li>Permítaseme hablar un momento acerca de la naturaleza.</li>' +
-    '<li>¡Júramelo o niégamelo!</li>' +
-    '<li>Véndeselo de una vez, que está deseando comprar.</li>' +
-    '<li>Recuérdamelo más tarde, que ahora estoy ocupado.</li>' +
-    '<li>Esas cajas del suelo, quítenmelas de ahí, por favor.</li>' +
-    '</ul>' +
-    '<p class="text-center text-h5 col-12 q-py-lg"> ¿Son sobresdrújulas las palabras terminadas en <i>"mente"</i>? </p>' +
-    '<p class="text-justify q-px-md">Los adverbios que terminan en -mente no son sobresdrújulas. Esto se debe a que este tipo de palabras posee dos sílabas tónicas: la propia del adjetivo y la del sufijo. Aunque posean dos sílabas tónicas, solo llevan una tilde.</p>'
+    '<li class="q-my-sm">Cuando constituyen el primer elemento de numerales complejos: cuarenta mil (cuarenta<b>míl</b>), treinta y dos (treitai<b>dós</b>), vigésimo primero (vigesimo<b>priméro</b>).</li>' +
+'<li class="q-my-sm">Cuando son el primer elemento de una locución: cuesta abajo (cuest<b>abájo</b>), medio ambiente (medio<b>ambiénte</b>), mientras tanto (mientras<b>tánto</b>).</li>' +
+'<li class="q-my-sm">Cuando se antepone un sustantivo o adjetivo a otro sustantivo, siendo que la expresión nominal funciona como vocativo: capitán Ochoa (capitan<b>ochóa</b>), buen hombre (buen<b>ómbre</b>).</li>' +
+  '</ul>'
 
     )
     onMounted(() => {
