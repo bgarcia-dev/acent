@@ -53,11 +53,13 @@
 </template>
 
 <script lang="js">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import { Icon } from '@iconify/vue'
 import { useRouter } from 'vue-router'
 import { api } from 'boot/axios'
 import { Notify } from 'quasar'
+
+import { useThemeStore } from '../stores/themes'
 
 export default defineComponent({
   name: 'optionTheme',
@@ -73,12 +75,76 @@ export default defineComponent({
       icon: 'dangerous',
       html: true
     }
+    const themeStore = useThemeStore()
+    const groupSelected = ref('')
 
     function makeRequest (url) {
+      // Se comprueba si ya existen los temas en caso de existir ya no se hace llamado al endpoint
+      const {
+        aguadas,
+        graves,
+        esdrujulas,
+        sobresdrujulas,
+        atonas,
+        tonicas,
+        tritonicas
+      } = themeStore
+
+      if (
+        groupSelected.value === 1 &&
+        ![aguadas, graves, sobresdrujulas, esdrujulas].includes(null)
+      ) return null
+      if (groupSelected.value === 2 && ![atonas, tonicas].includes(null)) return null
+      if (groupSelected.value === 3 && ![tritonicas].includes(null)) return null
       api.get(url)
         .then(({ data }) => {
-          // Almacena respuesta del endpoint
-          console.log(data)
+          data.data.forEach(element => {
+            // Grupo 1
+            if (element.name === 'Agudas') {
+              themeStore.setAgudas({
+                name: element.name,
+                theory: element.TheoreticalMaterial.resource
+              })
+            }
+            if (element.name === 'Graves') {
+              themeStore.setGraves({
+                name: element.name,
+                theory: element.TheoreticalMaterial.resource
+              })
+            }
+            if (element.name === 'Esdrújulas') {
+              themeStore.setEsdrujulas({
+                name: element.name,
+                theory: element.TheoreticalMaterial.resource
+              })
+            }
+            if (element.name === 'Sobresdrújulas') {
+              themeStore.setSobresdrujulas({
+                name: element.name,
+                theory: element.TheoreticalMaterial.resource
+              })
+            }
+            // Grupo 2
+            if (element.name === 'Tónicas') {
+              themeStore.setTonicas({
+                name: element.name,
+                theory: element.TheoreticalMaterial.resource
+              })
+            }
+            if (element.name === 'Átonas') {
+              themeStore.setAtonas({
+                name: element.name,
+                theory: element.TheoreticalMaterial.resource
+              })
+            }
+            // Grupo 3
+            if (element.name === 'Tritónicas') {
+              themeStore.setTritonicas({
+                name: element.name,
+                theory: element.TheoreticalMaterial.resource
+              })
+            }
+          })
         })
         .catch((error) => {
           console.log(error)
@@ -88,19 +154,23 @@ export default defineComponent({
 
     const methods = {
       ages: () => {
-        console.log('ages')
         makeRequest(`theoretical-material/get-themes/${1}`)
+        themeStore.setGroupSeleted(1)
+        groupSelected.value = 1
       },
       tonicaAtona: () => {
-        console.log('tonica')
         makeRequest(`theoretical-material/get-themes/${2}`)
+        themeStore.setGroupSeleted(2)
+        groupSelected.value = 2
       },
       tritonica: () => {
-        console.log('tritongo')
         makeRequest(`theoretical-material/get-themes/${3}`)
+        themeStore.setGroupSeleted(3)
+        groupSelected.value = 3
       }
     }
 
+    // En click del botón material Teórico
     function executeCallback () {
       methods[props.callback]()
       router.push({ path: '/theoreticalMaterialPage' })

@@ -11,11 +11,6 @@
           :textBottom="option.textBottom"
           :callback="option.callback"
         />
-
-      </div>
-      <div class="row justify-center q-pa-md">
-        <q-btn color="primary" icon="check" label="OK" @click="esto" />
-
       </div>
     </div>
   </div>
@@ -31,18 +26,6 @@ export default defineComponent({
     OptionTheme
   },
   setup () {
-    const accentuations = [
-      'Aguda',
-      'Grave (Llana)',
-      'Esdrújula',
-      'Sobresdrújula'
-    ]
-
-    function esto () {
-      console.log('works')
-      console.log(accentuations)
-    }
-
     const listOptions = [
       {
         icon: 'fluent-emoji-high-contrast:parrot',
@@ -64,8 +47,7 @@ export default defineComponent({
       }
     ]
     return {
-      listOptions,
-      esto
+      listOptions
     }
   }
 })
