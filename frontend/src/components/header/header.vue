@@ -46,7 +46,8 @@ export default defineComponent({
       '/challengeModePage': 'Modo reto',
       '/response': 'Consulta',
       '/theoreticalMaterialPage': 'Información teórica',
-      '/menuStrategiesPage': 'Selección de juego'
+      '/menuStrategiesPage': 'Selección de juego',
+      '/strategiesPage': 'Estrategia ...'
     }
 
     const handleRouteChange = (to, from) => {
@@ -58,6 +59,7 @@ export default defineComponent({
       if (['/makeQueryPage', '/themePage', '/challengeModePage'].includes(to.path)) { redirectPath.value = '/' }
       if (['/response'].includes(to.path)) { redirectPath.value = '/makeQueryPage' }
       if (['/theoreticalMaterialPage', '/menuStrategiesPage'].includes(to.path)) { redirectPath.value = '/themePage' }
+      if (['/strategiesPage'].includes(to.path)) { redirectPath.value = '/menuStrategiesPage' }
     }
 
     onMounted(() => {

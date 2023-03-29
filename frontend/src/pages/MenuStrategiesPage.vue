@@ -1,5 +1,10 @@
 <template>
   <q-page>
+    <div class="row q-mt-md">
+      <p class="col-12 text-center text-bold">
+        Juegos de  ((Theme_id ))
+      </p>
+    </div>
     <div class="row">
       <app-button-circle
         icon="mdi:head-dots-horizontal-outline"
@@ -38,7 +43,7 @@
         icon="game-icons:read"
         class="col-4"
         paragraph="Juego lectura"
-        @click="inBuilding"
+        @click="strategyRead"
       />
 
     </div>
@@ -49,6 +54,7 @@
 import { defineComponent } from 'vue'
 import ButtonCircle from '../components/buttons/buttonCircle'
 import { Notify } from 'quasar'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'MenuStrategiesPage',
@@ -56,7 +62,8 @@ export default defineComponent({
     appButtonCircle: ButtonCircle
   },
   setup () {
-    // TODO: Los juegos disponibles van a ser memoria y asociación
+    const router = useRouter()
+    // TODO: Los juegos disponibles van a ser lectura y asociación
     function inBuilding () {
       Notify.create({
         message: '<b>En construcción:</b> Próximamente disponible',
@@ -67,8 +74,15 @@ export default defineComponent({
         timeout: 500
       })
     }
+
+    function strategyRead () {
+      console.log('ppppp')
+      router.push({ path: '/strategiesPage' })
+    }
+
     return {
-      inBuilding
+      inBuilding,
+      strategyRead
     }
   }
 })
