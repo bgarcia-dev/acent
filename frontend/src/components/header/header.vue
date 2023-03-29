@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted /* onUnmounted */ } from 'vue'
+import { defineComponent, ref, onMounted } from 'vue'
 import { Dark } from 'quasar'
 import { useRouter } from 'vue-router'
 
@@ -45,7 +45,8 @@ export default defineComponent({
       '/themePage': 'Temas',
       '/challengeModePage': 'Modo reto',
       '/response': 'Consulta',
-      '/theoreticalMaterialPage': 'Información teórica'
+      '/theoreticalMaterialPage': 'Información teórica',
+      '/menuStrategiesPage': 'Selección de juego'
     }
 
     const handleRouteChange = (to, from) => {
@@ -56,7 +57,7 @@ export default defineComponent({
       redirectPath.value = '/'
       if (['/makeQueryPage', '/themePage', '/challengeModePage'].includes(to.path)) { redirectPath.value = '/' }
       if (['/response'].includes(to.path)) { redirectPath.value = '/makeQueryPage' }
-      if (['/theoreticalMaterialPage'].includes(to.path)) { redirectPath.value = '/themePage' }
+      if (['/theoreticalMaterialPage', '/menuStrategiesPage'].includes(to.path)) { redirectPath.value = '/themePage' }
     }
 
     onMounted(() => {
