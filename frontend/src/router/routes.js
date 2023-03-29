@@ -9,7 +9,8 @@ const routes = [
       { path: 'themePage', component: () => import('pages/ThemePage.vue') },
       { path: 'challengeModePage', component: () => import('pages/ChallengeModePage.vue') },
       { path: 'response', component: () => import('pages/ResponsePage.vue') },
-      { path: 'theoreticalMaterialPage', component: () => import('pages/TheoreticalMaterialPage.vue') }
+      { path: 'theoreticalMaterialPage', component: () => import('pages/TheoreticalMaterialPage.vue') },
+      { path: 'menuStrategiesPage', component: () => import('pages/MenuStrategiesPage.vue') }
     ]
   },
 

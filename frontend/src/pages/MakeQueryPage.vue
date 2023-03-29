@@ -9,7 +9,7 @@
           label="Ingresa palabra a consultar"
           class="col-10 q-my-lg"
           :rules="[validateWord]"
-          @keydown.enter.prevent="simulateProgress"
+          @keydown.enter.prevent="makeWordQuery"
         >
           <template v-slot:prepend>
             <Icon
@@ -26,7 +26,7 @@
         <q-btn
           :loading="loading"
           :color="$q.dark.isActive ? '#f7f7f7':'primary'"
-          @click="simulateProgress"
+          @click="makeWordQuery"
           class="col-8 q-pa-sm"
           >
           <span class="text-weight-bold">Buscar</span>
@@ -62,7 +62,7 @@ export default defineComponent({
 
     // Change to page
     const router = useRouter()
-    function simulateProgress () {
+    function makeWordQuery () {
       if (text.value === '') return false
       loading.value = true
       const { accentuation } = silabaJS.getSilabas(text.value)
@@ -77,7 +77,12 @@ export default defineComponent({
           router.push({ path: '/response' })
         })
         .catch(() => {
-          Notify.create({ message: '<b>ERROR: No se puede procesar la información intente más tarde</b>', color: 'red', icon: 'dangerous', html: true })
+          Notify.create({
+            message: '<b>ERROR: No se puede procesar la información intente más tarde</b>',
+            color: 'red',
+            icon: 'dangerous',
+            html: true
+          })
         }).finally(() => {
           loading.value = false
         })
@@ -93,7 +98,7 @@ export default defineComponent({
       text,
       loading,
       progress,
-      simulateProgress,
+      makeWordQuery,
       validateWord
     }
   }

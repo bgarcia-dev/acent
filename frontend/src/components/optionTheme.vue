@@ -24,6 +24,7 @@
       <div class="row justify-center" :class="$q.screen.width < 576? 'q-mb-sm':''">
         <q-btn
         flat
+        to="/menuStrategiesPage"
         >
           <Icon
             class="self-center"
@@ -91,11 +92,10 @@ export default defineComponent({
       } = themeStore
 
       if (
-        groupSelected.value === 1 &&
-        ![aguadas, graves, sobresdrujulas, esdrujulas].includes(null)
+        ![aguadas, graves, sobresdrujulas, esdrujulas].includes(null) && groupSelected.value === 1
       ) return null
-      if (groupSelected.value === 2 && ![atonas, tonicas].includes(null)) return null
-      if (groupSelected.value === 3 && ![tritonicas].includes(null)) return null
+      if (![atonas, tonicas].includes(null) && groupSelected.value === 2) return null
+      if (![tritonicas].includes(null) && groupSelected.value === 3) return null
       api.get(url)
         .then(({ data }) => {
           data.data.forEach(element => {
@@ -146,27 +146,26 @@ export default defineComponent({
             }
           })
         })
-        .catch((error) => {
-          console.log(error)
+        .catch(() => {
           Notify.create(errorMsg)
         })
     }
 
     const methods = {
       ages: () => {
-        makeRequest(`theoretical-material/get-themes/${1}`)
         themeStore.setGroupSeleted(1)
         groupSelected.value = 1
+        makeRequest(`theoretical-material/get-themes/${1}`)
       },
       tonicaAtona: () => {
-        makeRequest(`theoretical-material/get-themes/${2}`)
-        themeStore.setGroupSeleted(2)
         groupSelected.value = 2
+        themeStore.setGroupSeleted(2)
+        makeRequest(`theoretical-material/get-themes/${2}`)
       },
       tritonica: () => {
-        makeRequest(`theoretical-material/get-themes/${3}`)
-        themeStore.setGroupSeleted(3)
         groupSelected.value = 3
+        themeStore.setGroupSeleted(3)
+        makeRequest(`theoretical-material/get-themes/${3}`)
       }
     }
 
