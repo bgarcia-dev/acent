@@ -1,8 +1,8 @@
 <template>
   <q-page>
     <div class="row q-mt-md">
-      <p class="col-12 text-center text-bold">
-        Juegos de  ((Theme_id ))
+      <p class="col-12 text-center text-bold text-h6">
+        {{ showTitle }}
       </p>
     </div>
     <div class="row">
@@ -51,10 +51,11 @@
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 import ButtonCircle from '../components/buttons/buttonCircle'
 import { Notify } from 'quasar'
 import { useRouter } from 'vue-router'
+import { useThemeStore } from '../stores/themes'
 
 export default defineComponent({
   name: 'MenuStrategiesPage',
@@ -77,12 +78,24 @@ export default defineComponent({
 
     function strategyRead () {
       console.log('ppppp')
-      router.push({ path: '/strategiesPage' })
+      router.push({ path: '/strategyRead' })
     }
+
+    const showTitle = computed(() => {
+      const themeStore = useThemeStore()
+      const options = [
+        '',
+        'Agudas, graves, esdrújulas y sobresdrújulas',
+        'Palabras tónicas y átonas',
+        'Palabras tritónicas'
+      ]
+      return options[themeStore.groupSelected]
+    })
 
     return {
       inBuilding,
-      strategyRead
+      strategyRead,
+      showTitle
     }
   }
 })

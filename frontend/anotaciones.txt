@@ -1,0 +1,15 @@
+========= EStrategia lectura=========================================================
+va a ser un juego por tiempo
+me imagino que debe de haber un tiempo global del juego con todos los reactivos
+un tiempo mínimo por reactivo
+un mínimo de reactivos (5 lecturas)
+1.- Selecciona palabra
+1.1.-  Si la palabra es correcta:
+  Se cambia la palabra se coloca en color verde/azul
+  (expectativa) tiene que mostrar si la palabra es aguda, grave, etc
+1.2.- Tachas... tachas y perico, tachas... tachas y perico
+1.3.- Entonces solamente se evalúa el tiempo de respuesta del usuario
+
+-  Si la palabra Es Errónea:
+De momento nada, no pasa nada, es solo un juego contra el tiempo
+============================

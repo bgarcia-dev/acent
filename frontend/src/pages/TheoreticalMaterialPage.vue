@@ -58,7 +58,7 @@ export default defineComponent({
       // TODO: hotfix: Solventar el tiempo de espera de otra forma
       setTimeout(() => {
         changeTab(tabsRender.value[0])
-      }, 0)
+      }, 100)
     })
 
     function changeTab (nameTab) {

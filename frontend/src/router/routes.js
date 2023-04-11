@@ -11,7 +11,8 @@ const routes = [
       { path: 'response', component: () => import('pages/ResponsePage.vue') },
       { path: 'theoreticalMaterialPage', component: () => import('pages/TheoreticalMaterialPage.vue') },
       { path: 'menuStrategiesPage', component: () => import('pages/MenuStrategiesPage.vue') },
-      { path: 'strategiesPage', component: () => import('pages/StrategiesPage.vue') }
+      { path: 'strategiesPage', component: () => import('pages/StrategiesPage.vue') },
+      { path: 'strategyRead', component: () => import('pages/strategies/read.vue') }
 
     ]
   },

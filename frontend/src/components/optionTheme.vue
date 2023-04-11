@@ -24,7 +24,7 @@
       <div class="row justify-center" :class="$q.screen.width < 576? 'q-mb-sm':''">
         <q-btn
         flat
-        to="/menuStrategiesPage"
+        @click="startStrategy"
         >
           <Icon
             class="self-center"
@@ -175,8 +175,19 @@ export default defineComponent({
       router.push({ path: '/theoreticalMaterialPage' })
     }
 
+    function startStrategy () {
+      const options = {
+        ages: 1,
+        tonicaAtona: 2,
+        tritonica: 3
+      }
+      themeStore.setGroupSeleted(options[props.callback])
+      router.push({ path: '/menuStrategiesPage' })
+    }
+
     return {
-      executeCallback
+      executeCallback,
+      startStrategy
     }
   }
 })

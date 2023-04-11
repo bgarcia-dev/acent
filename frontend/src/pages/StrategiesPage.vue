@@ -1,16 +1,26 @@
 <template>
   <q-page>
     <h1>Estrategias o algo</h1>
+    <pre>
+      {{ groupSelected }}
+    </pre>
   </q-page>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
+import { useThemeStore } from '../stores/themes'
 
 export default defineComponent({
   name: 'StrategiesPage',
   setup () {
-    return {}
+    const groupSelected = ref('')
+    const themeStore = useThemeStore()
+    groupSelected.value = themeStore.groupSelected
+
+    return {
+      groupSelected
+    }
   }
 })
 </script>
