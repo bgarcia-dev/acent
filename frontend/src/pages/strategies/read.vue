@@ -26,6 +26,9 @@
       </span>
       </p>
     </div>
+    <div class="row col-12 justify-center q-mt-lg">
+      <app-timer @timeout="manejarEvento"/>
+    </div>
   </q-page>
 </template>
 
@@ -33,9 +36,13 @@
 import { defineComponent, ref } from 'vue'
 import { useThemeStore } from '../../stores/themes'
 import { Notify } from 'quasar'
+import Timer from '../../components/Timer.vue'
 
 export default defineComponent({
   name: 'StrategyRead',
+  components: {
+    appTimer: Timer
+  },
   setup () {
     const groupSelected = ref('')
     const themeStore = useThemeStore()
@@ -445,13 +452,18 @@ export default defineComponent({
       }
     }
 
+    function manejarEvento (infoAdicional) {
+      console.log('Evento recibido del componente hijo con información adicional:', infoAdicional)
+    }
+
     return {
       groupSelected,
       lectura,
       meth,
       valores,
       cantidadTotalDePalabras,
-      cantidadPalabrasEncontradas
+      cantidadPalabrasEncontradas,
+      manejarEvento
     }
   }
 })

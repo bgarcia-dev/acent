@@ -16,6 +16,5 @@ TODO:
 Necesito poner el temporizador
 Poner la cantidad de palabras a mostrar tal vez con un indicador 1/5 (Darle funcionalidad) - listo
 Que cuando una palabra se seleccione indique que tipo de palabra es - listo
-Al completar la lectura pasar a la siguiente hasta las 4 lecturas
-cambiar color del texto en modo light
+Al completar la lectura pasar a la siguiente hasta las 4 lecturas con Backend
 ============================
