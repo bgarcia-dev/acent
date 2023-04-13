@@ -39,7 +39,6 @@ module.exports = (sequelize, DataTypes) => {
       answer: DataTypes.STRING,
       totalWords: DataTypes.INTEGER,
       pair: DataTypes.INTEGER,
-      theme_id: DataTypes.INTEGER,
       created_at: DataTypes.DATE,
       updated_at: DataTypes.DATE,
       deleted_at: DataTypes.DATE,

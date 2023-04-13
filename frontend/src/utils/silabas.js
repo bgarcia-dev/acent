@@ -7,6 +7,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable prefer-const */
 
+// https://github.com/nicofrem/silabajs/blob/master/silabajs.js
+
 // Objeto con metodo que se utilizará globalmente
 export const silabaJS = {
   getSilabas

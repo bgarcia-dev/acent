@@ -48,7 +48,6 @@ export default defineComponent({
     const themeStore = useThemeStore()
     groupSelected.value = themeStore.groupSelected
 
-    const lectura = ref('')
     const valores = ref('')
     const cantidadTotalDePalabras = ref(5)
     const cantidadPalabrasEncontradas = ref(0)
@@ -458,7 +457,6 @@ export default defineComponent({
 
     return {
       groupSelected,
-      lectura,
       meth,
       valores,
       cantidadTotalDePalabras,

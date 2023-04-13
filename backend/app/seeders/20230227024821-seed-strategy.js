@@ -7,43 +7,32 @@ module.exports = {
       'Strategy',
       [
         {
-          name: 'Relaciona imagen con su palabra',
+          name: 'Juegos de memoria',
           description:
             'Se emplea para que el usuario recuerde y asocie correctamente la palabra con su acentuación.',
-          type: 'Juegos de memoria',
-          difficulty_level: 'fácil',
-          image: 'public/strategy/images/img01.jpg',
-          multimedia: 'public/strategy/video/vid01.mp4',
-          answer: null,
-          totalWords: null,
-          pair: null,
-          theme_id: 1,
         },
         {
-          name: 'Elige con cuidado',
+          name: 'Juegos de selección múltiple',
           description:
             'El usuario puede elegir la opción correcta entre varias opciones de acentuación de una misma palabra.',
-          type: 'Juegos de selección múltiple',
-          difficulty_level: 'difícil',
-          image: null,
-          multimedia: null,
-          answer: null,
-          totalWords: 3,
-          pair: null,
-          theme_id: 1,
         },
         {
-          name: 'Relaciona imagen con su palabra',
+          name: 'Juegos de asociación',
+          description: 'El usuario puede asociar correctamente una palabra con su significado.',
+        },
+        {
+          name: 'Juegos de búsqueda',
           description:
             'El usuario puede encontrar una palabra con su acentuación correcta en un grupo de palabras.',
-          type: 'Juegos de búsqueda',
-          difficulty_level: 'fácil',
-          image: 'public/strategy/images/img05.png',
-          multimedia: null,
-          answer: null,
-          totalWords: null,
-          pair: null,
-          theme_id: 2,
+        },
+        {
+          name: 'Juegos de construcción de palabras',
+          description:
+            'El usuario puede construir correctamente una palabra a partir de sus sílabas y acentuarla adecuadamente.',
+        },
+        {
+          name: 'Juegos de lectura',
+          description: 'El usuario puede leer un texto y encontrar las palabras mal acentuadas.',
         },
       ],
       {},

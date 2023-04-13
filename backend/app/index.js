@@ -11,7 +11,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 app.use('/v1', route)
 app.use((err, req, res, next) => {
-  console.log('lleva')
   if (err) {
     res.status(500).json({ status: false, message: err.message })
   }

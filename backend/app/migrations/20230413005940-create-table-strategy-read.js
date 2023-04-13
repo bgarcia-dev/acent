@@ -3,40 +3,29 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Strategy', {
+    await queryInterface.createTable('StrategyRead', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      name: {
-        type: Sequelize.STRING(50),
-        allowNull: false,
-      },
-      description: {
+      content: {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      image: {
-        type: Sequelize.TEXT,
-        allowNull: true,
+      strategy_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
-      multimedia: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-      },
-      answer: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-      },
-      totalWords: {
+      total_words: {
         type: Sequelize.INTEGER,
         allowNull: true,
       },
-      pair: {
-        type: Sequelize.INTEGER,
+      image_path: {
+        type: Sequelize.TEXT,
         allowNull: true,
+        comment: 'Imagen relacionada al texto',
       },
       // timeStamps
       created_at: {
@@ -56,6 +45,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Strategy')
+    await queryInterface.dropTable('StrategyRead')
   },
 }
