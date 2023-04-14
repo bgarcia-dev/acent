@@ -5,8 +5,11 @@ const sequelize = require('sequelize')
 class StrategyReadController {
   static elements = async (req, res, next) => {
     try {
-      // TODO: poner distinción de grupo de temas a los que pertenece la lectura AGES. Tonica, Tritonica
+      const { group } = req.params
+      const condition = group ? { group } : {}
+
       const data = await StrategyRead.findAll({
+        where: condition,
         order: sequelize.literal('RAND()'),
         limit: 3,
       })

@@ -10,6 +10,7 @@ module.exports = {
           strategy_id: 6,
           total_words: 5,
           image_path: '~/assets/img01.png',
+          type: 'AGES',
           content: JSON.stringify([
             {
               uuid: '3747b270-764f-4b49-b5a3-6ab6e0e0ee5c',
@@ -386,6 +387,7 @@ module.exports = {
           strategy_id: 6,
           total_words: 5,
           image_path: '~/assets/img01.png',
+          type: 'AGES',
           content: JSON.stringify([
             {
               uuid: 'c857ad0b-55bd-48b7-8ce1-8c96e8038881',
@@ -930,6 +932,7 @@ module.exports = {
           strategy_id: 6,
           total_words: 6,
           image_path: '~/assets/img01.png',
+          type: 'AGES',
           content: JSON.stringify([
             {
               uuid: '7c3e0a0c-fba8-4fbf-b852-4ed7385f4486',
@@ -1363,6 +1366,7 @@ module.exports = {
           strategy_id: 6,
           total_words: 3,
           image_path: '~/assets/img01.png',
+          type: 'AGES',
           content: JSON.stringify([
             {
               uuid: '77660d93-6e0a-4b15-b4be-6df43c22a262',
@@ -1548,6 +1552,7 @@ module.exports = {
           strategy_id: 6,
           total_words: 6,
           image_path: '~/assets/img01.png',
+          type: 'AGES',
           content: JSON.stringify([
             {
               uuid: '11f61ac4-cb9b-4914-91e3-5aefc9d72ae7',
@@ -2261,6 +2266,7 @@ module.exports = {
           strategy_id: 6,
           total_words: 4,
           image_path: '~/assets/img01.png',
+          type: 'AGES',
           content: JSON.stringify([
             {
               uuid: '15267a13-2fe2-4f82-be9c-57e24cce4db7',

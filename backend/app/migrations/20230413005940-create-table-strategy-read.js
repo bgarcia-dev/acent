@@ -27,6 +27,11 @@ module.exports = {
         allowNull: true,
         comment: 'Imagen relacionada al texto',
       },
+      type: {
+        type: Sequelize.STRING(10),
+        allowNull: false,
+        comment: 'Agrupación de temas para la estrategia',
+      },
       // timeStamps
       created_at: {
         allowNull: false,
@@ -40,6 +45,15 @@ module.exports = {
       deleted_at: {
         allowNull: true,
         type: Sequelize.DATE,
+      },
+    })
+    // Llaves foráneas
+    await queryInterface.addConstraint('StrategyRead', {
+      type: 'FOREIGN KEY',
+      fields: ['strategy_id'],
+      references: {
+        table: 'Strategy',
+        field: 'id',
       },
     })
   },
