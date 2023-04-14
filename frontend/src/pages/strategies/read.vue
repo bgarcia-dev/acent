@@ -84,22 +84,22 @@ export default defineComponent({
         if (cantidadPalabrasEncontradas.value === cantidadTotalDePalabras.value) {
           const sizeExercises = buffer.value.length
           if (numberExcersice.value !== sizeExercises) {
-            console.log('SIGUE')
             valores.value = buffer.value[numberExcersice.value].content
             image.value = buffer.value[numberExcersice.value].image_path
             cantidadTotalDePalabras.value = buffer.value[numberExcersice.value].total_words
             cantidadPalabrasEncontradas.value = 0
             numberExcersice.value++
+            // Mensaje de progreso exitoso
+            Notify.create({
+              color: 'green',
+              html: true,
+              position: 'center',
+              icon: 'thumb_up',
+              timeout: 100
+            })
           }
 
           if (numberExcersice.value === sizeExercises) { console.log('COMPLETE GAME') }
-
-          Notify.create({
-            message: '<b>TODO:NEXT PAGE</b>',
-            color: 'danger',
-            html: true,
-            position: 'center'
-          })
         }
       }
     }
