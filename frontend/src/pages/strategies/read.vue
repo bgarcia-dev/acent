@@ -62,6 +62,7 @@ export default defineComponent({
     const cantidadTotalDePalabras = ref(5)
     const cantidadPalabrasEncontradas = ref(0)
     const image = ref('img01.png')
+    const numberExcersice = ref(1)
 
     function checkWord (event, element) {
       if (element.status === false && element.isEvaluable) {
@@ -81,6 +82,18 @@ export default defineComponent({
         })
 
         if (cantidadPalabrasEncontradas.value === cantidadTotalDePalabras.value) {
+          const sizeExercises = buffer.value.length
+          if (numberExcersice.value !== sizeExercises) {
+            console.log('SIGUE')
+            valores.value = buffer.value[numberExcersice.value].content
+            image.value = buffer.value[numberExcersice.value].image_path
+            cantidadTotalDePalabras.value = buffer.value[numberExcersice.value].total_words
+            cantidadPalabrasEncontradas.value = 0
+            numberExcersice.value++
+          }
+
+          if (numberExcersice.value === sizeExercises) { console.log('COMPLETE GAME') }
+
           Notify.create({
             message: '<b>TODO:NEXT PAGE</b>',
             color: 'danger',
@@ -96,14 +109,12 @@ export default defineComponent({
     }
 
     onMounted(() => {
+      // Cargamos los datos para la lectura
       api.get(`strategy-read/elements/${'AGES'}`).then(({ data }) => {
-        console.log('%c ENRD ', 'background: #222; color: #bada55')
-
         buffer.value = data.data
         valores.value = buffer.value[0].content
         cantidadTotalDePalabras.value = buffer.value[0].total_words
         image.value = buffer.value[0].image_path
-        console.log(buffer.value)
       }).catch(() => {
         Notify.create(errorMsg)
       })
