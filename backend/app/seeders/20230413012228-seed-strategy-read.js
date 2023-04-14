@@ -9,7 +9,7 @@ module.exports = {
         {
           strategy_id: 6,
           total_words: 5,
-          image_path: '~/assets/img01.png',
+          image_path: 'img01.png',
           type: 'AGES',
           content: JSON.stringify([
             {
@@ -386,7 +386,7 @@ module.exports = {
         {
           strategy_id: 6,
           total_words: 5,
-          image_path: '~/assets/img01.png',
+          image_path: 'img02.png',
           type: 'AGES',
           content: JSON.stringify([
             {
@@ -931,7 +931,7 @@ module.exports = {
         {
           strategy_id: 6,
           total_words: 6,
-          image_path: '~/assets/img01.png',
+          image_path: 'img03.png',
           type: 'AGES',
           content: JSON.stringify([
             {
@@ -1365,7 +1365,7 @@ module.exports = {
         {
           strategy_id: 6,
           total_words: 3,
-          image_path: '~/assets/img01.png',
+          image_path: 'img04.png',
           type: 'AGES',
           content: JSON.stringify([
             {
@@ -1551,7 +1551,7 @@ module.exports = {
         {
           strategy_id: 6,
           total_words: 6,
-          image_path: '~/assets/img01.png',
+          image_path: 'img05.jpeg',
           type: 'AGES',
           content: JSON.stringify([
             {
@@ -2265,7 +2265,7 @@ module.exports = {
         {
           strategy_id: 6,
           total_words: 4,
-          image_path: '~/assets/img01.png',
+          image_path: 'img06.jpeg',
           type: 'AGES',
           content: JSON.stringify([
             {
