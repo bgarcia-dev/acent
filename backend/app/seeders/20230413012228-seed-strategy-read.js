@@ -951,7 +951,7 @@ module.exports = {
             {
               uuid: '91f0a84b-4c96-4fbe-8b3b-a41d5591b55c',
               correctValue: 'época ',
-              text: 'época ',
+              text: 'epocá ',
               isEvaluable: true,
               status: false,
               accentuation: 'esdrújula',
