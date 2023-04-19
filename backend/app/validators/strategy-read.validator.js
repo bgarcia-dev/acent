@@ -12,6 +12,13 @@ const { validateResult } = require('./validate_helper')
  */
 const validateGroup = [
   check('group')
+    .default(null)
+    .customSanitizer((val, { req }) => {
+      if (val == 'null') return null
+      if (val == undefined) return null
+      if (val == 'undefined') return null
+      return val
+    })
     .isString()
     .withMessage('group param must be a string')
     .trim()

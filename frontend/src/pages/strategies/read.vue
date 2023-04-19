@@ -205,8 +205,9 @@ export default defineComponent({
     }
 
     onMounted(() => {
+      const selection = ['AGES', 'TonicaAtona', 'Tritonica']
       // Cargamos los datos para la lectura
-      api.get(`strategy-read/elements/${'AGES'}`).then(({ data }) => {
+      api.get(`strategy-read/elements/${selection[groupSelected.value - 1]}`).then(({ data }) => {
         buffer.value = data.data
         valores.value = buffer.value[0].content
         cantidadTotalDePalabras.value = buffer.value[0].total_words
