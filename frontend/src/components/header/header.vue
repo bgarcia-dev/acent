@@ -47,7 +47,8 @@ export default defineComponent({
       '/response': 'Consulta',
       '/theoreticalMaterialPage': 'Información teórica',
       '/menuStrategiesPage': 'Selección de juego',
-      '/strategiesPage': 'Estrategia ...'
+      '/strategiesPage': 'Estrategia ...',
+      '/strategyRead': 'Juego de lectura'
     }
 
     const handleRouteChange = (to, from) => {

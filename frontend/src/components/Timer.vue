@@ -1,5 +1,5 @@
 <template>
-  <div @click="emitirEvento">
+  <div>
     <div class="text-center">
       Tiempo restante: <br>
       {{ minutes }} : {{ seconds < 10 ? '0' : '' }}{{ seconds }}
@@ -14,9 +14,9 @@ import { defineComponent, ref, watch } from 'vue'
 export default defineComponent({
   name: 'timerComponent',
   emits: ['timeout'],
-  setup () {
-    const minutes = ref(2)
-    const seconds = ref(0)
+  setup (props, context) {
+    const minutes = ref(3)
+    const seconds = ref(20)
     const timeUp = ref(false)
 
     const countdown = () => {
@@ -36,18 +36,14 @@ export default defineComponent({
     watch(timeUp, (value) => {
       if (value) {
         clearInterval(timer)
+        context.emit('timeout')
       }
     })
-
-    function emitirEvento () {
-      this.$emit('timeout', 'xxxx')
-    }
 
     return {
       minutes,
       seconds,
-      timeUp,
-      emitirEvento
+      timeUp
     }
   }
 })

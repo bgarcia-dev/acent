@@ -31,10 +31,12 @@
       <app-timer @timeout="handlerEvent"/>
     </div>
 
+    <!-- dialog exitoso -->
     <q-dialog
       v-model="fullWidth"
       :maximized="true"
       persistent
+      @hide="onDialogHide"
     >
       <q-card :class="$q.dark.isActive ? 'card-theme--dark':'card-theme--light'">
         <q-card-section class="row" :class="$q.dark.isActive ? 'title-theme--dark':'title-theme--light'">
@@ -62,10 +64,51 @@
         <q-card-section class="row justify-center">
           <q-btn
             rounded
+            v-close-popup
             :class="$q.dark.isActive ? 'button-theme--dark': 'button-theme--light'"
             size="md"
             label="Aceptar"
-            @click="changeTheme"
+          />
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+
+    <!-- dialog timeout -->
+    <q-dialog
+      v-model="dialogTimeout"
+      :maximized="true"
+      persistent
+      @hide="onDialogHide"
+    >
+      <q-card :class="$q.dark.isActive ? 'card-theme--dark':'card-theme--light'">
+        <q-card-section class="row" :class="$q.dark.isActive ? 'title-theme--dark':'title-theme--light'">
+          <div class="text-h6 col-10 text-white">Resultados</div>
+          <q-btn flat icon="close" class="col-2 text-white" v-close-popup/>
+        </q-card-section>
+
+        <q-card-section>
+          <p class="text-h3 text-center q-mt-lg">Se acabo el tiempo</p>
+          <p class="text-h6 text-center q-py-md">Vuelve a intentarlo estas más cerca de lograrlo</p>
+          <div class="row justify-center">
+            <q-img
+            class="col-12 col-md-4"
+              src="~/assets/timeout.svg"
+              :ratio="16/9"
+              spinner-color="primary"
+              spinner-size="82px"
+            />
+          </div>
+          <br>
+          <br>
+          <p class="text-center q-py-lg"> Continua aprendiendo, nunca dejes de aprender </p>
+        </q-card-section>
+        <q-card-section class="row justify-center">
+          <q-btn
+            rounded
+            v-close-popup
+            :class="$q.dark.isActive ? 'button-theme--dark': 'button-theme--light'"
+            size="md"
+            label="Aceptar"
           />
         </q-card-section>
       </q-card>
@@ -80,6 +123,7 @@ import { useThemeStore } from '../../stores/themes'
 import { Notify, Dark } from 'quasar'
 import Timer from '../../components/Timer.vue'
 import { api } from 'boot/axios'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'StrategyRead',
@@ -105,6 +149,7 @@ export default defineComponent({
     const image = ref('img01.png')
     const numberExcersice = ref(1)
     const fullWidth = ref(false)
+    const dialogTimeout = ref(false)
 
     const startTime = ref(null)
     const endTime = ref(null)
@@ -120,7 +165,7 @@ export default defineComponent({
 
         Notify.create({
           message: `<b>Palabra ${element.accentuation}</b>`,
-          color: 'indigo',
+          color: Dark.isActive ? 'indigo' : 'primary',
           html: true,
           timeout: 300,
           position: 'bottom-left',
@@ -137,7 +182,7 @@ export default defineComponent({
             numberExcersice.value++
             // Mensaje de progreso exitoso
             Notify.create({
-              color: 'green',
+              color: Dark.isActive ? 'indigo' : 'primary',
               html: true,
               position: 'center',
               icon: 'thumb_up',
@@ -155,8 +200,8 @@ export default defineComponent({
       }
     }
 
-    function handlerEvent (infoAdicional) {
-      console.log('Evento recibido del componente hijo con información adicional:', infoAdicional)
+    function handlerEvent () {
+      dialogTimeout.value = true
     }
 
     onMounted(() => {
@@ -173,8 +218,9 @@ export default defineComponent({
       startTime.value = Date.now()
     })
 
-    const changeTheme = () => {
-      Dark.toggle()
+    const router = useRouter()
+    const onDialogHide = () => {
+      router.push({ path: '/menuStrategiesPage' })
     }
 
     return {
@@ -186,8 +232,9 @@ export default defineComponent({
       handlerEvent,
       image,
       fullWidth,
-      changeTheme,
-      timeUser
+      timeUser,
+      onDialogHide,
+      dialogTimeout
     }
   }
 })
