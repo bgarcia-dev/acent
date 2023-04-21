@@ -28,7 +28,7 @@ module.exports = {
         comment: 'Imagen relacionada al texto',
       },
       type: {
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(15),
         allowNull: false,
         comment: 'Agrupación de temas para la estrategia',
       },
