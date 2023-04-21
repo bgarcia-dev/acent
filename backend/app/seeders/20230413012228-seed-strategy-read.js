@@ -7422,6 +7422,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Theme', null, {})
+    await queryInterface.bulkDelete('StrategyRead', null, {})
   },
 }
