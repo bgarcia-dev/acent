@@ -2,7 +2,8 @@
   <q-page>
     <div class="row col-12">
       <p class="col-12 text-center q-mb-md" style="font-size: 18px;">
-        <i>Selecciona las palabras mal escritas antes que el tiempo se agote</i>
+        <i v-if="groupSelected == 1">Selecciona las palabras mal escritas antes que el tiempo se agote</i>
+        <i v-else>Selecciona las palabras antes que el tiempo se agote</i>
       </p>
 
     </div>
