@@ -24,8 +24,7 @@ const validateGroup = [
     .trim()
     .bail()
     .isIn(['AGES', 'TonicaAtona', 'Tritonica'])
-    .withMessage('Select valid theme [AGES,TonicaAtona,Tritonica]')
-    .toInt(),
+    .withMessage('Select valid theme [AGES,TonicaAtona,Tritonica]'),
 
   (req, res, next) => {
     validateResult(req, res, next)

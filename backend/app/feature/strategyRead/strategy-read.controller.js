@@ -6,7 +6,7 @@ class StrategyReadController {
   static elements = async (req, res, next) => {
     try {
       const { group } = req.params
-      const condition = group ? { group } : {}
+      const condition = group ? { type: group } : {}
 
       const data = await StrategyRead.findAll({
         where: condition,
