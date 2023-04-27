@@ -215,6 +215,7 @@ export default defineComponent({
         image.value = buffer.value[0].image_path
       }).catch(() => {
         Notify.create(errorMsg)
+        router.push({ path: '/themePage' })
       })
       // Iniciamos contador de tiempo del usuario
       startTime.value = Date.now()
