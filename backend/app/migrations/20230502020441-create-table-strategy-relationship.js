@@ -3,7 +3,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('StrategyRead', {
+    await queryInterface.createTable('StrategyRelationship', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -17,15 +17,6 @@ module.exports = {
       strategy_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-      },
-      total_words: {
-        type: Sequelize.INTEGER,
-        allowNull: true,
-      },
-      image_path: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-        comment: 'Imagen relacionada al texto',
       },
       type: {
         type: Sequelize.STRING(15),
@@ -48,7 +39,7 @@ module.exports = {
       },
     })
     // Llaves foráneas
-    await queryInterface.addConstraint('StrategyRead', {
+    await queryInterface.addConstraint('StrategyRelationship', {
       type: 'FOREIGN KEY',
       fields: ['strategy_id'],
       references: {
@@ -59,6 +50,6 @@ module.exports = {
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('StrategyRead')
+    await queryInterface.dropTable('StrategyRelationship')
   },
 }
