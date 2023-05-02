@@ -23,7 +23,7 @@
         icon="carbon:chart-relationship"
         class="col-4"
         paragraph="Juego asociación"
-        @click="inBuilding"
+        @click="strategyRelationship"
       />
 
       <app-button-circle
@@ -77,8 +77,11 @@ export default defineComponent({
     }
 
     function strategyRead () {
-      console.log('ppppp')
       router.push({ path: '/strategyRead' })
+    }
+
+    function strategyRelationship () {
+      router.push({ path: '/strategyRelationship' })
     }
 
     const showTitle = computed(() => {
@@ -95,6 +98,7 @@ export default defineComponent({
     return {
       inBuilding,
       strategyRead,
+      strategyRelationship,
       showTitle
     }
   }
