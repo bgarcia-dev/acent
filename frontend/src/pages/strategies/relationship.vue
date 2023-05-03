@@ -6,7 +6,7 @@
       </p>
     </div>
 
-    <div class="row col-12" v-for="element in elements" :key="element.uuid" >
+    <div class="row col-12" v-for="(element,index) in elements" :key="element.uuid" >
 
       <div class="col-4 col-md-2 q-px-md q-py-md" @click="playAudio($event,require(`../../assets/relationship/${element.audio}`))">
         <div
@@ -30,7 +30,7 @@
           class="relative-position flex shadow-3 q-px-md q-py-md cursor-pointer"
           style="min-height: 100%; min-width: 100%;"
         >
-          <div v-html="element.significado"></div>
+          <div v-html="significados[index].significado"></div>
         </div>
       </div>
     </div>
@@ -72,6 +72,18 @@ export default defineComponent({
 
     ]
 
+    const buffer2 = [{
+      uuid: '1',
+      significado: '<p style="font-size:16px">Cuenta con una acepción que da cuenta de la clase a la que pertenece una cosa o un individuo. <br/><br/> Se refiere a una descripción de lo que es algo o alguien.</p> <small> <i>Acentuación :  Esdrújula<i> </small>'
+
+    }, {
+      uuid: '2',
+      significado: '<p style="font-size:16px">Corresponde a una conjugación del verbo transitivo <i>“Generar”</i> hecha en primera persona del presente indicativo. <br/><br/> Estoy hablando de algo que estoy haciendo ahora mismo.</p> <small> <i>Acentuación :  Grave<i> </small>'
+    }, {
+      uuid: '3',
+      significado: '<p style="font-size:16px"> Constituye también una conjugación del verbo transitivo <i>“generar”</i> hecha en tercera persona del singular correspondiente al pretérito perfecto simple del modo indicativo. <br/><br/> Es una acción que hizo alguien en el pasado.</p> <small> <i>Acentuación :  Aguda<i> </small>'
+    }]
+
     /**
      * TODO:
      * Poner selector
@@ -86,12 +98,13 @@ export default defineComponent({
 
     // Comportamiento reactivos
     const elements = ref([])
+    const significados = ref([])
 
     onMounted(() => {
       const selection = ['AGES', 'TonicaAtona', 'Tritonica']
       console.log(`%c ${selection[groupSelected.value - 1]} `, 'background: #222; color: #bada55')
-      // console.log(buffer)
       elements.value = buffer
+      significados.value = buffer2.sort(() => Math.random() - 0.5)
     })
 
     function playAudio (event, path) {
@@ -102,7 +115,8 @@ export default defineComponent({
 
     return {
       elements,
-      playAudio
+      playAudio,
+      significados
     }
   }
 })
