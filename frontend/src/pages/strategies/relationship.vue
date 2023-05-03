@@ -141,6 +141,7 @@ export default defineComponent({
         selectedRef.value = document.querySelector(`[ref="item-${index}"]`)
         selectedRef?.value?.setAttribute('style', 'border: 2px solid red')
       }
+      compareSelection()
     }
 
     // SELECTOR IMAGES
@@ -164,6 +165,16 @@ export default defineComponent({
         selectedIMGRef.value = document.querySelector(`[ref="item-${index}"]`)
         selectedIMGRef?.value?.setAttribute('style', 'border: 2px solid red')
       }
+
+      compareSelection()
+    }
+
+    function compareSelection () {
+      const imageSelected = elements.value[selectedIMGIndex.value]?.uuid
+      const meaningSelected = significados.value[selectedIndex.value]?.uuid
+      if (imageSelected === meaningSelected) {
+        console.log('%c SON IGUALES ', 'background: #222; color: #bada55')
+      }
     }
 
     return {
@@ -177,7 +188,8 @@ export default defineComponent({
       selectedIMGIndex,
       selectedIMGRef,
       setIMGRef,
-      selectIMGItem
+      selectIMGItem,
+      compareSelection
     }
   }
 })
