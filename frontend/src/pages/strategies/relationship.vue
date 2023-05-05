@@ -244,3 +244,13 @@ export default defineComponent({
   }
 })
 </script>
+/**
+  Tareas para HOY:
+  - Conectar el backend con el front
+    - Crear data set mínimo de prueba
+    - Configurar un mínimo de 3 ejercicios
+  - Mostrar pantalla final
+    - Se califica por error
+    - También se muestra tiempo en la estrategia
+  - Configurar la ruta
+ */
