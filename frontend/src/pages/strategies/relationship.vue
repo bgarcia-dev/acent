@@ -12,9 +12,9 @@
         <div
           v-ripple
           class="relative-position flex flex-center q-px-md q-pt-md shadow-3 cursor-pointer"
-          :ref="setIMGRef(index)"
-          :style="{ border: selectedIMGIndex === index ? '2px solid red' : '2px solid black' }"
-          @click="playAudio($event,require(`../../assets/relationship/${element.audio}`), index)"
+          @mousedown=" statusIMG[index].state != 'FOUND' ?  currentIMG = index : currentIMG "
+          @click="playAudio(require(`../../assets/relationship/${element.audio}`), index) "
+          :style="statusIMG[index].style"
         >
           <q-img
           :src="require(`../../assets/relationship/${element.image}`)"
@@ -32,10 +32,10 @@
           v-ripple
           class="relative-position flex shadow-3 q-px-md q-py-md cursor-pointer"
           style="min-height: 100%; min-width: 100%;"
-          :ref="setRef(index)"
-          :style="{ border: selectedIndex === index ? '2px solid red' : '2px solid black' }"
-          @click="selectItem(index)"
-        >
+          @click="toggleMeaning(index)"
+          @mousedown=" statusMeaning[index].state != 'FOUND' ? currentMeaning = index : currentMeaning  "
+          :style="statusMeaning[index].style"
+          >
           <div v-html="significados[index].significado"></div>
         </div>
       </div>
@@ -45,7 +45,7 @@
 </template>
 
 <script>
-import { defineComponent, ref, onMounted } from 'vue'
+import { defineComponent, ref, onMounted, reactive } from 'vue'
 import { useThemeStore } from '../../stores/themes'
 
 export default defineComponent({
@@ -90,13 +90,6 @@ export default defineComponent({
       significado: '<p style="font-size:16px"> Constituye también una conjugación del verbo transitivo <i>“generar”</i> hecha en tercera persona del singular correspondiente al pretérito perfecto simple del modo indicativo. <br/><br/> Es una acción que hizo alguien en el pasado.</p> <small> <i>Acentuación :  Aguda<i> </small>'
     }]
 
-    /**
-     * TODO:
-     * Poner selector
-     * cambios de selector
-     * evaluar selección
-     */
-
     // Selección de grupo temas
     const groupSelected = ref('')
     const themeStore = useThemeStore()
@@ -107,97 +100,147 @@ export default defineComponent({
     const significados = ref([])
 
     onMounted(() => {
-      const selection = ['AGES', 'TonicaAtona', 'Tritonica']
-      console.log(`%c ${selection[groupSelected.value - 1]} `, 'background: #222; color: #bada55')
+      // const selection = ['AGES', 'TonicaAtona', 'Tritonica']
+      // console.log(`%c ${selection[groupSelected.value - 1]} `, 'background: #222; color: #bada55')
       elements.value = buffer
       significados.value = buffer2.sort(() => Math.random() - 0.5)
     })
 
-    function playAudio (event, path, index) {
+    function playAudio (path, index) {
       const audio = ref(new Audio(path))
       audio.value.currentTime = 0
       audio.value.play()
-      selectIMGItem(index)
+      toggleIMG(index)
     }
 
-    // SELECTOR Significados
-    const selectedIndex = ref(-1)
-    const selectedRef = ref(null)
+    // SELECTION
+    const currentMeaning = ref(null)
+    const currentIMG = ref(null)
+    // NOTA se puede construir en el mounted los OBJECT status, para obtener el numero de llaves
+    const statusMeaning = reactive({
+      0: { state: 'NONE', style: '' },
+      1: { state: 'NONE', style: '' },
+      2: { state: 'NONE', style: '' }
+    })
 
-    function setRef (index) {
-      return (el) => {
-        if (selectedIndex.value === index) {
-          selectedRef.value = el
-        }
+    const statusIMG = reactive({
+      0: { state: 'NONE', style: '' },
+      1: { state: 'NONE', style: '' },
+      2: { state: 'NONE', style: '' }
+    })
+
+    function toggleMeaning (index) {
+      switch (statusMeaning[index].state) {
+        case 'NONE':
+          statusMeaning[index].style = 'border: 2px solid red;'
+          statusMeaning[index].state = 'SELECTED'
+          if (currentIMG.value != null) compare()
+          else if (currentIMG.value == null) {
+            Object.keys(statusMeaning).forEach(e => {
+              // eslint-disable-next-line eqeqeq
+              if (statusMeaning[e].state != 'FOUND' && currentMeaning.value != e) {
+                statusMeaning[e].style = ''
+                statusMeaning[e].state = 'NONE'
+              }
+            })
+          }
+          break
+        case 'SELECTED':
+          if (currentIMG.value == null) {
+            Object.keys(statusMeaning).forEach(e => {
+              // eslint-disable-next-line eqeqeq
+              if (statusMeaning[e].state != 'FOUND' && currentMeaning.value == e) {
+                statusMeaning[e].style = ''
+                statusMeaning[e].state = 'NONE'
+                currentMeaning.value = null
+              }
+            })
+          }
+          break
+        case 'FOUND':
+          // statusMeaning[index].style = 'border: 2px solid yellow;'
+          console.log('No hace NADA, ENCONTRADO')
+          break
       }
     }
 
-    function selectItem (index) {
-      if (selectedIndex.value !== index) {
-        if (selectedRef.value) {
-          selectedRef?.value?.setAttribute('style', 'border: 2px solid black')
-        }
-        selectedIndex.value = index
-        selectedRef.value = document.querySelector(`[ref="item-${index}"]`)
-        selectedRef?.value?.setAttribute('style', 'border: 2px solid red')
+    function toggleIMG (index) {
+      switch (statusIMG[index].state) {
+        case 'NONE':
+          statusIMG[index].style = 'border: 2px solid red;'
+          statusIMG[index].state = 'SELECTED'
+          if (currentMeaning.value != null) compare()
+          else if (currentMeaning.value == null) {
+            Object.keys(statusIMG).forEach(e => {
+              // eslint-disable-next-line eqeqeq
+              if (statusIMG[e].state != 'FOUND' && currentIMG.value != e) {
+                statusIMG[e].style = ''
+                statusIMG[e].state = 'NONE'
+              }
+            })
+          }
+          break
+        case 'SELECTED':
+          if (currentMeaning.value == null) {
+            Object.keys(statusIMG).forEach(e => {
+              // eslint-disable-next-line eqeqeq
+              if (statusIMG[e].state != 'FOUND' && currentIMG.value == e) {
+                statusIMG[e].style = ''
+                statusIMG[e].state = 'NONE'
+                currentIMG.value = null
+              }
+            })
+          }
+          break
+        case 'FOUND':
+          console.log('No hace NADA, ENCONTRADO')
+          break
       }
-      compareSelection()
     }
 
-    // SELECTOR IMAGES
-    const selectedIMGIndex = ref(-1)
-    const selectedIMGRef = ref(null)
+    function compare () {
+      console.log('%c NO OSE DE DEBE LLAMAR ', 'background: #222; color: #bada55')
 
-    function setIMGRef (index) {
-      return (el) => {
-        if (selectedIndex.value === index) {
-          selectedIMGRef.value = el
-        }
-      }
-    }
+      const meaningValue = significados.value[currentMeaning.value]?.uuid
+      const imgValue = elements.value[currentIMG.value]?.uuid
 
-    function selectIMGItem (index) {
-      if (selectedIMGIndex.value !== index) {
-        if (selectedIMGRef.value) {
-          selectedIMGRef?.value?.setAttribute('style', 'border: 2px solid black')
-        }
-        selectedIMGIndex.value = index
-        selectedIMGRef.value = document.querySelector(`[ref="item-${index}"]`)
-        selectedIMGRef?.value?.setAttribute('style', 'border: 2px solid red')
-      }
-
-      compareSelection()
-    }
-
-    function compareSelection () {
-      const imageSelected = elements.value[selectedIMGIndex.value]?.uuid
-      const meaningSelected = significados.value[selectedIndex.value]?.uuid
-      if (imageSelected === meaningSelected) {
+      // eslint-disable-next-line eqeqeq
+      if (imgValue == meaningValue) {
         console.log('%c SON IGUALES ', 'background: #222; color: #bada55')
+        // TODO: MANDAR ICONOGRAFIA DE QUE SE RESOLVIO BIEN
+        // Se colocan estilos
+        statusMeaning[currentMeaning.value].style = 'border: 2px solid yellow;'
+        statusIMG[currentIMG.value].style = 'border: 2px solid yellow;'
+        statusMeaning[currentMeaning.value].state = 'FOUND'
+        statusIMG[currentIMG.value].state = 'FOUND'
       }
+      // eslint-disable-next-line eqeqeq
+      if (imgValue != meaningValue) {
+        console.log('%c SON DIFERENTES ', 'background: #222; color: #FF0000')
+        // TODO: MANDAR ICONOGRAFIA DE QUE SE RESOLVIO MAL
+        statusMeaning[currentMeaning.value].style = ''
+        statusIMG[currentIMG.value].style = ''
+        statusMeaning[currentMeaning.value].state = 'NONE'
+        statusIMG[currentIMG.value].state = 'NONE'
+      }
+      // Se restauran punteros
+      currentMeaning.value = null
+      currentIMG.value = null
     }
 
     return {
       elements,
       playAudio,
       significados,
-      setRef,
-      selectItem,
-      selectedIndex,
-      selectedRef,
-      selectedIMGIndex,
-      selectedIMGRef,
-      setIMGRef,
-      selectIMGItem,
-      compareSelection
+      // SELECTION
+      currentMeaning,
+      currentIMG,
+      toggleMeaning,
+      toggleIMG,
+      statusMeaning,
+      statusIMG,
+      compare
     }
   }
 })
 </script>
-
-<style lang="scss" scoped>
-.container-meaning{
-  cursor: pointer;
-}
-
-</style>
