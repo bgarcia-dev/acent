@@ -72,6 +72,105 @@ module.exports = {
             },
           ]),
         },
+        {
+          strategy_id: 3,
+          type: 'Tritonica',
+          content: JSON.stringify([
+            {
+              uuid: 'f6e5e73c-eb79-11ed-a05b-0242ac120003',
+              word: 'Tránsito',
+              acentuacion: 'Esdrújula',
+              image: 'Tránsito.png',
+              audio: 'Tránsito.mp3',
+              significado:
+                '<p style="font-size:16px">Acción o efecto de transitar. Paso o circulación de personas o vehículos por una vía pública o carretera. También se refiere al tiempo que se tarda en realizar un trayecto. </p> <small> <i>Acentuación :  Esdrújula<i> </small>',
+            },
+            {
+              uuid: 'f6e5e9ee-eb79-11ed-a05b-0242ac120003',
+              word: 'Transito',
+              acentuacion: 'Grave',
+              image: 'Transito.png',
+              audio: 'Transito.mp3',
+              significado:
+                '<p style="font-size:16px">Primera persona del singular del <b>presente</b> del verbo transitar. Acción de transitar o pasar por un lugar o una vía. </p> <small> <i>Acentuación :  Grave<i> </small>',
+            },
+            {
+              uuid: 'f6e5efca-eb79-11ed-a05b-0242ac120003',
+              word: 'Transitó',
+              acentuacion: 'Aguda',
+              image: 'Transitó.png',
+              audio: 'Transitó.mp3',
+              significado:
+                '<p style="font-size:16px">Tercera persona del singular del pretérito indefinido del verbo transitar. Acción de haber transitado o pasado por un lugar o una vía en un <b>tiempo pasado</b>.</p> <small> <i>Acentuación :  Aguda<i> </small>',
+            },
+          ]),
+        },
+        {
+          strategy_id: 3,
+          type: 'Tritonica',
+          content: JSON.stringify([
+            {
+              uuid: '492442a1-4a03-43ec-b691-58fc728acef7',
+              word: 'Crítico',
+              acentuacion: 'Esdrújula',
+              image: 'Crítico.jpg',
+              audio: 'Crítico.mp3',
+              significado:
+                '<p style="font-size:16px">Que juzga o analiza algo de manera minuciosa y rigurosa, especialmente en el ámbito artístico o literario.<br/></br>Persona que se dedica a la crítica de arte, cine, literatura, entre otros.</p> <small> <i>Acentuación :  Esdrújula<i> </small>',
+            },
+            {
+              uuid: 'bc37a118-2406-4716-8312-4eb4b5c40006',
+              word: 'Critico',
+              acentuacion: 'Grave',
+              image: 'Critico.jpg',
+              audio: 'Critico.mp3',
+              significado:
+                '<p style="font-size:16px"> <b>Presente</b> del verbo criticar. Acción de juzgar o señalar con crítica negativa algo o alguien, con el fin de destacar los errores o fallos.</p> <small> <i>Acentuación : Grave<i> </small>',
+            },
+            {
+              uuid: '5095ef49-b329-402b-9839-43337428338d',
+              word: 'Criticó',
+              acentuacion: 'Aguda',
+              image: 'Criticó.jpg',
+              audio: 'Criticó.mp3',
+              significado:
+                '<p style="font-size:16px">Acción de juzgar o señalar con crítica negativa algo o alguien, que ocurrió en el <b>pasado.</b></p> <small> <i>Acentuación :  Aguda<i> </small>',
+            },
+          ]),
+        },
+        {
+          strategy_id: 3,
+          type: 'Tritonica',
+          content: JSON.stringify([
+            {
+              uuid: '895f8468-eb8b-11ed-a05b-0242ac120003',
+              word: 'Acúmulo',
+              acentuacion: 'Esdrújula',
+              image: 'Acúmulo.jpg',
+              audio: 'Acúmulo.mp3',
+              significado:
+                '<p style="font-size:16px">Sustantivo que se refiere a la acción o resultado de acumular o amontonar algo, en una cantidad grande o en un lugar específico.</p> <small> <i>Acentuación :  Esdrújula<i> </small>',
+            },
+            {
+              uuid: '895f86de-eb8b-11ed-a05b-0242ac120003',
+              word: 'Acumulo',
+              acentuacion: 'Grave',
+              image: 'Acumulo.jpg',
+              audio: 'Acumulo.mp3',
+              significado:
+                '<p style="font-size:16px"><b>Presente</b> del verbo acumular, que indica la acción de ir juntando o sumando algo en una cantidad mayor.</p> <small> <i>Acentuación :  Grave<i> </small>',
+            },
+            {
+              uuid: '895f8828-eb8b-11ed-a05b-0242ac120003',
+              word: 'Acumuló',
+              acentuacion: 'Aguda',
+              image: 'Acumuló.jpg',
+              audio: 'Acumuló.mp3',
+              significado:
+                '<p style="font-size:16px">Pretérito indefinido del verbo acumular, que indica la acción de juntar o reunir algo en una cantidad mayor en un <b>tiempo pasado</b> específico.</p> <small> <i>Acentuación :  Aguda<i> </small>',
+            },
+          ]),
+        },
       ],
       {},
     )
