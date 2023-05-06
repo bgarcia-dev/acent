@@ -25,8 +25,6 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       strategy_id: DataTypes.INTEGER,
-      total_words: DataTypes.INTEGER,
-      image_path: DataTypes.STRING,
       type: DataTypes.STRING,
       created_at: DataTypes.DATE,
       updated_at: DataTypes.DATE,
