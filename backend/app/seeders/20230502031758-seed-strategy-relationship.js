@@ -336,6 +336,72 @@ module.exports = {
             },
           ]),
         },
+        {
+          strategy_id: 3,
+          type: 'Tritonica',
+          content: JSON.stringify([
+            {
+              uuid: '4df3a63f-4c4c-4db9-887e-aed9957805ee',
+              word: 'Próspero',
+              acentuacion: 'Esdrújula',
+              image: 'Próspero.jpg',
+              audio: 'Próspero.mp3',
+              significado:
+                '<p style="font-size:16px"><b>Adjetivo</b> que describe a una persona, empresa o situación que tiene éxito y prosperidad económica o financiera.<p> <small> <i>Acentuación : Esdrújula<i> </small>',
+            },
+            {
+              uuid: 'e2347086-e6af-4ee9-88b8-b90e02dfe001',
+              word: 'Prospero',
+              acentuacion: 'Grave',
+              image: 'Prospero.jpg',
+              audio: 'Prospero.mp3',
+              significado:
+                '<p style="font-size:16px">Primera persona singular del presente del verbo prosperar. Ejemplo: "Espero que mi negocio prospero con el tiempo<p> <small> <i>Acentuación : Grave<i> </small>',
+            },
+            {
+              uuid: 'bd67564b-4cf5-4534-883d-473bd4c9e6e1',
+              word: 'Prosperó',
+              acentuacion: 'Aguda',
+              image: 'Prosperó.jpg',
+              audio: 'Prosperó.mp3',
+              significado:
+                '<p style="font-size:16px">Tercera persona singular del pretérito indefinido del verbo prosperar.Verbo prosperar en tiempo <b>pasado</b><p> <small> <i>Acentuación : Aguda<i> </small>',
+            },
+          ]),
+        },
+        {
+          strategy_id: 3,
+          type: 'Tritonica',
+          content: JSON.stringify([
+            {
+              uuid: '713ae166-c1f4-4d17-95cf-a3aec444550a',
+              word: 'Júbilo',
+              acentuacion: 'Esdrújula',
+              image: 'Júbilo.png',
+              audio: 'Júbilo.mp3',
+              significado:
+                '<p style="font-size:16px">Sustantivo que se refiere a la alegría o el regocijo intenso y manifestado con intensidad.<p> <small> <i>Acentuación : Esdrújula<i> </small>',
+            },
+            {
+              uuid: '04559046-3e78-4d2f-8c0f-6bb3875c342b',
+              word: 'Jubilo',
+              acentuacion: 'Gave',
+              image: 'Jubilo.jpg',
+              audio: 'Jubilo.mp3',
+              significado:
+                '<p style="font-size:16px"><b>Presente</b> del verbo jubilar, que puede referirse a la acción de retirar del servicio o jubilar a alguien, o a la acción de alegrar o regocijar.<p> <small> <i>Acentuación : Grave<i> </small>',
+            },
+            {
+              uuid: '1bdbcc27-863a-4d18-9da0-dff444537f8a',
+              word: 'Jubiló',
+              acentuacion: 'Aguda',
+              image: 'Jubiló.png',
+              audio: 'Jubiló.mp3',
+              significado:
+                '<p style="font-size:16px">pretérito indefinido del verbo jubilar, que indica que alguien jubiló o retiró del servicio a alguien más en el <b>pasado</b>.<p> <small> <i>Acentuación : Aguda<i> </small>',
+            },
+          ]),
+        },
       ],
       {},
     )
