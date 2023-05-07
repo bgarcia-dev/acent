@@ -48,7 +48,8 @@ export default defineComponent({
       '/theoreticalMaterialPage': 'Información teórica',
       '/menuStrategiesPage': 'Selección de juego',
       '/strategiesPage': 'Estrategia ...',
-      '/strategyRead': 'Juego de lectura'
+      '/strategyRead': 'Juego de lectura',
+      '/strategyRelationship': 'Juego de asociación'
     }
 
     const handleRouteChange = (to, from) => {

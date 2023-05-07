@@ -11,7 +11,7 @@
       <div class="col-4 col-md-2 q-px-md q-py-md">
         <div
           v-ripple
-          class="relative-position flex flex-center q-px-md q-pt-md shadow-3 cursor-pointer"
+          class="relative-position flex flex-center q-px-md q-pt-md cursor-pointer"
           @mousedown=" statusIMG[index].state != 'FOUND' ?  currentIMG = index : currentIMG "
           @click="playAudio(require(`../../assets/relationship/${element.audio}`), index) "
           :style="statusIMG[index].style"
@@ -30,7 +30,7 @@
       <div class="col-8 col-md-10 q-px-md q-py-md flex flex-center">
         <div
           v-ripple
-          class="relative-position flex shadow-3 q-px-md q-py-md cursor-pointer"
+          class="relative-position flex q-px-md q-py-md cursor-pointer"
           style="min-height: 100%; min-width: 100%;"
           @click="toggleMeaning(index)"
           @mousedown=" statusMeaning[index].state != 'FOUND' ? currentMeaning = index : currentMeaning  "
@@ -142,28 +142,28 @@ export default defineComponent({
     const currentIMG = ref(null)
     // NOTA se puede construir en el mounted los OBJECT statuDs, para obtener el numero de llaves
     const statusMeaning = reactive({
-      0: { state: 'NONE', style: '' },
-      1: { state: 'NONE', style: '' },
-      2: { state: 'NONE', style: '' }
+      0: { state: 'NONE', style: 'box-shadow: 0px 1px 5px gray;' },
+      1: { state: 'NONE', style: 'box-shadow: 0px 1px 5px gray;' },
+      2: { state: 'NONE', style: 'box-shadow: 0px 1px 5px gray;' }
     })
 
     const statusIMG = reactive({
-      0: { state: 'NONE', style: '' },
-      1: { state: 'NONE', style: '' },
-      2: { state: 'NONE', style: '' }
+      0: { state: 'NONE', style: 'box-shadow: 0px 1px 5px gray;' },
+      1: { state: 'NONE', style: 'box-shadow: 0px 1px 5px gray;' },
+      2: { state: 'NONE', style: 'box-shadow: 0px 1px 5px gray;' }
     })
 
     function toggleMeaning (index) {
       switch (statusMeaning[index].state) {
         case 'NONE':
-          statusMeaning[index].style = 'border: 2px solid red;'
+          statusMeaning[index].style = 'border: solid 2px #008580;'
           statusMeaning[index].state = 'SELECTED'
           if (currentIMG.value != null) compare()
           else if (currentIMG.value == null) {
             Object.keys(statusMeaning).forEach(e => {
               // eslint-disable-next-line eqeqeq
               if (statusMeaning[e].state != 'FOUND' && currentMeaning.value != e) {
-                statusMeaning[e].style = ''
+                statusMeaning[e].style = 'box-shadow: 0px 1px 5px gray;'
                 statusMeaning[e].state = 'NONE'
               }
             })
@@ -174,7 +174,7 @@ export default defineComponent({
             Object.keys(statusMeaning).forEach(e => {
               // eslint-disable-next-line eqeqeq
               if (statusMeaning[e].state != 'FOUND' && currentMeaning.value == e) {
-                statusMeaning[e].style = ''
+                statusMeaning[e].style = 'box-shadow: 0px 1px 5px gray;'
                 statusMeaning[e].state = 'NONE'
                 currentMeaning.value = null
               }
@@ -187,14 +187,14 @@ export default defineComponent({
     function toggleIMG (index) {
       switch (statusIMG[index].state) {
         case 'NONE':
-          statusIMG[index].style = 'border: 2px solid red;'
+          statusIMG[index].style = 'border: 2px solid #008580;;'
           statusIMG[index].state = 'SELECTED'
           if (currentMeaning.value != null) compare()
           else if (currentMeaning.value == null) {
             Object.keys(statusIMG).forEach(e => {
               // eslint-disable-next-line eqeqeq
               if (statusIMG[e].state != 'FOUND' && currentIMG.value != e) {
-                statusIMG[e].style = ''
+                statusIMG[e].style = 'box-shadow: 0px 1px 5px gray;'
                 statusIMG[e].state = 'NONE'
               }
             })
@@ -205,7 +205,7 @@ export default defineComponent({
             Object.keys(statusIMG).forEach(e => {
               // eslint-disable-next-line eqeqeq
               if (statusIMG[e].state != 'FOUND' && currentIMG.value == e) {
-                statusIMG[e].style = ''
+                statusIMG[e].style = 'box-shadow: 0px 1px 5px gray;'
                 statusIMG[e].state = 'NONE'
                 currentIMG.value = null
               }
@@ -222,8 +222,8 @@ export default defineComponent({
       // eslint-disable-next-line eqeqeq
       if (imgValue == meaningValue) {
         // Se colocan estilos
-        statusMeaning[currentMeaning.value].style = 'border: 2px solid yellow;'
-        statusIMG[currentIMG.value].style = 'border: 2px solid yellow;'
+        statusMeaning[currentMeaning.value].style = 'background-color: rgba(0,0,0,0.1)'
+        statusIMG[currentIMG.value].style = 'background-color: rgba(0,0,0,0.1)'
         statusMeaning[currentMeaning.value].state = 'FOUND'
         statusIMG[currentIMG.value].state = 'FOUND'
 
@@ -239,8 +239,8 @@ export default defineComponent({
       }
       // eslint-disable-next-line eqeqeq
       if (imgValue != meaningValue) {
-        statusMeaning[currentMeaning.value].style = ''
-        statusIMG[currentIMG.value].style = ''
+        statusMeaning[currentMeaning.value].style = 'box-shadow: 0px 1px 5px gray;'
+        statusIMG[currentIMG.value].style = 'box-shadow: 0px 1px 5px gray;'
         statusMeaning[currentMeaning.value].state = 'NONE'
         statusIMG[currentIMG.value].state = 'NONE'
 
@@ -274,11 +274,11 @@ export default defineComponent({
           currentExercise.value++
           // Restaurar todos los elementos al esto inicial
           Object.keys(statusMeaning).forEach(e => {
-            statusMeaning[e].style = ''
+            statusMeaning[e].style = 'box-shadow: 0px 1px 5px gray;'
             statusMeaning[e].state = 'NONE'
           })
           Object.keys(statusIMG).forEach(e => {
-            statusIMG[e].style = ''
+            statusIMG[e].style = 'box-shadow: 0px 1px 5px gray;'
             statusIMG[e].state = 'NONE'
           })
           // Mostrar los nuevos elementos
@@ -347,12 +347,3 @@ export default defineComponent({
 }
 
 </style>
-
-/**
-  Tareas para HOY:
-  - Mostrar pantalla final
-    - Se califica por error
-    - También se muestra tiempo en la estrategia
-  - Configurar la ruta
-  - Configurar estilos finales para la aplicación
- */
