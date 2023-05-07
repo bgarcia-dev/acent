@@ -42,13 +42,14 @@
     </div>
 
     <!-- dialog exitoso -->
-     <q-dialog
+    <q-dialog
       v-model="fullWidth"
       :maximized="true"
       persistent
       @hide="onDialogHide"
     >
       <q-card :class="$q.dark.isActive ? 'card-theme--dark':'card-theme--light'">
+
         <q-card-section class="row" :class="$q.dark.isActive ? 'title-theme--dark':'title-theme--light'">
           <div class="text-h6 col-10 text-white">Resultados</div>
           <q-btn flat icon="close" class="col-2 text-white" v-close-popup/>
@@ -56,8 +57,9 @@
 
         <q-card-section>
           <p class="text-h3 text-center q-mt-lg">Felicidades</p>
-          <p class="text-h6 text-center q-py-md">Haz completado las lecturas</p>
+          <p class="text-h6 text-center q-py-md">Haz completado el ejercicio</p>
           <p class="text-center q-py-md text-bold text-subtitle1"> Tiempo : {{timeUser}} </p>
+          <p class="text-center q-py-sm"><b>Respuestas fallidas</b> : {{wrongs}} </p>
           <div class="row justify-center">
             <q-img
             class="col-12 col-md-4"
@@ -67,8 +69,8 @@
               spinner-size="82px"
             />
           </div>
-          <br>
-          <br>
+          <br/>
+          <br/>
           <p class="text-center q-py-lg"> Continua aprendiendo, lo haz hecho muy bien </p>
         </q-card-section>
         <q-card-section class="row justify-center">
@@ -91,6 +93,7 @@ import { defineComponent, ref, onMounted, reactive } from 'vue'
 import { useThemeStore } from '../../stores/themes'
 import { api } from 'boot/axios'
 import { Notify, Dark } from 'quasar'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'strategyRelationship',
@@ -101,7 +104,7 @@ export default defineComponent({
       icon: 'dangerous',
       html: true
     }
-
+    const router = useRouter()
     const buffer = ref('')
 
     // Selección de grupo temas
@@ -121,12 +124,10 @@ export default defineComponent({
         elements.value = buffer.value[0].content
         significados.value = elements.value.map(e => ({ uuid: e.uuid, significado: e.significado })).sort(() => Math.random() - 0.5)
       }).catch((e) => {
-        console.log('%c ERROR ', 'background: #222; color: #bada55')
-
-        console.log(e)
         Notify.create(errorMsg)
-        // router.push({ path: '/themePage' })
+        router.push({ path: '/themePage' })
       })
+      startTime.value = Date.now()
     })
 
     function playAudio (path, index) {
@@ -180,10 +181,6 @@ export default defineComponent({
             })
           }
           break
-        case 'FOUND':
-          // statusMeaning[index].style = 'border: 2px solid yellow;'
-          console.log('No hace NADA, ENCONTRADO')
-          break
       }
     }
 
@@ -215,9 +212,6 @@ export default defineComponent({
             })
           }
           break
-        case 'FOUND':
-          console.log('No hace NADA, ENCONTRADO')
-          break
       }
     }
 
@@ -227,7 +221,6 @@ export default defineComponent({
 
       // eslint-disable-next-line eqeqeq
       if (imgValue == meaningValue) {
-        console.log('%c SON IGUALES ', 'background: #222; color: #bada55')
         // Se colocan estilos
         statusMeaning[currentMeaning.value].style = 'border: 2px solid yellow;'
         statusIMG[currentIMG.value].style = 'border: 2px solid yellow;'
@@ -270,13 +263,13 @@ export default defineComponent({
     const wrongs = ref(0)
     const currentExercise = ref(0)
     function nextExercise () {
-      console.log(asserts.value, elements.value.length)
       if (asserts.value === elements.value.length) {
-        console.log('%c PASAR AL SIGUIENTE ', 'background: #222; color: #bada55')
         asserts.value = 0
-
         if (currentExercise.value >= buffer.value.length - 1) {
-          console.log('%c FINALIZA EL JUEGO ', 'background: #222; color: #bada55')
+          fullWidth.value = true
+          endTime.value = Date.now()
+          const elapsed = Math.floor((endTime.value - startTime.value) / 1000)
+          timeUser.value = `${Math.floor(elapsed / 60)} : ${(elapsed % 60).toString().padStart(2, '0')}`
         } else {
           currentExercise.value++
           // Restaurar todos los elementos al esto inicial
@@ -291,11 +284,20 @@ export default defineComponent({
           // Mostrar los nuevos elementos
           elements.value = buffer.value[currentExercise.value].content
           significados.value = elements.value.map(e => ({ uuid: e.uuid, significado: e.significado })).sort(() => Math.random() - 0.5)
-          currentExercise.value = null
-          currentIMG.value = null
         }
       }
     }
+
+    /**
+     * DIALOG FINAL
+     */
+    const fullWidth = ref(false)
+    const onDialogHide = () => {
+      router.push({ path: '/menuStrategiesPage' })
+    }
+    const timeUser = ref(null)
+    const startTime = ref(null)
+    const endTime = ref(null)
 
     return {
       elements,
@@ -308,11 +310,44 @@ export default defineComponent({
       toggleIMG,
       statusMeaning,
       statusIMG,
-      compare
+      compare,
+      // DIALOG
+      fullWidth,
+      onDialogHide,
+      timeUser,
+      wrongs
     }
   }
 })
 </script>
+
+<style lang="scss" scoped>
+.title-theme--dark {
+  background-color: #150831 !important;
+}
+.title-theme--light {
+  background-color:$primary;
+}
+.card-theme--dark{
+  background-color: #3C3C58;
+}
+
+.card-theme--light{
+  background-color: #F6F4FB;
+}
+
+.button-theme--dark{
+  background-color: #6B6A80;
+  color: white;
+}
+
+.button-theme--light {
+  background-color:$primary;
+  color: white;
+}
+
+</style>
+
 /**
   Tareas para HOY:
   - Mostrar pantalla final
