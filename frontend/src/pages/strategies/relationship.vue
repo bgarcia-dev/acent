@@ -41,6 +41,48 @@
       </div>
     </div>
 
+    <!-- dialog exitoso -->
+     <q-dialog
+      v-model="fullWidth"
+      :maximized="true"
+      persistent
+      @hide="onDialogHide"
+    >
+      <q-card :class="$q.dark.isActive ? 'card-theme--dark':'card-theme--light'">
+        <q-card-section class="row" :class="$q.dark.isActive ? 'title-theme--dark':'title-theme--light'">
+          <div class="text-h6 col-10 text-white">Resultados</div>
+          <q-btn flat icon="close" class="col-2 text-white" v-close-popup/>
+        </q-card-section>
+
+        <q-card-section>
+          <p class="text-h3 text-center q-mt-lg">Felicidades</p>
+          <p class="text-h6 text-center q-py-md">Haz completado las lecturas</p>
+          <p class="text-center q-py-md text-bold text-subtitle1"> Tiempo : {{timeUser}} </p>
+          <div class="row justify-center">
+            <q-img
+            class="col-12 col-md-4"
+              src="~/assets/read.svg"
+              :ratio="16/9"
+              spinner-color="primary"
+              spinner-size="82px"
+            />
+          </div>
+          <br>
+          <br>
+          <p class="text-center q-py-lg"> Continua aprendiendo, lo haz hecho muy bien </p>
+        </q-card-section>
+        <q-card-section class="row justify-center">
+          <q-btn
+            rounded
+            v-close-popup
+            :class="$q.dark.isActive ? 'button-theme--dark': 'button-theme--light'"
+            size="md"
+            label="Aceptar"
+          />
+        </q-card-section>
+      </q-card>
+    </q-dialog>
+
   </q-page>
 </template>
 
@@ -233,14 +275,24 @@ export default defineComponent({
         console.log('%c PASAR AL SIGUIENTE ', 'background: #222; color: #bada55')
         asserts.value = 0
 
-        if (currentExercise.value === 3) {
+        if (currentExercise.value >= buffer.value.length - 1) {
           console.log('%c FINALIZA EL JUEGO ', 'background: #222; color: #bada55')
         } else {
           currentExercise.value++
           // Restaurar todos los elementos al esto inicial
+          Object.keys(statusMeaning).forEach(e => {
+            statusMeaning[e].style = ''
+            statusMeaning[e].state = 'NONE'
+          })
+          Object.keys(statusIMG).forEach(e => {
+            statusIMG[e].style = ''
+            statusIMG[e].state = 'NONE'
+          })
           // Mostrar los nuevos elementos
           elements.value = buffer.value[currentExercise.value].content
           significados.value = elements.value.map(e => ({ uuid: e.uuid, significado: e.significado })).sort(() => Math.random() - 0.5)
+          currentExercise.value = null
+          currentIMG.value = null
         }
       }
     }
