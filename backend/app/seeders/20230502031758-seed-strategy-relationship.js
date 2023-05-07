@@ -330,7 +330,7 @@ module.exports = {
               word: 'Habitó',
               acentuacion: 'Aguda',
               image: 'Habitó.jpg',
-              audio: 'Habitó.pm3',
+              audio: 'Habitó.mp3',
               significado:
                 '<p style="font-size:16px">Es el pretérito indefinido del verbo habitar, que se utiliza para indicar que alguien vivió en un lugar en el <b>pasado</b>.<p> <small> <i>Acentuación : Aguda<i> </small>',
             },

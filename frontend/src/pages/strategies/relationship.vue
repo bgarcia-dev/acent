@@ -47,63 +47,44 @@
 <script>
 import { defineComponent, ref, onMounted, reactive } from 'vue'
 import { useThemeStore } from '../../stores/themes'
+import { api } from 'boot/axios'
+import { Notify } from 'quasar'
 
 export default defineComponent({
   name: 'strategyRelationship',
   setup () {
-    const buffer = [{
-      uuid: '1',
-      word: 'Género',
-      acentuacion: 'esdrújula',
-      image: 'género.jpg',
-      audio: 'género.mp3',
-      significado: '<p style="font-size:16px">Cuenta con una acepción que da cuenta de la clase a la que pertenece una cosa o un individuo. <br/><br/> Se refiere a una descripción de lo que es algo o alguien.</p> <small> <i>Acentuación :  Esdrújula<i> </small>'
-    },
-    {
-      uuid: '2',
-      word: 'Genero',
-      acentuacion: 'grave',
-      image: 'genero.jpg',
-      audio: 'genero.mp3',
-      significado: '<p style="font-size:16px">Corresponde a una conjugación del verbo transitivo <i>“Generar”</i> hecha en primera persona del presente indicativo. <br/><br/> Estoy hablando de algo que estoy haciendo ahora mismo.</p> <small> <i>Acentuación :  Grave<i> </small>'
-    },
-    {
-      uuid: '3',
-      word: 'Generó',
-      acentuacion: 'aguda',
-      image: 'generó.jpg',
-      audio: 'generó.mp3',
-      significado: '<p style="font-size:16px"> Constituye también una conjugación del verbo transitivo <i>“generar”</i> hecha en tercera persona del singular correspondiente al pretérito perfecto simple del modo indicativo. <br/><br/> Es una acción que hizo alguien en el pasado.</p> <small> <i>Acentuación :  Aguda<i> </small>'
+    const errorMsg = {
+      message: '<b>ERROR: No se puede consultar la información intente más tarde</b>',
+      color: 'red',
+      icon: 'dangerous',
+      html: true
     }
 
-    ]
-
-    const buffer2 = [{
-      uuid: '1',
-      significado: '<p style="font-size:16px">Cuenta con una acepción que da cuenta de la clase a la que pertenece una cosa o un individuo. <br/><br/> Se refiere a una descripción de lo que es algo o alguien.</p> <small> <i>Acentuación :  Esdrújula<i> </small>'
-
-    }, {
-      uuid: '2',
-      significado: '<p style="font-size:16px">Corresponde a una conjugación del verbo transitivo <i>“Generar”</i> hecha en primera persona del presente indicativo. <br/><br/> Estoy hablando de algo que estoy haciendo ahora mismo.</p> <small> <i>Acentuación :  Grave<i> </small>'
-    }, {
-      uuid: '3',
-      significado: '<p style="font-size:16px"> Constituye también una conjugación del verbo transitivo <i>“generar”</i> hecha en tercera persona del singular correspondiente al pretérito perfecto simple del modo indicativo. <br/><br/> Es una acción que hizo alguien en el pasado.</p> <small> <i>Acentuación :  Aguda<i> </small>'
-    }]
+    const buffer = ref('')
 
     // Selección de grupo temas
     const groupSelected = ref('')
     const themeStore = useThemeStore()
-    groupSelected.value = themeStore.groupSelected
+    groupSelected.value = themeStore.groupSelected || 3
 
     // Comportamiento reactivos
     const elements = ref([])
     const significados = ref([])
 
     onMounted(() => {
-      // const selection = ['AGES', 'TonicaAtona', 'Tritonica']
-      // console.log(`%c ${selection[groupSelected.value - 1]} `, 'background: #222; color: #bada55')
-      elements.value = buffer
-      significados.value = buffer2.sort(() => Math.random() - 0.5)
+      const selection = ['AGES', 'TonicaAtona', 'Tritonica']
+      // Cargamos los datos para la lectura
+      api.get(`strategy-relationship/elements/${selection[groupSelected.value - 1]}`).then(({ data }) => {
+        buffer.value = data.data
+        elements.value = buffer.value[0].content
+        significados.value = elements.value.map(e => ({ uuid: e.uuid, significado: e.significado })).sort(() => Math.random() - 0.5)
+      }).catch((e) => {
+        console.log('%c ERROR ', 'background: #222; color: #bada55')
+
+        console.log(e)
+        Notify.create(errorMsg)
+        // router.push({ path: '/themePage' })
+      })
     })
 
     function playAudio (path, index) {
