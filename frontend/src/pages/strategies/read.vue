@@ -191,7 +191,6 @@ export default defineComponent({
             })
           }
           if (numberExcersice.value === sizeExercises && cantidadPalabrasEncontradas.value === cantidadTotalDePalabras.value) {
-            console.log('COMPLETE GAME')
             fullWidth.value = true
             endTime.value = Date.now()
             const elapsed = Math.floor((endTime.value - startTime.value) / 1000)

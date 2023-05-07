@@ -48,7 +48,7 @@
 import { defineComponent, ref, onMounted, reactive } from 'vue'
 import { useThemeStore } from '../../stores/themes'
 import { api } from 'boot/axios'
-import { Notify } from 'quasar'
+import { Notify, Dark } from 'quasar'
 
 export default defineComponent({
   name: 'strategyRelationship',
@@ -97,7 +97,7 @@ export default defineComponent({
     // SELECTION
     const currentMeaning = ref(null)
     const currentIMG = ref(null)
-    // NOTA se puede construir en el mounted los OBJECT status, para obtener el numero de llaves
+    // NOTA se puede construir en el mounted los OBJECT statuDs, para obtener el numero de llaves
     const statusMeaning = reactive({
       0: { state: 'NONE', style: '' },
       1: { state: 'NONE', style: '' },
@@ -180,33 +180,69 @@ export default defineComponent({
     }
 
     function compare () {
-      console.log('%c NO OSE DE DEBE LLAMAR ', 'background: #222; color: #bada55')
-
       const meaningValue = significados.value[currentMeaning.value]?.uuid
       const imgValue = elements.value[currentIMG.value]?.uuid
 
       // eslint-disable-next-line eqeqeq
       if (imgValue == meaningValue) {
         console.log('%c SON IGUALES ', 'background: #222; color: #bada55')
-        // TODO: MANDAR ICONOGRAFIA DE QUE SE RESOLVIO BIEN
         // Se colocan estilos
         statusMeaning[currentMeaning.value].style = 'border: 2px solid yellow;'
         statusIMG[currentIMG.value].style = 'border: 2px solid yellow;'
         statusMeaning[currentMeaning.value].state = 'FOUND'
         statusIMG[currentIMG.value].state = 'FOUND'
+
+        Notify.create({
+          color: Dark.isActive ? 'indigo' : 'primary',
+          html: true,
+          position: 'center',
+          icon: 'thumb_up',
+          timeout: 100
+        })
+        asserts.value++
+        nextExercise()
       }
       // eslint-disable-next-line eqeqeq
       if (imgValue != meaningValue) {
-        console.log('%c SON DIFERENTES ', 'background: #222; color: #FF0000')
-        // TODO: MANDAR ICONOGRAFIA DE QUE SE RESOLVIO MAL
         statusMeaning[currentMeaning.value].style = ''
         statusIMG[currentIMG.value].style = ''
         statusMeaning[currentMeaning.value].state = 'NONE'
         statusIMG[currentIMG.value].state = 'NONE'
+
+        Notify.create({
+          color: Dark.isActive ? 'accent' : 'negative',
+          html: true,
+          position: 'center',
+          icon: 'mood_bad',
+          timeout: 100
+        })
+        wrongs.value++
       }
       // Se restauran punteros
       currentMeaning.value = null
       currentIMG.value = null
+    }
+
+    // Avance  y finalización del juego
+    const asserts = ref(0)
+    const wrongs = ref(0)
+    const currentExercise = ref(0)
+    function nextExercise () {
+      console.log(asserts.value, elements.value.length)
+      if (asserts.value === elements.value.length) {
+        console.log('%c PASAR AL SIGUIENTE ', 'background: #222; color: #bada55')
+        asserts.value = 0
+
+        if (currentExercise.value === 3) {
+          console.log('%c FINALIZA EL JUEGO ', 'background: #222; color: #bada55')
+        } else {
+          currentExercise.value++
+          // Restaurar todos los elementos al esto inicial
+          // Mostrar los nuevos elementos
+          elements.value = buffer.value[currentExercise.value].content
+          significados.value = elements.value.map(e => ({ uuid: e.uuid, significado: e.significado })).sort(() => Math.random() - 0.5)
+        }
+      }
     }
 
     return {
@@ -227,11 +263,9 @@ export default defineComponent({
 </script>
 /**
   Tareas para HOY:
-  - Conectar el backend con el front
-    - Crear data set mínimo de prueba
-    - Configurar un mínimo de 3 ejercicios
   - Mostrar pantalla final
     - Se califica por error
     - También se muestra tiempo en la estrategia
   - Configurar la ruta
+  - Configurar estilos finales para la aplicación
  */
