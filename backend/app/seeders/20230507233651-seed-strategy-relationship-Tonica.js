@@ -8,7 +8,7 @@ module.exports = {
       [
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: '76b47e4b-71aa-4db6-9089-9183b87abdd4',
@@ -41,7 +41,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: 'a8d334df-4e3c-4210-8280-f5850d34cb34',
@@ -74,7 +74,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: 'be75aef0-3f51-42fb-ac8f-a66714427205',
@@ -107,7 +107,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: '6c2cdd6a-8268-4bcb-9d25-4ecc1371eda6',
@@ -140,7 +140,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: '6dfc6c54-5a1d-4005-b8d7-c3e7e851b010',
@@ -173,7 +173,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: 'faa9e54b-d770-45b0-b12b-19d759acffc4',
@@ -206,7 +206,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: '4d7af94f-0124-46a3-8e78-68f87e305991',
@@ -239,7 +239,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: '60be1d2d-e2ff-41fd-97ef-ccb00a14b3bc',
@@ -272,7 +272,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: '062aec80-67e0-4cc8-8475-10c95ffd57eb',
@@ -305,7 +305,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: 'ada10dc2-9046-4b71-b896-afc50c4674c6',
@@ -338,7 +338,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: 'd09f81b9-9233-4dc3-a2e8-00fede2de03c',
@@ -371,7 +371,7 @@ module.exports = {
         },
         {
           strategy_id: 3,
-          type: 'AGES',
+          type: 'TonicaAtona',
           content: JSON.stringify([
             {
               uuid: 'fc929937-ed37-45fb-af8e-4846962e41ab',
