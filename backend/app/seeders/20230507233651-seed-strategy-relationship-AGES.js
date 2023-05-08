@@ -237,6 +237,171 @@ module.exports = {
             },
           ]),
         },
+        {
+          strategy_id: 3,
+          type: 'AGES',
+          content: JSON.stringify([
+            {
+              uuid: '',
+              word: 'Poseer',
+              acentuacion: 'Átona',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Es un verbo transitivo que se refiere a tener en posesión, dominio o control algo tangible o intangible, ya sea un objeto, una propiedad, una cualidad, una habilidad, un conocimiento, entre otros. </p> <small> <i>Penúltima y antepenúltima silaba <b>átona</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Lectura',
+              acentuacion: 'Tónica',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Es la acción de interpretar un texto mediante la comprensión y decodificación de los signos que lo componen. Implica una interacción entre el lector y el texto, donde el lector busca comprender el mensaje del autor y desarrollar su propia interpretación.</p> <small> <i>Penúltima silaba <b>tónica</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Hacer',
+              acentuacion: 'Átona',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Es un verbo transitivo que se utiliza para expresar la acción de realizar o ejecutar alguna cosa. También se utiliza como verbo auxiliar en la construcción de algunos tiempos verbales, como el pretérito perfecto compuesto, el futuro simple y el futuro compuesto.</p> <small> <i>Penúltima silaba <b>átona</b><i> </small>',
+            },
+          ]),
+        },
+        {
+          strategy_id: 3,
+          type: 'AGES',
+          content: JSON.stringify([
+            {
+              uuid: '',
+              word: 'Fortaleza',
+              acentuacion: 'Tónica',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Referencia a la capacidad de una persona para resistir o superar las dificultades, o a un lugar fortificado utilizado para la defensa militar. </p> <small> <i>Penúltima silaba <b>tónica</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Película',
+              acentuacion: 'Átona',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Una obra cinematográfica que se proyecta en una pantalla. Se trata de un medio de comunicación visual que utiliza imágenes en movimiento, sonido y música para contar una historia.</p> <small> <i>Última, penúltima y antes de la antepenúltima silaba <b>átona</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Hogar',
+              acentuacion: 'Tónica',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Se refiere al lugar donde vive una persona o una familia, es decir, su residencia.También puede referirse al ambiente familiar y acogedor de un lugar o a la sensación de pertenencia y comodidad que se siente en ese lugar. </p> <small> <i>Última silaba <b>tónica</b><i> </small>',
+            },
+          ]),
+        },
+        {
+          strategy_id: 3,
+          type: 'AGES',
+          content: JSON.stringify([
+            {
+              uuid: '',
+              word: 'Talento',
+              acentuacion: 'Átona',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Se refiere a una habilidad o aptitud especial que tiene una persona para hacer algo, y que se considera que es innata o natural en ella. <br/><br/>También puede hacer referencia a la unidad de medida de peso y valor utilizada en la antigüedad.</p> <small> <i>Última y antepenúltima silaba <b>átona</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Vino',
+              acentuacion: 'Tónica',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Una bebida alcohólica que se obtiene por la fermentación de la uva. Se elabora a partir de la variedad de uva llamada Vitis vinifera y su producción es muy valorada en diversas culturas del mundo.</p> <small> <i>Penúltima silaba <b>tónica</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Misa',
+              acentuacion: 'Átona',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Una reunión o convocatoria política o social que se lleva a cabo, se relaciona con la idea de una ceremonia o ritual en la que se reúne una comunidad para realizar un acto en común</p> <small> <i>Última silaba <b>átona</b><i> </small>',
+            },
+          ]),
+        },
+        {
+          strategy_id: 3,
+          type: 'AGES',
+          content: JSON.stringify([
+            {
+              uuid: '',
+              word: 'Pastores',
+              acentuacion: 'Tónica',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Se refiere a aquellos que se dedican al cuidado de ganado, especialmente de ovejas.</p> <small> <i>Penúltima silaba <b>tónica</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'España',
+              acentuacion: 'Átona',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Es un país situado en la Península Ibérica, en el suroeste de Europa. Su capital es Madrid y su forma de gobierno es una monarquía parlamentaria.</p> <small> <i>Última y antepenúltima silaba <b>átona</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Recriminación',
+              acentuacion: 'Tónica',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Es una acusación o censura que se hace a alguien por una acción o conducta considerada negativa o inapropiada. Es una expresión de desaprobación y puede ser verbal o no verbal, directa o indirecta. </p> <small> <i>Última silaba <b>tónica</b><i> </small>',
+            },
+          ]),
+        },
+        {
+          strategy_id: 3,
+          type: 'AGES',
+          content: JSON.stringify([
+            {
+              uuid: '',
+              word: 'Nada',
+              acentuacion: 'Tónica',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">La ausencia de algo o a la falta de valor o importancia de algo. También puede ser utilizado como respuesta negativa o como sinónimo de "ninguna cosa". </p> <small> <i>Penúltima silaba <b>tónica</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Manos',
+              acentuacion: 'Átona',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Son extremidades del cuerpo humano que se encuentran en los extremos de los brazos y que están diseñadas para agarrar, manipular y sostener objetos. Están formadas por un conjunto de huesos, músculos, ligamentos y tendones que les proporcionan movilidad y fuerza. </p> <small> <i>Última y antepenúltima silaba <b>átona</b><i> </small>',
+            },
+            {
+              uuid: '',
+              word: 'Mostrar',
+              acentuacion: 'Tónica',
+              image: '',
+              audio: '',
+              significado:
+                '<p style="font-size:16px">Verbo transitivo que significa presentar, enseñar o exhibir algo a alguien, generalmente con el propósito de que esa persona lo vea o lo conozca. </p> <small> <i>Última silaba <b>tónica</b><i> </small>',
+            },
+          ]),
+        },
       ],
       {},
     )
