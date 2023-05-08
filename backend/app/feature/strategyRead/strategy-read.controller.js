@@ -18,6 +18,20 @@ class StrategyReadController {
       next(error)
     }
   }
+
+  static test = async (req, res, next) => {
+    try {
+      const { group } = req.params
+      const condition = group ? { type: group } : {}
+
+      const data = await StrategyRead.findAll({
+        where: condition,
+      })
+      return res.status(200).json({ status: true, data })
+    } catch (error) {
+      next(error)
+    }
+  }
 }
 
 module.exports = StrategyReadController

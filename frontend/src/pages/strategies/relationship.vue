@@ -18,7 +18,7 @@
         >
           <q-img
           :src="require(`../../assets/relationship/${element.image}`)"
-            :ratio="16/9"
+            :ratio="4/3"
             spinner-color="primary"
             spinner-size="82px"
             style="max-height: 30vh;"
@@ -118,7 +118,7 @@ export default defineComponent({
 
     onMounted(() => {
       const selection = ['AGES', 'TonicaAtona', 'Tritonica']
-      // Cargamos los datos para la lectura
+      // Cargamos los datos
       api.get(`strategy-relationship/elements/${selection[groupSelected.value - 1]}`).then(({ data }) => {
         buffer.value = data.data
         elements.value = buffer.value[0].content
