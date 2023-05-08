@@ -264,7 +264,7 @@ module.exports = {
               word: 'Máximo',
               acentuacion: 'Esdrújula',
               image: 'Máximo.png',
-              audio: '',
+              audio: 'Máximo.mp3',
               significado:
                 '<p style="font-size:16px">Es un adjetivo que significa la cantidad más alta o el grado más alto que se puede alcanzar.<br/><br/>También se puede utilizar como un sustantivo para referirse a la cantidad más alta permitida o la mayor cantidad permitida.</p> <small> <i>Acentuación : Esdrújula<i> </small>',
             },
@@ -279,7 +279,7 @@ module.exports = {
               word: 'Difícil',
               acentuacion: 'Grave',
               image: 'Difícil.jpg',
-              audio: '',
+              audio: 'Difícil.mp3',
               significado:
                 '<p style="font-size:16px">Es un adjetivo que se utiliza para describir algo que presenta dificultad, que no es fácil de hacer, entender o resolver.<br/><br/> También se puede utilizar para describir a una persona que es complicada o difícil de tratar o entender.</p> <small> <i>Acentuación : Grave<i> </small>',
             },
@@ -288,7 +288,7 @@ module.exports = {
               word: 'Avión',
               acentuacion: 'Aguda',
               image: 'Avión.jpg',
-              audio: '',
+              audio: 'Avión.mp3',
               significado:
                 '<p style="font-size:16px">Es una aeronave de ala fija, propulsada por uno o varios motores, capaz de sustentarse y desplazarse en el aire de forma controlada, y diseñada para transportar personas, animales o carga de un lugar a otro.</p> <small> <i>Acentuación : Aguda<i> </small>',
             },
@@ -297,7 +297,7 @@ module.exports = {
               word: 'Página',
               acentuacion: 'Esdrújula',
               image: 'Página.jpg',
-              audio: '',
+              audio: 'Página.mp3',
               significado:
                 '<p style="font-size:16px">Se refiere a una de las hojas de un libro, revista o documento, generalmente numerada y que contiene texto e imágenes. También puede referirse a un sitio web en Internet o a una superficie en blanco de un cuaderno, diario u otro tipo de bloc de notas en la que se pueden escribir notas o dibujos. </p> <small> <i>Acentuación : Esdrújula<i> </small>',
             },
@@ -312,7 +312,7 @@ module.exports = {
               word: 'País',
               acentuacion: 'Aguda',
               image: 'País.png',
-              audio: '',
+              audio: 'País.mp3',
               significado:
                 '<p style="font-size:16px"><b>Territorio o nación:</b> se refiere a una región o territorio que está delimitado por fronteras políticas y administrativas, y que está bajo la soberanía de un Estado. <br/><br/><b>Gente o población:</b> también puede utilizarse para referirse al conjunto de personas que habitan un determinado territorio o nación. </p> <small> <i>Acentuación : Aguda<i> </small>',
             },
@@ -321,7 +321,7 @@ module.exports = {
               word: 'Pálido',
               acentuacion: 'Esdrújula',
               image: 'Pálido.jpg',
-              audio: '',
+              audio: 'Pálido.mp3',
               significado:
                 '<p style="font-size:16px">Es un adjetivo que describe algo que tiene un color muy claro, sin mucho brillo o intensidad. También puede referirse a una persona que tiene la piel con un tono blanquecino, generalmente debido a la falta de sol o a una enfermedad.</p> <small> <i>Acentuación : Esdrújula<i> </small>',
             },
@@ -330,7 +330,7 @@ module.exports = {
               word: 'Menú',
               acentuacion: 'Aguda',
               image: 'Menú.png',
-              audio: '',
+              audio: 'Menú.mp3',
               significado:
                 '<p style="font-size:16px">Se refiere a una lista o conjunto de opciones de comida o bebida que se ofrecen en un restaurante, bar u otro lugar de servicio de alimentos y bebidas.<br/><br/>También puede referirse a una lista de opciones o comandos que aparecen en una pantalla de computadora o dispositivo electrónico.</p> <small> <i>Acentuación : Aguda<i> </small>',
             },
