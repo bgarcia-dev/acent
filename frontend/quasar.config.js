@@ -75,7 +75,8 @@ module.exports = configure(function (ctx) {
       },
       env: ctx.dev
         ? {
-          API_URL: 'http://localhost:3001/'
+          // API_URL: 'http://localhost:3001/'
+          API_URL: 'https://acentuacion-production.up.railway.app/'
         }
         : {
           API_URL: process.env.API_URL
@@ -108,7 +109,8 @@ module.exports = configure(function (ctx) {
       // Quasar plugins
       plugins: [
         'Dark',
-        'Notify'
+        'Notify',
+        'Loading'
       ]
     },
 

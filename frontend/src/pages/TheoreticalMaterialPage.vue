@@ -36,6 +36,7 @@
 <script>
 import { defineComponent, ref, onMounted } from 'vue'
 import { useThemeStore } from '../stores/themes'
+import { Loading, QSpinnerGears } from 'quasar'
 
 export default defineComponent({
   name: 'TheoreticalMaterialPage',
@@ -56,9 +57,18 @@ export default defineComponent({
       tabsRender.value = groups[themeStore.groupSelected]
       tabSelected.value = tabsRender.value[0]
       // TODO: hotfix: Solventar el tiempo de espera de otra forma
+      Loading.show({
+        spinner: QSpinnerGears,
+        message: 'Cargando..'
+      })
       setTimeout(() => {
+        Loading.show({
+          spinner: QSpinnerGears,
+          message: 'Seguimos trabajando, puede tardar dependiendo de la velocidad del internet'
+        })
         changeTab(tabsRender.value[0])
-      }, 100)
+        Loading.hide()
+      }, 1000)
     })
 
     function changeTab (nameTab) {
