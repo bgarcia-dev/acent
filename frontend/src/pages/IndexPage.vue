@@ -10,6 +10,7 @@
           :textTop="option.textTop"
           :textBottom="option.textBottom"
           :to="option.toPage"
+          @click="option.click"
         />
       </div>
     </div>
@@ -20,6 +21,7 @@
 import { defineComponent } from 'vue'
 
 import ButtonOption from '../components/buttons/buttonOption'
+import { Notify } from 'quasar'
 
 export default defineComponent({
   name: 'IndexPage',
@@ -32,19 +34,32 @@ export default defineComponent({
         icon: 'teenyicons:search-circle-outline',
         textTop: 'Realizar consulta',
         textBottom: '¿Tiene una palabra a buscar?',
-        toPage: '/makeQueryPage'
+        toPage: '/makeQueryPage',
+        click: () => {}
       },
       {
         icon: 'material-symbols:format-list-bulleted-rounded',
         textTop: 'Temas',
         textBottom: 'Practica tu acentuación',
-        toPage: '/themePage'
+        toPage: '/themePage',
+        click: () => {}
       },
       {
         icon: 'emojione-monotone:thinking-face',
         textTop: 'Modo reto',
         textBottom: 'Pon aprueba lo que sabes...',
-        toPage: '/challengeModePage'
+        toPage: '#',
+
+        click: () => {
+          Notify.create({
+            message: '<b>En construcción:</b> Próximamente disponible',
+            color: 'dark',
+            icon: 'build_circle',
+            html: true,
+            actions: [{ icon: 'close', color: 'white' }],
+            timeout: 500
+          })
+        }
       }
     ]
     return { listOptions }

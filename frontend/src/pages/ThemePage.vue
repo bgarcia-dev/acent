@@ -51,10 +51,4 @@ export default defineComponent({
     }
   }
 })
-// TODO:
-/**
- * - Si ya existe el tema en el storage no volver a pedirlo al backend
- *    - Identificar si existe el tema en el storage
- *    - No seria demasiado en el storage ? Es una cadena de texto que tanto va a ser
- */
 </script>
