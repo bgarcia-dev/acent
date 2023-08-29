@@ -8,7 +8,22 @@ const PORT = process.env.PORT || 8080
 const route = require('./routes')
 
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(cors())
+
+const allowedOrigins = [
+  'https://frontend-production-e96a.up.railway.app',
+  // Otros dominios permitidos
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Origin not allowed by CORS'));
+    }
+  },
+}));
+
 app.use('/v1', route)
 app.use((err, req, res, next) => {
   if (err) {
