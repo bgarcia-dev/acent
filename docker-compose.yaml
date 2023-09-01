@@ -1,0 +1,65 @@
+version: '3.8'
+services:
+  db:
+    image: mysql/mysql-server:latest
+    container_name: m4-db
+    restart: "no"
+    command:
+      - --default-authentication-plugin=mysql_native_password
+    environment:
+      - MYSQL_DATABASE=m4
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+      - 33060:33060
+    volumes:
+      - dbvolume:/var/lib/mysql
+    networks:
+      - m4-net
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: m4-phpmyadmin
+    restart: "no"
+    ports:
+      - "9090:80"
+    environment:
+      - PMA_ARBITRARY=1
+    networks:
+      - m4-net
+  
+  backend:
+    container_name: m4-backend
+    volumes:
+      - /usr/src/app/node_modules
+      - ./backend:/usr/src/app
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    restart: "no"
+    networks:
+      - m4-net
+  
+  # frontend:
+  #   container_name: m4-frontend
+  #   volumes:
+  #     - frontend-volume:/usr/src/app/node_modules
+  #     - ./frontend:/usr/src/app
+  #   build:
+  #     context: ./frontend
+  #   ports:
+  #     - "8080:8080"
+  #   restart: "no"
+  #   networks:
+  #     - m4-net
+
+
+volumes:
+  dbvolume:
+
+networks:
+  m4-net:
+    driver: bridge

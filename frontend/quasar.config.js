@@ -73,13 +73,21 @@ module.exports = configure(function (ctx) {
           .plugin('eslint-webpack-plugin')
           .use(ESLintPlugin, [{ extensions: ['js', 'vue'] }])
       },
+      // La variable ctx.dev es un valor booleano que indica si estás en modo de desarrollo.
+      // Cuando ejecutas quasar dev, estás en modo de desarrollo,
+      // y cuando ejecutas quasar build, estás en modo de producción.
       env: ctx.dev
         ? {
-          // API_URL: 'http://localhost:3001/'
+          // API_URL: 'http://localhost:3000/'
+          // Se definen las variables de entorno
+          TEST: 'Variable de entorno de prueba',
           API_URL: 'https://backend-production-63cf.up.railway.app/v1/'
+          // m4-db
         }
         : {
-          API_URL: process.env.API_URL
+          // Definir el valor del servidor del backend que lo esta alimentando para ambiente de production
+          // API_URL:  https.example.com/api/v1
+          API_URL: 'https://backend-production-63cf.up.railway.app/v1/'
         }
     },
 
