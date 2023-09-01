@@ -1,4 +1,4 @@
-FROM node:17.4.0
+FROM node:latest
 
 # Establecer el directorio de trabajo en /usr/src/app
 WORKDIR /usr/src/app
@@ -17,7 +17,8 @@ COPY . .
 EXPOSE 8080
 
 # Comando para iniciar el servidor de desarrollo
-CMD [ "quasar dev" ]
+ENTRYPOINT ["quasar","dev"]
 
 # Comando para iniciar el servidor de producción o staging
+# Recordar que corre por el puerto 5000
 #CMD [ "npm", "start" ]

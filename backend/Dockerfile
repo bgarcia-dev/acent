@@ -9,6 +9,7 @@ COPY package*.json ./
 
 # Instalar las dependencias del proyecto
 RUN npm install
+RUN npm install -g nodemon
 
 # Copiar el resto de los archivos del proyecto a la imagen
 COPY . .
@@ -17,4 +18,7 @@ COPY . .
 EXPOSE 3000
 
 # Comando para iniciar el servidor de desarrollo
-CMD [ "npm", "start" ]
+ENTRYPOINT ["nodemon", "/usr/src/app/app/index.js"]
+
+# Comando para production
+#CMD [ "npm", "start" ]

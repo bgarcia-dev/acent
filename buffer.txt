@@ -1,8 +1,0 @@
-Enlace de material teorico
-
-autor: Tomás Muriel. Filólogo y profesor de español
-url: https://www.diccionariodedudas.com/palabras-agudas-graves-esdrujulas-y-sobreesdrujulas/
-fecha de acceso: 15 de marzo de 2023
-
-Pendientes:
-- Hacer su propio Docker-compose-dev.yaml al proyecto

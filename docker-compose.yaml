@@ -3,7 +3,7 @@ services:
   db:
     image: mysql/mysql-server:latest
     container_name: m4-db
-    restart: "no"
+    restart: "always"
     command:
       - --default-authentication-plugin=mysql_native_password
     environment:
@@ -22,7 +22,7 @@ services:
   phpmyadmin:
     image: phpmyadmin:latest
     container_name: m4-phpmyadmin
-    restart: "no"
+    restart: "always"
     ports:
       - "9090:80"
     environment:
@@ -39,26 +39,28 @@ services:
       context: ./backend
     ports:
       - "3000:3000"
-    restart: "no"
+    restart: "always"
     networks:
       - m4-net
   
-  # frontend:
-  #   container_name: m4-frontend
-  #   volumes:
-  #     - frontend-volume:/usr/src/app/node_modules
-  #     - ./frontend:/usr/src/app
-  #   build:
-  #     context: ./frontend
-  #   ports:
-  #     - "8080:8080"
-  #   restart: "no"
-  #   networks:
-  #     - m4-net
+  frontend:
+    container_name: m4-frontend
+    volumes:
+      - frontend-volume:/usr/src/app/node_modules
+      - ./frontend:/usr/src/app
+    build:
+      context: ./frontend
+    ports:
+      - "8080:8080"
+    restart: "always"
+    networks:
+      - m4-net
 
 
 volumes:
   dbvolume:
+  backend-volume:
+  frontend-volume:
 
 networks:
   m4-net:
