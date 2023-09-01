@@ -2,7 +2,9 @@
 ---
 
 **Autor:** José Enrique Sevilla Larrea
+
 **Asesora:** Dra. Erika Annabel Martinéz Mirón
+
 **Correo de contacto:** jose.sevillal@alumno.buap.mx
 
 ---
