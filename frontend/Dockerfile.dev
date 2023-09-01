@@ -1,4 +1,4 @@
-FROM node:latest
+FROM node:17.4
 
 # Establecer el directorio de trabajo en /usr/src/app
 WORKDIR /usr/src/app
