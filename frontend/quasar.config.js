@@ -78,11 +78,10 @@ module.exports = configure(function (ctx) {
       // y cuando ejecutas quasar build, estás en modo de producción.
       env: ctx.dev
         ? {
-          // API_URL: 'http://localhost:3000/'
           // Se definen las variables de entorno
           TEST: 'Variable de entorno de prueba',
-          API_URL: 'https://backend-production-63cf.up.railway.app/v1/'
-          // m4-db
+          // IMPORTANTE la url de conexión en localhost debe tener especificado el protocolo de conexión http'
+          API_URL: 'http://localhost:3000/v1'
         }
         : {
           // Definir el valor del servidor del backend que lo esta alimentando para ambiente de production
