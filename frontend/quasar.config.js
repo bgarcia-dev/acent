@@ -86,7 +86,6 @@ module.exports = configure(function (ctx) {
         : {
           // Definir el valor del servidor del backend que lo esta alimentando para ambiente de production
           // API_URL:  https.example.com/api/v1
-          API_URL: 'https://backend-production-63cf.up.railway.app/v1/'
         }
     },
 
