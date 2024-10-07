@@ -41,6 +41,7 @@ module.exports = configure(function (ctx) {
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
       'roboto-font', // optional, you are not bound to it
+      'mdi-v6',
       'material-icons' // optional, you are not bound to it
     ],
 
@@ -101,7 +102,7 @@ module.exports = configure(function (ctx) {
     // https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js#Property%3A-framework
     framework: {
       config: {},
-
+      iconSet: 'mdi-v6',
       // iconSet: 'material-icons', // Quasar icon set
       lang: 'es', // Quasar language pack
 

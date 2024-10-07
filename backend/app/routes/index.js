@@ -5,7 +5,9 @@ const test = require('../feature/test/test.route')
 const theoreticalMaterial = require('../feature/theoretical-material/theoretical-material.route')
 const strategyRead = require('../feature/strategyRead/strategy-read.route')
 const strategyRelationship = require('../feature/strategyRelationship/strategy-relationship.route')
+const memoryGameRoutes = require('../feature/memory-game/memory-game.route')
 
+router.use('/api/words', memoryGameRoutes);
 router.use('/test', test)
 router.use('/theoretical-material', theoreticalMaterial)
 router.use('/strategy-read', strategyRead)

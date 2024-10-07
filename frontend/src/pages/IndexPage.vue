@@ -19,7 +19,6 @@
 
 <script>
 import { defineComponent } from 'vue'
-
 import ButtonOption from '../components/buttons/buttonOption'
 import { Notify } from 'quasar'
 
@@ -43,6 +42,38 @@ export default defineComponent({
         textBottom: 'Practica tu acentuación',
         toPage: '/themePage',
         click: () => {}
+      },
+      {
+        icon: 'wpf:stack-of-photos',
+        textTop: '4 Fotos 1 Palabra',
+        textBottom: 'Descifra la palabra',
+        toPage: '#',
+        click: () => {
+          Notify.create({
+            message: '<b>En construcción:</b> Próximamente disponible',
+            color: 'dark',
+            icon: 'build_circle',
+            html: true,
+            actions: [{ icon: 'close', color: 'white' }],
+            timeout: 500
+          })
+        }
+      },
+      {
+        icon: 'game-icons:abstract-050',
+        textTop: 'Par de Cartas',
+        textBottom: 'Relaciona la palabra con la imagen',
+        toPage: '#',
+        click: () => {
+          Notify.create({
+            message: '<b>En construcción:</b> Próximamente disponible',
+            color: 'dark',
+            icon: 'build_circle',
+            html: true,
+            actions: [{ icon: 'close', color: 'white' }],
+            timeout: 500
+          })
+        }
       },
       {
         icon: 'emojione-monotone:thinking-face',

@@ -7,11 +7,13 @@
     </div>
     <div class="row">
       <app-button-circle
-        icon="mdi:head-dots-horizontal-outline"
+        v-if="showMemoryGame"
+        :icon="memoryGameIcon"
         :toggleHorizontal="true"
         class="col-4"
-        paragraph="Juego de memoria"
-        @click="inBuilding"
+        :paragraph="memoryGameLabel"
+        @click="memorygame"
+        :disabled="disableMemoryGame"
       />
       <app-button-circle
         icon="ic:twotone-ads-click"
@@ -45,7 +47,6 @@
         paragraph="Juego lectura"
         @click="strategyRead"
       />
-
     </div>
   </q-page>
 </template>
@@ -64,7 +65,7 @@ export default defineComponent({
   },
   setup () {
     const router = useRouter()
-    // TODO: Los juegos disponibles van a ser lectura y asociación
+
     function inBuilding () {
       Notify.create({
         message: '<b>En construcción:</b> Próximamente disponible',
@@ -76,6 +77,12 @@ export default defineComponent({
       })
     }
 
+    // Función para iniciar el juego de memoria
+    function memorygame () {
+      const group = themeStore.groupSelected
+      router.push({ path: '/memorygame', query: { groupSelected: group } })
+    }
+
     function strategyRead () {
       router.push({ path: '/strategyRead' })
     }
@@ -84,8 +91,9 @@ export default defineComponent({
       router.push({ path: '/strategyRelationship' })
     }
 
+    const themeStore = useThemeStore()
+
     const showTitle = computed(() => {
-      const themeStore = useThemeStore()
       const options = [
         '',
         'Agudas, graves, esdrújulas y sobresdrújulas',
@@ -95,14 +103,40 @@ export default defineComponent({
       return options[themeStore.groupSelected]
     })
 
+    const showMemoryGame = computed(() => {
+      return themeStore.groupSelected !== 0
+    })
+
+    const memoryGameLabel = computed(() => {
+      const options = {
+        1: 'Juego de Memoria',
+        2: 'Juego de Memoria',
+        3: 'Juego de Memoria'
+      }
+      return options[themeStore.groupSelected]
+    })
+
+    const memoryGameIcon = computed(() => {
+      return themeStore.groupSelected === 1
+        ? 'mdi:head-dots-horizontal-outline'
+        : 'mdi:head-question-outline'
+    })
+
+    const disableMemoryGame = computed(() => {
+      return themeStore.groupSelected !== 1 && themeStore.groupSelected !== 2 && themeStore.groupSelected !== 3
+    })
+
     return {
       inBuilding,
       strategyRead,
       strategyRelationship,
-      showTitle
+      memorygame,
+      showTitle,
+      showMemoryGame,
+      memoryGameLabel,
+      memoryGameIcon,
+      disableMemoryGame
     }
   }
 })
 </script>
-<style lang="scss" scoped>
-</style>

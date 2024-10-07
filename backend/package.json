@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_OPTIONS=--openssl-legacy-provider node -r dotenv/config app/index.js",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && node -r dotenv/config app/index.js",
     "dev": "NODE_OPTIONS=--openssl-legacy-provider nodemon -r dotenv/config app/index.js",
     "db:create": "npx sequelize-cli db:create --config app/config/config.js",
     "db:drop": "npx sequelize-cli db:drop --config app/config/config.js",
@@ -21,8 +21,8 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-validator": "^6.15.0",
-    "mysql2": "^3.1.2",
-    "sequelize": "^6.29.0"
+    "mysql2": "^3.11.0",
+    "sequelize": "^6.37.3"
   },
   "devDependencies": {
     "eslint": "7.32.0",
@@ -30,7 +30,7 @@
     "jest": "^27.4.7",
     "nodemon": "^2.0.20",
     "prettier": "^2.6.2",
-    "sequelize-cli": "^6.6.0",
+    "sequelize-cli": "^6.6.2",
     "supertest": "^6.2.1"
   }
 }

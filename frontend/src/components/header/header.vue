@@ -49,7 +49,8 @@ export default defineComponent({
       '/menuStrategiesPage': 'Selección de juego',
       '/strategiesPage': 'Estrategia ...',
       '/strategyRead': 'Juego de lectura',
-      '/strategyRelationship': 'Juego de asociación'
+      '/strategyRelationship': 'Juego de asociación',
+      '/memorygame': 'Juego de Memoria'
     }
 
     const handleRouteChange = (to, from) => {
