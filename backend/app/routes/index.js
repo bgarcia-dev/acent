@@ -6,8 +6,12 @@ const theoreticalMaterial = require('../feature/theoretical-material/theoretical
 const strategyRead = require('../feature/strategyRead/strategy-read.route')
 const strategyRelationship = require('../feature/strategyRelationship/strategy-relationship.route')
 const memoryGameRoutes = require('../feature/memory-game/memory-game.route')
+const multipleChoice = require('../feature/multiple-choice/multiple-choice.route')
+const picsWords = require('../feature/pics-word/pics-word.route')
 
 router.use('/api/words', memoryGameRoutes);
+router.use('/api/questions', multipleChoice);
+router.use('/api/picsWords', picsWords);
 router.use('/test', test)
 router.use('/theoretical-material', theoreticalMaterial)
 router.use('/strategy-read', strategyRead)

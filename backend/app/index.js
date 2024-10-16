@@ -3,6 +3,8 @@ const cors = require('cors'); // Ya tienes importado cors
 const bodyParser = require('body-parser');
 const wordsRoutes = require('./routes/wordsRoutes');
 const memoryGameRoutes = require('./feature/memory-game/memory-game.route');
+const multipleChoice = require('./feature/multiple-choice/multiple-choice.route');
+const picsWords = require('./feature/pics-word/pics-word.route')
 require('dotenv').config();
 
 const app = express();
@@ -35,6 +37,10 @@ sequelize.sync({ force: false })
 
 // Definir la ruta para las palabras
 app.use('/api/words', memoryGameRoutes);
+
+app.use('/api/questions', multipleChoice);
+
+app.use('/api/picsWords', picsWords);
 
 const PORT = process.env.PORT || 3000;
 

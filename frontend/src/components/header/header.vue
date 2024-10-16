@@ -50,7 +50,8 @@ export default defineComponent({
       '/strategiesPage': 'Estrategia ...',
       '/strategyRead': 'Juego de lectura',
       '/strategyRelationship': 'Juego de asociación',
-      '/memorygame': 'Juego de Memoria'
+      '/memorygame': 'Juego de Memoria',
+      '/multipleChoice': 'Selección Múltiple'
     }
 
     const handleRouteChange = (to, from) => {

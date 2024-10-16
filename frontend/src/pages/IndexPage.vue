@@ -47,7 +47,7 @@ export default defineComponent({
         icon: 'wpf:stack-of-photos',
         textTop: '4 Fotos 1 Palabra',
         textBottom: 'Descifra la palabra',
-        toPage: '#',
+        toPage: '/picsWord',
         click: () => {
           Notify.create({
             message: '<b>En construcción:</b> Próximamente disponible',

@@ -93,7 +93,7 @@ export default {
 }
 
 .resultados {
-  border: 2px solid black;
+  align-items: center;
   padding: 10px;
   border-radius: 10px;
   margin: 20px 0;
