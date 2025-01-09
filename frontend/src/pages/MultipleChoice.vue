@@ -75,7 +75,7 @@ export default {
   methods: {
     async fetchQuestions () {
       try {
-        const response = await fetch(`http://localhost:3000/api/questions?type=${this.accentType}`)
+        const response = await fetch(`http://backend:3000/api/questions?type=${this.accentType}`)
         const data = await response.json()
 
         if (data && data.length > 0) {

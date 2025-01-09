@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "set NODE_OPTIONS=--openssl-legacy-provider && node -r dotenv/config app/index.js",
-    "dev": "NODE_OPTIONS=--openssl-legacy-provider nodemon -r dotenv/config app/index.js",
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider nodemon -r dotenv/config app/index.js",
     "db:create": "npx sequelize-cli db:create --config app/config/config.js",
     "db:drop": "npx sequelize-cli db:drop --config app/config/config.js",
     "migrate": "npx sequelize-cli db:migrate --config app/config/config.js --migrations-path app/migrations",
@@ -25,6 +25,7 @@
     "sequelize": "^6.37.3"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "7.32.0",
     "husky": "^7.0.0",
     "jest": "^27.4.7",

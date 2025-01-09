@@ -21,36 +21,36 @@
       </p>
     </div>
     <div class="col-2 col-md-1">
-      <!--<div class="row justify-center" :class="$q.screen.width < 576? 'q-mb-sm':''">
+      <div class="row justify-center" :class="$q.screen.width < 576? 'q-mb-sm':''">
         <q-btn
         flat
+        class="flex items-center justify-center"
         @click="startStrategy"
+        style="min-width: 46px; min-height: 46px;"
         >
           <Icon
             class="self-center"
             icon="material-symbols:play-circle-outline-rounded"
             :color="$q.dark.isActive ? '#f7f7f7':'#151635'"
-            :width="$q.screen.lt.sm > 576? 32 : 48"
-            :height="$q.screen.width > 576? 32 : 48"
+            :width="$q.screen.width > 566? 32 : 46"
+            :height="$q.screen.width > 566? 32 : 46"
           />
         </q-btn>
-      </div> -->
-      <div class="row justify-center">
+      </div>
+      <!-- <div class="row justify-center">
         <q-btn
           flat
-          class="flex items-center justify-center"
           @click="executeCallback"
-          style="min-width: 46px; min-height: 46px;"
         >
           <Icon
             class="self-center"
             icon="material-symbols:menu-book-outline-rounded"
             :color="$q.dark.isActive ? '#f7f7f7':'#151635'"
-            :width="$q.screen.width > 576? 32 : 46"
-            :height="$q.screen.width > 576? 32 : 46"
+            :width="$q.screen.width > 576? 32 : 48"
+            :height="$q.screen.width > 576? 32 : 48"
           />
         </q-btn>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -232,9 +232,8 @@ export default defineComponent({
     align-items: center;
   }
   .q-btn {
-    min-width: 58px;
-    min-height: 58px;
+    min-width: 48px;
+    min-height: 48px;
   }
 }
-
 </style>

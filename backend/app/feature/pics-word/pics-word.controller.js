@@ -1,10 +1,10 @@
-const { PicsWord } = require('../../models');
+const { PicsWords } = require('../../models');
 
 exports.getPicsWord = async (req, res) => {
     const accentType = req.query.type;
 
     try {
-      const words = await PicsWord.findAll({
+      const words = await PicsWords.findAll({
         where: { accent_type: accentType }, //Filtro por tipo de acentuación
         order: [['id', 'DESC']],
         limit: 5

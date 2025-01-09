@@ -41,7 +41,7 @@ export default defineComponent({
     const routesTitle = {
       '/': 'Bienvenido',
       '/test': 'Test', // TODO: Eliminar
-      '/makeQueryPage': 'Realiza consulta',
+      '/makeQueryPage': 'Consulta',
       '/themePage': 'Temas',
       '/challengeModePage': 'Modo reto',
       '/response': 'Consulta',
@@ -51,7 +51,9 @@ export default defineComponent({
       '/strategyRead': 'Juego de lectura',
       '/strategyRelationship': 'Juego de asociación',
       '/memorygame': 'Juego de Memoria',
-      '/multipleChoice': 'Selección Múltiple'
+      '/multipleChoice': 'Selección Múltiple',
+      '/picsWord': '4 fotos 1 palabra',
+      '/searchWords': 'Juego de búsqueda'
     }
 
     const handleRouteChange = (to, from) => {
@@ -62,8 +64,10 @@ export default defineComponent({
       redirectPath.value = '/'
       if (['/makeQueryPage', '/themePage', '/challengeModePage'].includes(to.path)) { redirectPath.value = '/' }
       if (['/response'].includes(to.path)) { redirectPath.value = '/makeQueryPage' }
-      if (['/theoreticalMaterialPage', '/menuStrategiesPage'].includes(to.path)) { redirectPath.value = '/themePage' }
+      if (['/theoreticalMaterialPage'].includes(to.path)) { redirectPath.value = '/themePage' }
+      if (['/menuStrategiesPage'].includes(to.path)) { redirectPath.value = '/challengeModePage' }
       if (['/strategiesPage'].includes(to.path)) { redirectPath.value = '/menuStrategiesPage' }
+      if (['/picsWord', '/memorygame', '/multipleChoice', '/strategyRead', '/strategyRelationship', '/searchWords'].includes(to.path)) { redirectPath.value = '/menuStrategiesPage' }
     }
 
     onMounted(() => {

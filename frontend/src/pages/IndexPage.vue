@@ -20,7 +20,7 @@
 <script>
 import { defineComponent } from 'vue'
 import ButtonOption from '../components/buttons/buttonOption'
-import { Notify } from 'quasar'
+// import { Notify } from 'quasar'
 
 export default defineComponent({
   name: 'IndexPage',
@@ -39,48 +39,18 @@ export default defineComponent({
       {
         icon: 'material-symbols:format-list-bulleted-rounded',
         textTop: 'Temas',
-        textBottom: 'Practica tu acentuación',
+        textBottom: 'Información acerca de la acentuación',
         toPage: '/themePage',
         click: () => {}
       },
       {
-        icon: 'wpf:stack-of-photos',
-        textTop: '4 Fotos 1 Palabra',
-        textBottom: 'Descifra la palabra',
-        toPage: '/picsWord',
-        click: () => {
-          Notify.create({
-            message: '<b>En construcción:</b> Próximamente disponible',
-            color: 'dark',
-            icon: 'build_circle',
-            html: true,
-            actions: [{ icon: 'close', color: 'white' }],
-            timeout: 500
-          })
-        }
-      },
-      {
-        icon: 'game-icons:abstract-050',
-        textTop: 'Par de Cartas',
-        textBottom: 'Relaciona la palabra con la imagen',
-        toPage: '#',
-        click: () => {
-          Notify.create({
-            message: '<b>En construcción:</b> Próximamente disponible',
-            color: 'dark',
-            icon: 'build_circle',
-            html: true,
-            actions: [{ icon: 'close', color: 'white' }],
-            timeout: 500
-          })
-        }
-      },
-      {
         icon: 'emojione-monotone:thinking-face',
         textTop: 'Modo reto',
-        textBottom: 'Pon aprueba lo que sabes...',
-        toPage: '#',
-
+        textBottom: 'Pon aprueba tus habilidades...',
+        toPage: '/challengeModePage',
+        click: () => {}
+      }
+      /* {
         click: () => {
           Notify.create({
             message: '<b>En construcción:</b> Próximamente disponible',
@@ -91,7 +61,7 @@ export default defineComponent({
             timeout: 500
           })
         }
-      }
+      } */
     ]
     return { listOptions }
   }

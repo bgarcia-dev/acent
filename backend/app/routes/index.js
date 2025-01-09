@@ -8,10 +8,12 @@ const strategyRelationship = require('../feature/strategyRelationship/strategy-r
 const memoryGameRoutes = require('../feature/memory-game/memory-game.route')
 const multipleChoice = require('../feature/multiple-choice/multiple-choice.route')
 const picsWords = require('../feature/pics-word/pics-word.route')
+const searchWords = require('../feature/search-words/search-words.route')
 
 router.use('/api/words', memoryGameRoutes);
 router.use('/api/questions', multipleChoice);
 router.use('/api/picsWords', picsWords);
+router.use('/api/searchWords', searchWords);
 router.use('/test', test)
 router.use('/theoretical-material', theoreticalMaterial)
 router.use('/strategy-read', strategyRead)

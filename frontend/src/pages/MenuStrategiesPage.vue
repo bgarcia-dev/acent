@@ -32,10 +32,13 @@
       />
 
       <app-button-circle
-        icon="fluent-emoji-high-contrast:detective"
+        v-if="showSearchWords"
+        :icon="SearchWordsIcon"
+        :toggleHorizontal="true"
         class="col-4"
-        paragraph="Juego búsqueda"
-        @click="inBuilding"
+        :paragraph="SearchWordsLabel"
+        @click="searchwords"
+        :disabled="disableSearchWords"
       />
 
       <!-- <app-button-circle
@@ -116,6 +119,14 @@ export default defineComponent({
         themeStore.groupSelected = 'agudas'
       }
       router.push({ path: '/picsWord', query: { groupSelected: group } })
+    }
+
+    function searchwords () {
+      const group = themeStore.groupSelected
+      if (!group) {
+        themeStore.groupSelected = 'agudas'
+      }
+      router.push({ path: '/searchWords', query: { groupSelected: group } })
     }
 
     function strategyRead () {
@@ -210,6 +221,31 @@ export default defineComponent({
       return themeStore.groupSelected !== 1 && themeStore.groupSelected !== 2 && themeStore.groupSelected !== 3
     })
 
+    // Juego de busqueda
+
+    const showSearchWords = computed(() => {
+      return themeStore.groupSelected !== 0
+    })
+
+    const SearchWordsLabel = computed(() => {
+      const options = {
+        1: 'Juego de Busqueda',
+        2: 'Juego de Busqueda',
+        3: 'Juego de Busqueda'
+      }
+      return options[themeStore.groupSelected]
+    })
+
+    const SearchWordsIcon = computed(() => {
+      return themeStore.groupSelected === 1
+        ? 'fluent-emoji-high-contrast:detective'
+        : 'fluent-emoji-high-contrast:detective'
+    })
+
+    const disableSearchWords = computed(() => {
+      return themeStore.groupSelected !== 1 && themeStore.groupSelected !== 2 && themeStore.groupSelected !== 3
+    })
+
     return {
       inBuilding,
       strategyRead,
@@ -217,6 +253,7 @@ export default defineComponent({
       memorygame,
       multipleChoice,
       picsword,
+      searchwords,
       showTitle,
       showMemoryGame,
       showMultipleChoice,
@@ -229,7 +266,11 @@ export default defineComponent({
       showPicsWord,
       PicsWordLabel,
       PicsWordIcon,
-      disablePicsWord
+      disablePicsWord,
+      showSearchWords,
+      SearchWordsLabel,
+      SearchWordsIcon,
+      disableSearchWords
     }
   }
 })
