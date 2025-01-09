@@ -85,7 +85,7 @@ export default {
     async fetchWords () {
       try {
         // Cambiar la URL del endpoint para aceptar el tipo de acentuación
-        const response = await fetch(`http://backend:3000/api/words?type=${this.accentType}`)
+        const response = await fetch(`http://localhost:3000/api/words?type=${this.accentType}`)
         const data = await response.json()
 
         // Verifica que las palabras recibidas coincidan con el tipo de acento esperado

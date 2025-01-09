@@ -56,7 +56,7 @@ export default {
       this.resetGameState()
       console.log(`Cargando nivel para tipo de acentuación: ${this.accentType}`)
       try {
-        const response = await fetch(`http://backend:3000/api/searchWords?type=${this.accentType}`)
+        const response = await fetch(`http://localhost:3000/api/searchWords?type=${this.accentType}`)
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`)
         }

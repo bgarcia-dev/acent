@@ -75,7 +75,7 @@ export default {
   methods: {
     async fetchWordsAndImages () {
       try {
-        const response = await fetch(`http://backend:3000/api/picsWords?type=${this.accentType}`)
+        const response = await fetch(`http://localhost:3000/api/picsWords?type=${this.accentType}`)
         const data = await response.json()
 
         if (Array.isArray(data) && data.length > 0) {
